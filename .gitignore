@@ -1,0 +1,22 @@
+# Local environment and secrets. Keep committed example templates instead.
+.env
+.env.local
+.env.*.local
+
+# Local SQLite databases and their journal files.
+*.db
+*.db-*
+*.sqlite
+*.sqlite-*
+
+# Python bytecode and caches.
+__pycache__/
+*.py[cod]
+
+# Generated benchmark executions.
+runs/
+
+# Runtime logs.
+logs/
+*.log
+*.log.*
