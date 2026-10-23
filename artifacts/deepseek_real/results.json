@@ -1,0 +1,5804 @@
+{
+  "status": "complete",
+  "started_utc": "2026-10-23T11:10:01.598607+00:00",
+  "manifest": {
+    "train_seed": 6023,
+    "test_seed": 6024,
+    "training_cases": 48,
+    "held_out_cases": 24,
+    "paid_call_limit": 96,
+    "max_output_tokens": 256,
+    "thinking": "disabled",
+    "policy": {
+      "rsl_enabled": true,
+      "rsl_judge_model": null,
+      "rsl_min_samples": 3,
+      "rsl_quality_weight": 1.0,
+      "rsl_cost_weight": 0.2,
+      "rsl_latency_weight": 0.1,
+      "rsl_exploration_weight": 0.15,
+      "rsl_cost_scale": 0.005,
+      "rsl_latency_scale_ms": 5000,
+      "allowed_models": [
+        "budget",
+        "strong"
+      ],
+      "recommendation_enabled": false,
+      "recommendation_apply_to_explicit": false,
+      "keyword_routing_enabled": false,
+      "semantic_routing_enabled": false,
+      "cascade_enabled": false
+    },
+    "scoring": "computed integer / JSON reference; no model judge",
+    "test_method": "paired frozen-policy replay",
+    "price_basis": "2026-10-23 CNY peak cache-miss; conservative upper estimate",
+    "price_source": "https://api-docs.deepseek.com/zh-cn/quick_start/pricing/",
+    "max_reserved_cny_this_run": 2.88,
+    "models": {
+      "budget": [
+        "deepseek-flash",
+        2.0,
+        8.0
+      ],
+      "strong": [
+        "deepseek-v4-pro",
+        9.0,
+        27.0
+      ]
+    },
+    "data_sha256": "5c1dddaf4d6cc375de6bc7e53e825cd724b0fc04bdd1623c65f00bd6bcbea311"
+  },
+  "records": [
+    {
+      "case_id": "train-coding-10",
+      "category": "coding",
+      "phase": "train",
+      "route": "budget",
+      "answer": "Let's go step-by-step.\n\nWe have:\n\n- `x = 15`\n- `total = 0`\n- Loop `i` from 0 to 19.\n\nFormula each iteration:  \n`x = (x * 5 + i + 9) % 36`  \nIf `x % 3 != 0`, add `x` to `total`.\n\n---\n\n**i = 0:**  \nx = (15*5 + 0 + 9) % 36 = (75 + 9) % 36 = 84 % 36 = 12  \n12 % 3 == 0 \u2192 skip. total = 0.\n\n**i = 1:**  \nx = (12*5 + 1 + 9) % 36 = (60 + 10) % 36 = 70 % 36 = 34  \n34 % 3 = 1 \u2260 0 \u2192 total = 34.\n\n**i = 2:**  \nx = (34*5 + 2 + 9) % 36 = (170 + 11) % 36 = 181 % 36  \n36*5 = 180, remainder 1 \u2192 x = 1  \n1 % 3",
+      "expected": 223,
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 72,
+        "prompt_tokens": 72,
+        "completion_tokens": 256,
+        "total_tokens": 328
+      },
+      "finish_reason": "length",
+      "latency_ms": 1631.9210999645293,
+      "provider_latency_ms": 1603.8016000529751,
+      "cost_upper_cny": 0.002192,
+      "decision": {
+        "selected_model": "budget",
+        "reason": "cold_start",
+        "learning_samples": 0,
+        "candidates": [
+          {
+            "model": "budget",
+            "samples": 0,
+            "attempts": 0,
+            "quality": 0.5,
+            "estimated_cost": 0.0021753333333333334,
+            "latency_ms": 5000.0,
+            "utility": 0.31298666666666664,
+            "exploration_bonus": 0.1766115033773212,
+            "score": 0.48959817004398787
+          },
+          {
+            "model": "strong",
+            "samples": 0,
+            "attempts": 0,
+            "quality": 0.5,
+            "estimated_cost": 0.007485,
+            "latency_ms": 5000.0,
+            "utility": 0.19999999999999998,
+            "exploration_bonus": 0.1766115033773212,
+            "score": 0.3766115033773212
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "train-math-0",
+      "category": "math",
+      "phase": "train",
+      "route": "budget",
+      "answer": "37",
+      "expected": 10,
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 29,
+        "prompt_tokens": 29,
+        "completion_tokens": 1,
+        "total_tokens": 30
+      },
+      "finish_reason": "stop",
+      "latency_ms": 1070.7430000184104,
+      "provider_latency_ms": 1032.220800057985,
+      "cost_upper_cny": 6.6e-05,
+      "decision": {
+        "selected_model": "budget",
+        "reason": "cold_start",
+        "learning_samples": 0,
+        "candidates": [
+          {
+            "model": "budget",
+            "samples": 0,
+            "attempts": 0,
+            "quality": 0.5,
+            "estimated_cost": 0.0021033333333333334,
+            "latency_ms": 5000.0,
+            "utility": 0.31586666666666663,
+            "exploration_bonus": 0.1766115033773212,
+            "score": 0.49247817004398786
+          },
+          {
+            "model": "strong",
+            "samples": 0,
+            "attempts": 0,
+            "quality": 0.5,
+            "estimated_cost": 0.007161,
+            "latency_ms": 5000.0,
+            "utility": 0.19999999999999998,
+            "exploration_bonus": 0.1766115033773212,
+            "score": 0.3766115033773212
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "train-general-0",
+      "category": "general",
+      "phase": "train",
+      "route": "budget",
+      "answer": "[\"R9\",\"R6\",\"R5\"]",
+      "expected": [
+        "R9",
+        "R6",
+        "R5"
+      ],
+      "score": 1.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 220,
+        "prompt_tokens": 220,
+        "completion_tokens": 10,
+        "total_tokens": 230
+      },
+      "finish_reason": "stop",
+      "latency_ms": 851.1210000142455,
+      "provider_latency_ms": 765.9244000678882,
+      "cost_upper_cny": 0.00052,
+      "decision": {
+        "selected_model": "budget",
+        "reason": "cold_start",
+        "learning_samples": 0,
+        "candidates": [
+          {
+            "model": "budget",
+            "samples": 0,
+            "attempts": 0,
+            "quality": 0.5,
+            "estimated_cost": 0.0024846666666666667,
+            "latency_ms": 5000.0,
+            "utility": 0.3006133333333333,
+            "exploration_bonus": 0.1766115033773212,
+            "score": 0.4772248367106545
+          },
+          {
+            "model": "strong",
+            "samples": 0,
+            "attempts": 0,
+            "quality": 0.5,
+            "estimated_cost": 0.008877,
+            "latency_ms": 5000.0,
+            "utility": 0.19999999999999998,
+            "exploration_bonus": 0.1766115033773212,
+            "score": 0.3766115033773212
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "train-math-8",
+      "category": "math",
+      "phase": "train",
+      "route": "strong",
+      "answer": "Alright, let\u2019s break it down step-by-step.\n\nFirst, reduce each number modulo 97:\n\n- \\( 4760 \\mod 97 \\):  \n  \\( 97 \\times 49 = 4753 \\), remainder \\( 4760 - 4753 = 7 \\).\n\n- \\( 8774 \\mod 97 \\):  \n  \\( 97 \\times 90 = 8730 \\), remainder \\( 8774 - 8730 = 44 \\).\n\n- \\( 4395 \\mod 97 \\):  \n  \\( 97 \\times 45 = 4365 \\), remainder \\( 4395 - 4365 = 30 \\).\n\nNow compute:\n\n\\[\n(7 \\times 44 + 30) \\mod 97\n\\]\n\\[\n7 \\times 44 = 308\n\\]\n\\[\n308 + 30 = 338\n\\]\n\\[\n338 \\mod 97: \\quad 97 \\times 3 = 291, \\quad 338 - 291 = 47\n\\]\n\nFinal answer:\n\n\\[\n\\boxed{47}\n\\]",
+      "expected": 47,
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 29,
+        "prompt_tokens": 29,
+        "completion_tokens": 232,
+        "total_tokens": 261
+      },
+      "finish_reason": "stop",
+      "latency_ms": 2611.345599987544,
+      "provider_latency_ms": 2571.654099971056,
+      "cost_upper_cny": 0.006525,
+      "decision": {
+        "selected_model": "strong",
+        "reason": "cold_start",
+        "learning_samples": 1,
+        "candidates": [
+          {
+            "model": "strong",
+            "samples": 0,
+            "attempts": 0,
+            "quality": 0.5,
+            "estimated_cost": 0.007158,
+            "latency_ms": 5000.0,
+            "utility": 0.19999999999999998,
+            "exploration_bonus": 0.22234557110512668,
+            "score": 0.42234557110512666
+          },
+          {
+            "model": "budget",
+            "samples": 1,
+            "attempts": 1,
+            "quality": 0.0,
+            "estimated_cost": 6.6e-05,
+            "latency_ms": 1044.1460000583902,
+            "utility": -0.023522920001167805,
+            "exploration_bonus": 0.15722206109523076,
+            "score": 0.13369914109406295
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "train-coding-5",
+      "category": "coding",
+      "phase": "train",
+      "route": "strong",
+      "answer": "144",
+      "expected": 151,
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 72,
+        "prompt_tokens": 72,
+        "completion_tokens": 1,
+        "total_tokens": 73
+      },
+      "finish_reason": "stop",
+      "latency_ms": 807.2848999872804,
+      "provider_latency_ms": 740.3693000087515,
+      "cost_upper_cny": 0.000675,
+      "decision": {
+        "selected_model": "strong",
+        "reason": "cold_start",
+        "learning_samples": 1,
+        "candidates": [
+          {
+            "model": "strong",
+            "samples": 0,
+            "attempts": 0,
+            "quality": 0.5,
+            "estimated_cost": 0.007482,
+            "latency_ms": 5000.0,
+            "utility": 0.19999999999999998,
+            "exploration_bonus": 0.22234557110512668,
+            "score": 0.42234557110512666
+          },
+          {
+            "model": "budget",
+            "samples": 1,
+            "attempts": 1,
+            "quality": 0.0,
+            "estimated_cost": 0.002192,
+            "latency_ms": 1607.4480999959633,
+            "utility": -0.11982896199991927,
+            "exploration_bonus": 0.15722206109523076,
+            "score": 0.037393099095311494
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "train-general-3",
+      "category": "general",
+      "phase": "train",
+      "route": "strong",
+      "answer": "[\"R7\",\"R4\"]",
+      "expected": [
+        "R7",
+        "R4"
+      ],
+      "score": 1.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 220,
+        "prompt_tokens": 220,
+        "completion_tokens": 7,
+        "total_tokens": 227
+      },
+      "finish_reason": "stop",
+      "latency_ms": 979.8441000748426,
+      "provider_latency_ms": 928.6340000107884,
+      "cost_upper_cny": 0.002169,
+      "decision": {
+        "selected_model": "strong",
+        "reason": "cold_start",
+        "learning_samples": 1,
+        "candidates": [
+          {
+            "model": "budget",
+            "samples": 1,
+            "attempts": 1,
+            "quality": 1.0,
+            "estimated_cost": 0.00052,
+            "latency_ms": 782.0699000731111,
+            "utility": 0.9635586019985377,
+            "exploration_bonus": 0.15722206109523076,
+            "score": 1.1207806630937684
+          },
+          {
+            "model": "strong",
+            "samples": 0,
+            "attempts": 0,
+            "quality": 0.5,
+            "estimated_cost": 0.008877,
+            "latency_ms": 5000.0,
+            "utility": 0.19999999999999998,
+            "exploration_bonus": 0.22234557110512668,
+            "score": 0.42234557110512666
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "train-general-13",
+      "category": "general",
+      "phase": "train",
+      "route": "budget",
+      "answer": "[\"R6\",\"R2\",\"R8\"]",
+      "expected": [
+        "R6",
+        "R2",
+        "R8"
+      ],
+      "score": 1.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 220,
+        "prompt_tokens": 220,
+        "completion_tokens": 10,
+        "total_tokens": 230
+      },
+      "finish_reason": "stop",
+      "latency_ms": 523.8929999759421,
+      "provider_latency_ms": 483.3177999826148,
+      "cost_upper_cny": 0.00052,
+      "decision": {
+        "selected_model": "budget",
+        "reason": "cold_start",
+        "learning_samples": 2,
+        "candidates": [
+          {
+            "model": "budget",
+            "samples": 1,
+            "attempts": 1,
+            "quality": 1.0,
+            "estimated_cost": 0.00052,
+            "latency_ms": 782.0699000731111,
+            "utility": 0.9635586019985377,
+            "exploration_bonus": 0.1766115033773212,
+            "score": 1.1401701053758588
+          },
+          {
+            "model": "strong",
+            "samples": 1,
+            "attempts": 1,
+            "quality": 1.0,
+            "estimated_cost": 0.002169,
+            "latency_ms": 941.8647000566125,
+            "utility": 0.8944027059988678,
+            "exploration_bonus": 0.1766115033773212,
+            "score": 1.071014209376189
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "train-general-12",
+      "category": "general",
+      "phase": "train",
+      "route": "strong",
+      "answer": "[\"R1\",\"R0\",\"R7\"]",
+      "expected": [
+        "R1",
+        "R7",
+        "R0"
+      ],
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 220,
+        "prompt_tokens": 220,
+        "completion_tokens": 10,
+        "total_tokens": 230
+      },
+      "finish_reason": "stop",
+      "latency_ms": 1122.6923000067472,
+      "provider_latency_ms": 1036.2121999496594,
+      "cost_upper_cny": 0.00225,
+      "decision": {
+        "selected_model": "strong",
+        "reason": "cold_start",
+        "learning_samples": 3,
+        "candidates": [
+          {
+            "model": "budget",
+            "samples": 2,
+            "attempts": 2,
+            "quality": 1.0,
+            "estimated_cost": 0.00052,
+            "latency_ms": 640.3491000528447,
+            "utility": 0.9663930179989431,
+            "exploration_bonus": 0.15537557300461197,
+            "score": 1.121768591003555
+          },
+          {
+            "model": "strong",
+            "samples": 1,
+            "attempts": 1,
+            "quality": 1.0,
+            "estimated_cost": 0.002169,
+            "latency_ms": 941.8647000566125,
+            "utility": 0.8944027059988678,
+            "exploration_bonus": 0.19029543617692793,
+            "score": 1.0846981421757957
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "train-general-10",
+      "category": "general",
+      "phase": "train",
+      "route": "budget",
+      "answer": "[\"R6\",\"R0\",\"R3\"]",
+      "expected": [
+        "R6",
+        "R0",
+        "R1"
+      ],
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 220,
+        "prompt_tokens": 220,
+        "completion_tokens": 10,
+        "total_tokens": 230
+      },
+      "finish_reason": "stop",
+      "latency_ms": 952.4019999662414,
+      "provider_latency_ms": 916.7263000272214,
+      "cost_upper_cny": 0.00052,
+      "decision": {
+        "selected_model": "budget",
+        "reason": "cold_start",
+        "learning_samples": 4,
+        "candidates": [
+          {
+            "model": "budget",
+            "samples": 2,
+            "attempts": 2,
+            "quality": 1.0,
+            "estimated_cost": 0.00052,
+            "latency_ms": 640.3491000528447,
+            "utility": 0.9663930179989431,
+            "exploration_bonus": 0.16394020872995382,
+            "score": 1.1303332267288968
+          },
+          {
+            "model": "strong",
+            "samples": 2,
+            "attempts": 2,
+            "quality": 0.5,
+            "estimated_cost": 0.0022094999999999997,
+            "latency_ms": 998.0936000356451,
+            "utility": 0.39165812799928706,
+            "exploration_bonus": 0.16394020872995382,
+            "score": 0.5555983367292409
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "train-general-6",
+      "category": "general",
+      "phase": "train",
+      "route": "strong",
+      "answer": "[\"R2\",\"R9\",\"R1\"]",
+      "expected": [
+        "R2",
+        "R9",
+        "R1"
+      ],
+      "score": 1.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 220,
+        "prompt_tokens": 220,
+        "completion_tokens": 10,
+        "total_tokens": 230
+      },
+      "finish_reason": "stop",
+      "latency_ms": 1080.5793999461457,
+      "provider_latency_ms": 1019.9688000138849,
+      "cost_upper_cny": 0.00225,
+      "decision": {
+        "selected_model": "strong",
+        "reason": "cold_start",
+        "learning_samples": 5,
+        "candidates": [
+          {
+            "model": "budget",
+            "samples": 3,
+            "attempts": 3,
+            "quality": 0.6666666666666666,
+            "estimated_cost": 0.00052,
+            "latency_ms": 736.3830333730826,
+            "utility": 0.6311390059992049,
+            "exploration_bonus": 0.14795772766865634,
+            "score": 0.7790967336678613
+          },
+          {
+            "model": "strong",
+            "samples": 2,
+            "attempts": 2,
+            "quality": 0.5,
+            "estimated_cost": 0.0022094999999999997,
+            "latency_ms": 998.0936000356451,
+            "utility": 0.39165812799928706,
+            "exploration_bonus": 0.17084686779636818,
+            "score": 0.5625049957956553
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "train-general-2",
+      "category": "general",
+      "phase": "train",
+      "route": "budget",
+      "answer": "[\"R3\",\"R5\",\"R6\"]",
+      "expected": [
+        "R3",
+        "R5",
+        "R6"
+      ],
+      "score": 1.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 220,
+        "prompt_tokens": 220,
+        "completion_tokens": 10,
+        "total_tokens": 230
+      },
+      "finish_reason": "stop",
+      "latency_ms": 790.5630000168458,
+      "provider_latency_ms": 748.968500061892,
+      "cost_upper_cny": 0.00052,
+      "decision": {
+        "selected_model": "budget",
+        "reason": "ucb",
+        "learning_samples": 6,
+        "candidates": [
+          {
+            "model": "budget",
+            "samples": 3,
+            "attempts": 3,
+            "quality": 0.6666666666666666,
+            "estimated_cost": 0.00052,
+            "latency_ms": 736.3830333730826,
+            "utility": 0.6311390059992049,
+            "exploration_bonus": 0.15295004852532132,
+            "score": 0.7840890545245263
+          },
+          {
+            "model": "strong",
+            "samples": 3,
+            "attempts": 3,
+            "quality": 0.6666666666666666,
+            "estimated_cost": 0.0022229999999999997,
+            "latency_ms": 1009.6123000451674,
+            "utility": 0.5575544206657633,
+            "exploration_bonus": 0.15295004852532132,
+            "score": 0.7105044691910847
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "train-coding-1",
+      "category": "coding",
+      "phase": "train",
+      "route": "strong",
+      "answer": "255",
+      "expected": 142,
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 72,
+        "prompt_tokens": 72,
+        "completion_tokens": 1,
+        "total_tokens": 73
+      },
+      "finish_reason": "stop",
+      "latency_ms": 943.1115000043064,
+      "provider_latency_ms": 902.962899999693,
+      "cost_upper_cny": 0.000675,
+      "decision": {
+        "selected_model": "strong",
+        "reason": "cold_start",
+        "learning_samples": 2,
+        "candidates": [
+          {
+            "model": "strong",
+            "samples": 1,
+            "attempts": 1,
+            "quality": 0.0,
+            "estimated_cost": 0.000675,
+            "latency_ms": 752.8735999949276,
+            "utility": -0.04205747199989856,
+            "exploration_bonus": 0.1766115033773212,
+            "score": 0.13455403137742264
+          },
+          {
+            "model": "budget",
+            "samples": 1,
+            "attempts": 1,
+            "quality": 0.0,
+            "estimated_cost": 0.002192,
+            "latency_ms": 1607.4480999959633,
+            "utility": -0.11982896199991927,
+            "exploration_bonus": 0.1766115033773212,
+            "score": 0.056782541377401935
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "train-general-7",
+      "category": "general",
+      "phase": "train",
+      "route": "budget",
+      "answer": "[\"R6\",\"R5\",\"R4\"]",
+      "expected": [
+        "R6",
+        "R5",
+        "R4"
+      ],
+      "score": 1.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 220,
+        "prompt_tokens": 220,
+        "completion_tokens": 10,
+        "total_tokens": 230
+      },
+      "finish_reason": "stop",
+      "latency_ms": 558.5438000271097,
+      "provider_latency_ms": 500.2955000381917,
+      "cost_upper_cny": 0.00052,
+      "decision": {
+        "selected_model": "budget",
+        "reason": "ucb",
+        "learning_samples": 7,
+        "candidates": [
+          {
+            "model": "budget",
+            "samples": 4,
+            "attempts": 4,
+            "quality": 0.75,
+            "estimated_cost": 0.00052,
+            "latency_ms": 742.3002500436269,
+            "utility": 0.7143539949991274,
+            "exploration_bonus": 0.1406236864686244,
+            "score": 0.8549776814677519
+          },
+          {
+            "model": "strong",
+            "samples": 3,
+            "attempts": 3,
+            "quality": 0.6666666666666666,
+            "estimated_cost": 0.0022229999999999997,
+            "latency_ms": 1009.6123000451674,
+            "utility": 0.5575544206657633,
+            "exploration_bonus": 0.15722206109523076,
+            "score": 0.7147764817609941
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "train-coding-0",
+      "category": "coding",
+      "phase": "train",
+      "route": "budget",
+      "answer": "Let\u2019s go through it step-by-step.\n\nWe have:\n\n- `x = 3`\n- `total = 0`\n- Loop `i` from 0 to 19.\n\nEach iteration:\n1. `x = (x * 6 + i + 1) % 92`\n2. If `x % 3 != 0`, add `x` to `total`.\n\n---\n\n**i = 0**  \nx = (3*6 + 0 + 1) % 92 = (18 + 1) % 92 = 19  \n19 % 3 = 1 \u2260 0 \u2192 total = 19\n\n**i = 1**  \nx = (19*6 + 1 + 1) % 92 = (114 + 2) % 92 = 116 % 92 = 24  \n24 % 3 = 0 \u2192 skip\n\n**i = 2**  \nx = (24*6 + 2 + 1) % 92 = (144 + 3) % 92 = 147 % 92 = 55  \n55 % 3 = 1 \u2192 total = 19 + 55 = 74\n\n**i = 3",
+      "expected": 790,
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 72,
+        "prompt_tokens": 72,
+        "completion_tokens": 256,
+        "total_tokens": 328
+      },
+      "finish_reason": "length",
+      "latency_ms": 1406.8088999483734,
+      "provider_latency_ms": 1355.5180999683216,
+      "cost_upper_cny": 0.002192,
+      "decision": {
+        "selected_model": "budget",
+        "reason": "cold_start",
+        "learning_samples": 3,
+        "candidates": [
+          {
+            "model": "strong",
+            "samples": 2,
+            "attempts": 2,
+            "quality": 0.0,
+            "estimated_cost": 0.000675,
+            "latency_ms": 833.0731999594718,
+            "utility": -0.04366146399918944,
+            "exploration_bonus": 0.15537557300461197,
+            "score": 0.11171410900542253
+          },
+          {
+            "model": "budget",
+            "samples": 1,
+            "attempts": 1,
+            "quality": 0.0,
+            "estimated_cost": 0.002192,
+            "latency_ms": 1607.4480999959633,
+            "utility": -0.11982896199991927,
+            "exploration_bonus": 0.19029543617692793,
+            "score": 0.07046647417700866
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "train-general-8",
+      "category": "general",
+      "phase": "train",
+      "route": "budget",
+      "answer": "[\"R3\",\"R2\",\"R9\"]",
+      "expected": [
+        "R3",
+        "R9",
+        "R2"
+      ],
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 220,
+        "prompt_tokens": 220,
+        "completion_tokens": 10,
+        "total_tokens": 230
+      },
+      "finish_reason": "stop",
+      "latency_ms": 750.2571999793872,
+      "provider_latency_ms": 694.4752000272274,
+      "cost_upper_cny": 0.00052,
+      "decision": {
+        "selected_model": "budget",
+        "reason": "ucb",
+        "learning_samples": 8,
+        "candidates": [
+          {
+            "model": "budget",
+            "samples": 5,
+            "attempts": 5,
+            "quality": 0.8,
+            "estimated_cost": 0.00052,
+            "latency_ms": 697.6773200556636,
+            "utility": 0.7652464535988868,
+            "exploration_bonus": 0.1314130442439233,
+            "score": 0.8966594978428101
+          },
+          {
+            "model": "strong",
+            "samples": 3,
+            "attempts": 3,
+            "quality": 0.6666666666666666,
+            "estimated_cost": 0.0022229999999999997,
+            "latency_ms": 1009.6123000451674,
+            "utility": 0.5575544206657633,
+            "exploration_bonus": 0.16094745197170104,
+            "score": 0.7185018726374643
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "train-math-12",
+      "category": "math",
+      "phase": "train",
+      "route": "budget",
+      "answer": "85",
+      "expected": 13,
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 28,
+        "prompt_tokens": 28,
+        "completion_tokens": 1,
+        "total_tokens": 29
+      },
+      "finish_reason": "stop",
+      "latency_ms": 801.7870999174193,
+      "provider_latency_ms": 769.4062000373378,
+      "cost_upper_cny": 6.4e-05,
+      "decision": {
+        "selected_model": "budget",
+        "reason": "cold_start",
+        "learning_samples": 2,
+        "candidates": [
+          {
+            "model": "budget",
+            "samples": 1,
+            "attempts": 1,
+            "quality": 0.0,
+            "estimated_cost": 6.6e-05,
+            "latency_ms": 1044.1460000583902,
+            "utility": -0.023522920001167805,
+            "exploration_bonus": 0.1766115033773212,
+            "score": 0.1530885833761534
+          },
+          {
+            "model": "strong",
+            "samples": 1,
+            "attempts": 1,
+            "quality": 0.0,
+            "estimated_cost": 0.006525,
+            "latency_ms": 2582.4005999602377,
+            "utility": -0.2516480119992048,
+            "exploration_bonus": 0.1766115033773212,
+            "score": -0.07503650862188357
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "train-math-15",
+      "category": "math",
+      "phase": "train",
+      "route": "strong",
+      "answer": "Alright, let\u2019s break it down step-by-step.\n\nWe need:\n\n\\[\n(9512 \\times 7964 + 9363) \\bmod 97\n\\]\n\n**Step 1: Reduce each number modulo 97**\n\n- \\( 9512 \\bmod 97 \\):\n\n\\( 97 \\times 98 = 9506 \\), remainder \\( 9512 - 9506 = 6 \\).  \nSo \\( 9512 \\equiv 6 \\pmod{97} \\).\n\n- \\( 7964 \\bmod 97 \\):\n\n\\( 97 \\times 82 = 7954 \\), remainder \\( 7964 - 7954 = 10 \\).  \nSo \\( 7964 \\equiv 10 \\pmod{97} \\).\n\n- \\( 9363 \\bmod 97 \\):\n\n\\( 97 \\times 96 = 9312 \\), remainder \\( 9363 - 9312 = 51 \\).  \nSo \\( 9363 \\equiv 51 \\pmod{97} \\).\n\n**Step 2: Multiply the reduced values**\n\n\\[\n6 \\times 10 = 60\n\\]\n\n**Step 3: Add the reduced 9363 value**\n\n\\[",
+      "expected": 14,
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 29,
+        "prompt_tokens": 29,
+        "completion_tokens": 256,
+        "total_tokens": 285
+      },
+      "finish_reason": "length",
+      "latency_ms": 2877.932299976237,
+      "provider_latency_ms": 2804.2361999396235,
+      "cost_upper_cny": 0.007173,
+      "decision": {
+        "selected_model": "strong",
+        "reason": "cold_start",
+        "learning_samples": 3,
+        "candidates": [
+          {
+            "model": "budget",
+            "samples": 2,
+            "attempts": 2,
+            "quality": 0.0,
+            "estimated_cost": 6.500000000000001e-05,
+            "latency_ms": 911.4567000651732,
+            "utility": -0.020829134001303467,
+            "exploration_bonus": 0.15537557300461197,
+            "score": 0.1345464390033085
+          },
+          {
+            "model": "strong",
+            "samples": 1,
+            "attempts": 1,
+            "quality": 0.0,
+            "estimated_cost": 0.006525,
+            "latency_ms": 2582.4005999602377,
+            "utility": -0.2516480119992048,
+            "exploration_bonus": 0.19029543617692793,
+            "score": -0.06135257582227685
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "train-math-11",
+      "category": "math",
+      "phase": "train",
+      "route": "budget",
+      "answer": "Let's compute step by step.\n\nFirst, reduce 3509 modulo 127:\n\n127 \u00d7 27 = 3429  \n3509 \u2212 3429 = 80  \nSo 3509 \u2261 80 (mod 127).\n\nNext, reduce 9639 modulo 127:\n\n127 \u00d7 75 = 9525  \n9639 \u2212 9525 = 114  \nSo 9639 \u2261 114 (mod 127).\n\nNow multiply: 80 \u00d7 114 = 9120.\n\nReduce 9120 modulo 127:\n\n127 \u00d7 71 = 9017  \n9120 \u2212 9017 = 103  \nSo 80 \u00d7 114 \u2261 103 (mod 127).\n\nNow add 4854. First reduce 4854 modulo 127:\n\n127 \u00d7 38 = 4826  \n4854 \u2212 4826 = 28  \nSo 4854 \u2261 28 (mod 127).\n\nNow add: 103 + 28 = 131.\n\nReduce 131 modulo 127: 131 \u2212 127 = 4.\n\nFinal answer: **4**.\n\n\\[\n\\boxed{4}\n\\]",
+      "expected": 4,
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 29,
+        "prompt_tokens": 29,
+        "completion_tokens": 232,
+        "total_tokens": 261
+      },
+      "finish_reason": "stop",
+      "latency_ms": 1771.877699997276,
+      "provider_latency_ms": 1729.6542000258341,
+      "cost_upper_cny": 0.001914,
+      "decision": {
+        "selected_model": "budget",
+        "reason": "cold_start",
+        "learning_samples": 4,
+        "candidates": [
+          {
+            "model": "budget",
+            "samples": 2,
+            "attempts": 2,
+            "quality": 0.0,
+            "estimated_cost": 6.500000000000001e-05,
+            "latency_ms": 911.4567000651732,
+            "utility": -0.020829134001303467,
+            "exploration_bonus": 0.16394020872995382,
+            "score": 0.14311107472865037
+          },
+          {
+            "model": "strong",
+            "samples": 2,
+            "attempts": 2,
+            "quality": 0.0,
+            "estimated_cost": 0.006849,
+            "latency_ms": 2702.338749950286,
+            "utility": -0.25404677499900574,
+            "exploration_bonus": 0.16394020872995382,
+            "score": -0.09010656626905192
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "train-coding-9",
+      "category": "coding",
+      "phase": "train",
+      "route": "strong",
+      "answer": "235",
+      "expected": 208,
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 72,
+        "prompt_tokens": 72,
+        "completion_tokens": 1,
+        "total_tokens": 73
+      },
+      "finish_reason": "stop",
+      "latency_ms": 732.7796999597922,
+      "provider_latency_ms": 645.6421000184491,
+      "cost_upper_cny": 0.000675,
+      "decision": {
+        "selected_model": "strong",
+        "reason": "cold_start",
+        "learning_samples": 4,
+        "candidates": [
+          {
+            "model": "strong",
+            "samples": 2,
+            "attempts": 2,
+            "quality": 0.0,
+            "estimated_cost": 0.000675,
+            "latency_ms": 833.0731999594718,
+            "utility": -0.04366146399918944,
+            "exploration_bonus": 0.16394020872995382,
+            "score": 0.12027874473076439
+          },
+          {
+            "model": "budget",
+            "samples": 2,
+            "attempts": 2,
+            "quality": 0.0,
+            "estimated_cost": 0.002192,
+            "latency_ms": 1491.5531000006013,
+            "utility": -0.11751106200001202,
+            "exploration_bonus": 0.16394020872995382,
+            "score": 0.046429146729941806
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "train-math-13",
+      "category": "math",
+      "phase": "train",
+      "route": "strong",
+      "answer": "Alright, let\u2019s break it down step-by-step.\n\nFirst, reduce each number modulo 97:\n\n- \\(323 \\mod 97\\):  \n  \\(97 \\times 3 = 291\\), remainder \\(323 - 291 = 32\\).\n\n- \\(6903 \\mod 97\\):  \n  \\(97 \\times 71 = 6887\\), remainder \\(6903 - 6887 = 16\\).\n\n- \\(7033 \\mod 97\\):  \n  \\(97 \\times 72 = 6984\\), remainder \\(7033 - 6984 = 49\\).\n\nNow compute:\n\n\\[\n(32 \\times 16 + 49) \\mod 97\n\\]\n\nFirst, \\(32 \\times 16 = 512\\).\n\nThen \\(512 + 49 = 561\\).\n\nNow reduce \\(561 \\mod 97\\):  \n\\(97 \\times 5 = 485\\), remainder \\(561 - 485 = 76\\).\n\nFinal answer:\n\n\\[\n\\boxed{76}\n\\]",
+      "expected": 76,
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 28,
+        "prompt_tokens": 28,
+        "completion_tokens": 208,
+        "total_tokens": 236
+      },
+      "finish_reason": "stop",
+      "latency_ms": 2435.299600008875,
+      "provider_latency_ms": 2367.1615999192,
+      "cost_upper_cny": 0.005868,
+      "decision": {
+        "selected_model": "strong",
+        "reason": "cold_start",
+        "learning_samples": 5,
+        "candidates": [
+          {
+            "model": "budget",
+            "samples": 3,
+            "attempts": 3,
+            "quality": 0.0,
+            "estimated_cost": 0.0006813333333333333,
+            "latency_ms": 1187.836700041468,
+            "utility": -0.05101006733416269,
+            "exploration_bonus": 0.14795772766865634,
+            "score": 0.09694766033449365
+          },
+          {
+            "model": "strong",
+            "samples": 2,
+            "attempts": 2,
+            "quality": 0.0,
+            "estimated_cost": 0.006849,
+            "latency_ms": 2702.338749950286,
+            "utility": -0.25404677499900574,
+            "exploration_bonus": 0.17084686779636818,
+            "score": -0.08319990720263756
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "train-math-14",
+      "category": "math",
+      "phase": "train",
+      "route": "budget",
+      "answer": "37",
+      "expected": 77,
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 28,
+        "prompt_tokens": 28,
+        "completion_tokens": 1,
+        "total_tokens": 29
+      },
+      "finish_reason": "stop",
+      "latency_ms": 806.6852000774816,
+      "provider_latency_ms": 749.5379999745637,
+      "cost_upper_cny": 6.4e-05,
+      "decision": {
+        "selected_model": "budget",
+        "reason": "ucb",
+        "learning_samples": 6,
+        "candidates": [
+          {
+            "model": "budget",
+            "samples": 3,
+            "attempts": 3,
+            "quality": 0.0,
+            "estimated_cost": 0.0006813333333333333,
+            "latency_ms": 1187.836700041468,
+            "utility": -0.05101006733416269,
+            "exploration_bonus": 0.15295004852532132,
+            "score": 0.10193998119115863
+          },
+          {
+            "model": "strong",
+            "samples": 3,
+            "attempts": 3,
+            "quality": 0.0,
+            "estimated_cost": 0.006522,
+            "latency_ms": 2595.1797333157933,
+            "utility": -0.2519035946663159,
+            "exploration_bonus": 0.15295004852532132,
+            "score": -0.09895354614099458
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "train-coding-8",
+      "category": "coding",
+      "phase": "train",
+      "route": "budget",
+      "answer": "Let\u2019s go through it step-by-step.\n\nWe start with:\n\n- `x = 14`\n- `total = 0`\n- Loop `i` from 0 to 12 (13 iterations).\n\n---\n\n**i = 0**  \nx = (14 * 3 + 0 + 5) % 58 = (42 + 5) % 58 = 47 % 58 = 47  \n47 % 3 = 2 \u2260 0 \u2192 total = 0 + 47 = 47\n\n**i = 1**  \nx = (47 * 3 + 1 + 5) % 58 = (141 + 6) % 58 = 147 % 58  \n58 * 2 = 116, remainder 31 \u2192 x = 31  \n31 % 3 = 1 \u2260 0 \u2192 total = 47 + 31 = 78\n\n**i = 2**  \nx = (31 * 3 + 2 + 5) % 58 = (93 + 7) % 58 = 100 % 58 = 42  \n42 % 3 = 0 \u2192 skip\n\n**i = 3**  \nx = (42 *",
+      "expected": 311,
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 72,
+        "prompt_tokens": 72,
+        "completion_tokens": 256,
+        "total_tokens": 328
+      },
+      "finish_reason": "length",
+      "latency_ms": 1371.6652999864891,
+      "provider_latency_ms": 1327.2025999613106,
+      "cost_upper_cny": 0.002192,
+      "decision": {
+        "selected_model": "budget",
+        "reason": "cold_start",
+        "learning_samples": 5,
+        "candidates": [
+          {
+            "model": "strong",
+            "samples": 3,
+            "attempts": 3,
+            "quality": 0.0,
+            "estimated_cost": 0.0006749999999999999,
+            "latency_ms": 774.0864999747524,
+            "utility": -0.042481729999495045,
+            "exploration_bonus": 0.14795772766865634,
+            "score": 0.1054759976691613
+          },
+          {
+            "model": "budget",
+            "samples": 2,
+            "attempts": 2,
+            "quality": 0.0,
+            "estimated_cost": 0.002192,
+            "latency_ms": 1491.5531000006013,
+            "utility": -0.11751106200001202,
+            "exploration_bonus": 0.17084686779636818,
+            "score": 0.05333580579635616
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "train-coding-11",
+      "category": "coding",
+      "phase": "train",
+      "route": "strong",
+      "answer": "255",
+      "expected": 348,
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 72,
+        "prompt_tokens": 72,
+        "completion_tokens": 1,
+        "total_tokens": 73
+      },
+      "finish_reason": "stop",
+      "latency_ms": 1141.219999990426,
+      "provider_latency_ms": 1107.6270000776276,
+      "cost_upper_cny": 0.000675,
+      "decision": {
+        "selected_model": "strong",
+        "reason": "ucb",
+        "learning_samples": 6,
+        "candidates": [
+          {
+            "model": "strong",
+            "samples": 3,
+            "attempts": 3,
+            "quality": 0.0,
+            "estimated_cost": 0.0006749999999999999,
+            "latency_ms": 774.0864999747524,
+            "utility": -0.042481729999495045,
+            "exploration_bonus": 0.15295004852532132,
+            "score": 0.11046831852582628
+          },
+          {
+            "model": "budget",
+            "samples": 3,
+            "attempts": 3,
+            "quality": 0.0,
+            "estimated_cost": 0.002192,
+            "latency_ms": 1441.0162333321448,
+            "utility": -0.1165003246666429,
+            "exploration_bonus": 0.15295004852532132,
+            "score": 0.03644972385867842
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "train-math-5",
+      "category": "math",
+      "phase": "train",
+      "route": "budget",
+      "answer": "Let's compute step by step.\n\nFirst, reduce 9056 modulo 97:\n\n97 \u00d7 93 = 9021  \n9056 \u2212 9021 = 35  \nSo 9056 \u2261 35 (mod 97).\n\nNext, 998 modulo 97:\n\n97 \u00d7 10 = 970  \n998 \u2212 970 = 28  \nSo 998 \u2261 28 (mod 97).\n\nNow multiply: 35 \u00d7 28 = 980.\n\n980 modulo 97:  \n97 \u00d7 10 = 970  \n980 \u2212 970 = 10.\n\nSo (9056 \u00d7 998) \u2261 10 (mod 97).\n\nNow add 3793 modulo 97:\n\n97 \u00d7 39 = 3783  \n3793 \u2212 3783 = 10.\n\nSo 3793 \u2261 10 (mod 97).\n\nAdd: 10 + 10 = 20.\n\nFinal result: **20**.\n\n20",
+      "expected": 20,
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 28,
+        "prompt_tokens": 28,
+        "completion_tokens": 191,
+        "total_tokens": 219
+      },
+      "finish_reason": "stop",
+      "latency_ms": 1659.1922999359667,
+      "provider_latency_ms": 1601.5214999206364,
+      "cost_upper_cny": 0.001584,
+      "decision": {
+        "selected_model": "budget",
+        "reason": "ucb",
+        "learning_samples": 7,
+        "candidates": [
+          {
+            "model": "budget",
+            "samples": 4,
+            "attempts": 4,
+            "quality": 0.0,
+            "estimated_cost": 0.000527,
+            "latency_ms": 1081.1312250443734,
+            "utility": -0.04270262450088747,
+            "exploration_bonus": 0.1406236864686244,
+            "score": 0.09792106196773692
+          },
+          {
+            "model": "strong",
+            "samples": 3,
+            "attempts": 3,
+            "quality": 0.0,
+            "estimated_cost": 0.006522,
+            "latency_ms": 2595.1797333157933,
+            "utility": -0.2519035946663159,
+            "exploration_bonus": 0.15722206109523076,
+            "score": -0.09468153357108514
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "train-coding-15",
+      "category": "coding",
+      "phase": "train",
+      "route": "strong",
+      "answer": "435",
+      "expected": 408,
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 72,
+        "prompt_tokens": 72,
+        "completion_tokens": 1,
+        "total_tokens": 73
+      },
+      "finish_reason": "stop",
+      "latency_ms": 1120.7536000292748,
+      "provider_latency_ms": 1053.2244000351056,
+      "cost_upper_cny": 0.000675,
+      "decision": {
+        "selected_model": "strong",
+        "reason": "ucb",
+        "learning_samples": 7,
+        "candidates": [
+          {
+            "model": "strong",
+            "samples": 4,
+            "attempts": 4,
+            "quality": 0.0,
+            "estimated_cost": 0.000675,
+            "latency_ms": 860.2829249866772,
+            "utility": -0.04420565849973355,
+            "exploration_bonus": 0.1406236864686244,
+            "score": 0.09641802796889085
+          },
+          {
+            "model": "budget",
+            "samples": 3,
+            "attempts": 3,
+            "quality": 0.0,
+            "estimated_cost": 0.002192,
+            "latency_ms": 1441.0162333321448,
+            "utility": -0.1165003246666429,
+            "exploration_bonus": 0.15722206109523076,
+            "score": 0.04072173642858787
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "train-math-6",
+      "category": "math",
+      "phase": "train",
+      "route": "budget",
+      "answer": "Let's compute step by step.\n\nFirst, reduce each number modulo 97.\n\n6458 mod 97:  \n97 \u00d7 66 = 6402, remainder 56.  \nSo 6458 \u2261 56 (mod 97).\n\n8681 mod 97:  \n97 \u00d7 89 = 8633, remainder 48.  \nSo 8681 \u2261 48 (mod 97).\n\n3123 mod 97:  \n97 \u00d7 32 = 3104, remainder 19.  \nSo 3123 \u2261 19 (mod 97).\n\nNow multiply: 56 \u00d7 48 = 2688.  \n2688 mod 97:  \n97 \u00d7 27 = 2619, remainder 69.\n\nAdd 19: 69 + 19 = 88.\n\n88 mod 97 is 88.\n\n**88**",
+      "expected": 88,
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 29,
+        "prompt_tokens": 29,
+        "completion_tokens": 173,
+        "total_tokens": 202
+      },
+      "finish_reason": "stop",
+      "latency_ms": 1263.461499940604,
+      "provider_latency_ms": 1215.8656999235973,
+      "cost_upper_cny": 0.001442,
+      "decision": {
+        "selected_model": "budget",
+        "reason": "ucb",
+        "learning_samples": 8,
+        "candidates": [
+          {
+            "model": "budget",
+            "samples": 5,
+            "attempts": 5,
+            "quality": 0.0,
+            "estimated_cost": 0.0007384,
+            "latency_ms": 1187.6263400306925,
+            "utility": -0.05328852680061384,
+            "exploration_bonus": 0.1314130442439233,
+            "score": 0.07812451744330946
+          },
+          {
+            "model": "strong",
+            "samples": 3,
+            "attempts": 3,
+            "quality": 0.0,
+            "estimated_cost": 0.006522,
+            "latency_ms": 2595.1797333157933,
+            "utility": -0.2519035946663159,
+            "exploration_bonus": 0.16094745197170104,
+            "score": -0.09095614269461486
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "train-math-3",
+      "category": "math",
+      "phase": "train",
+      "route": "budget",
+      "answer": "17",
+      "expected": 54,
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 28,
+        "prompt_tokens": 28,
+        "completion_tokens": 1,
+        "total_tokens": 29
+      },
+      "finish_reason": "stop",
+      "latency_ms": 713.3585999254137,
+      "provider_latency_ms": 669.7578999446705,
+      "cost_upper_cny": 6.4e-05,
+      "decision": {
+        "selected_model": "budget",
+        "reason": "ucb",
+        "learning_samples": 9,
+        "candidates": [
+          {
+            "model": "budget",
+            "samples": 6,
+            "attempts": 6,
+            "quality": 0.0,
+            "estimated_cost": 0.0008556666666666666,
+            "latency_ms": 1195.2980833593756,
+            "utility": -0.05813262833385417,
+            "exploration_bonus": 0.12415732374458663,
+            "score": 0.06602469541073246
+          },
+          {
+            "model": "strong",
+            "samples": 3,
+            "attempts": 3,
+            "quality": 0.0,
+            "estimated_cost": 0.006522,
+            "latency_ms": 2595.1797333157933,
+            "utility": -0.2519035946663159,
+            "exploration_bonus": 0.16424470103775546,
+            "score": -0.08765889362856044
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "train-coding-6",
+      "category": "coding",
+      "phase": "train",
+      "route": "strong",
+      "answer": "334",
+      "expected": 315,
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 72,
+        "prompt_tokens": 72,
+        "completion_tokens": 1,
+        "total_tokens": 73
+      },
+      "finish_reason": "stop",
+      "latency_ms": 968.6794000444934,
+      "provider_latency_ms": 932.2939000558108,
+      "cost_upper_cny": 0.000675,
+      "decision": {
+        "selected_model": "strong",
+        "reason": "ucb",
+        "learning_samples": 8,
+        "candidates": [
+          {
+            "model": "strong",
+            "samples": 5,
+            "attempts": 5,
+            "quality": 0.0,
+            "estimated_cost": 0.000675,
+            "latency_ms": 901.8087399890646,
+            "utility": -0.045036174799781295,
+            "exploration_bonus": 0.1314130442439233,
+            "score": 0.08637686944414201
+          },
+          {
+            "model": "budget",
+            "samples": 3,
+            "attempts": 3,
+            "quality": 0.0,
+            "estimated_cost": 0.002192,
+            "latency_ms": 1441.0162333321448,
+            "utility": -0.1165003246666429,
+            "exploration_bonus": 0.16094745197170104,
+            "score": 0.04444712730505815
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "train-math-4",
+      "category": "math",
+      "phase": "train",
+      "route": "budget",
+      "answer": "37",
+      "expected": 34,
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 29,
+        "prompt_tokens": 29,
+        "completion_tokens": 1,
+        "total_tokens": 30
+      },
+      "finish_reason": "stop",
+      "latency_ms": 646.4389000320807,
+      "provider_latency_ms": 587.950799963437,
+      "cost_upper_cny": 6.6e-05,
+      "decision": {
+        "selected_model": "budget",
+        "reason": "ucb",
+        "learning_samples": 10,
+        "candidates": [
+          {
+            "model": "budget",
+            "samples": 7,
+            "attempts": 7,
+            "quality": 0.0,
+            "estimated_cost": 0.0007425714285714285,
+            "latency_ms": 1122.3637143183234,
+            "utility": -0.05215013142922361,
+            "exploration_bonus": 0.11822690009070483,
+            "score": 0.06607676866148121
+          },
+          {
+            "model": "strong",
+            "samples": 3,
+            "attempts": 3,
+            "quality": 0.0,
+            "estimated_cost": 0.006522,
+            "latency_ms": 2595.1797333157933,
+            "utility": -0.2519035946663159,
+            "exploration_bonus": 0.16719808554560364,
+            "score": -0.08470550912071226
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "train-general-11",
+      "category": "general",
+      "phase": "train",
+      "route": "budget",
+      "answer": "[\"R0\",\"R4\",\"R7\"]",
+      "expected": [
+        "R0",
+        "R4",
+        "R9"
+      ],
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 220,
+        "prompt_tokens": 220,
+        "completion_tokens": 10,
+        "total_tokens": 230
+      },
+      "finish_reason": "stop",
+      "latency_ms": 675.8988000219688,
+      "provider_latency_ms": 633.3257000660524,
+      "cost_upper_cny": 0.00052,
+      "decision": {
+        "selected_model": "budget",
+        "reason": "ucb",
+        "learning_samples": 9,
+        "candidates": [
+          {
+            "model": "budget",
+            "samples": 6,
+            "attempts": 6,
+            "quality": 0.6666666666666666,
+            "estimated_cost": 0.00052,
+            "latency_ms": 701.3161333743483,
+            "utility": 0.6318403439991797,
+            "exploration_bonus": 0.12415732374458663,
+            "score": 0.7559976677437663
+          },
+          {
+            "model": "strong",
+            "samples": 3,
+            "attempts": 3,
+            "quality": 0.6666666666666666,
+            "estimated_cost": 0.0022229999999999997,
+            "latency_ms": 1009.6123000451674,
+            "utility": 0.5575544206657633,
+            "exploration_bonus": 0.16424470103775546,
+            "score": 0.7217991217035188
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "train-coding-12",
+      "category": "coding",
+      "phase": "train",
+      "route": "strong",
+      "answer": "235",
+      "expected": 212,
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 72,
+        "prompt_tokens": 72,
+        "completion_tokens": 1,
+        "total_tokens": 73
+      },
+      "finish_reason": "stop",
+      "latency_ms": 753.4409000072628,
+      "provider_latency_ms": 679.9544000532478,
+      "cost_upper_cny": 0.000675,
+      "decision": {
+        "selected_model": "strong",
+        "reason": "ucb",
+        "learning_samples": 9,
+        "candidates": [
+          {
+            "model": "strong",
+            "samples": 6,
+            "attempts": 6,
+            "quality": 0.0,
+            "estimated_cost": 0.0006749999999999999,
+            "latency_ms": 909.0644333239956,
+            "utility": -0.04518128866647991,
+            "exploration_bonus": 0.12415732374458663,
+            "score": 0.07897603507810672
+          },
+          {
+            "model": "budget",
+            "samples": 3,
+            "attempts": 3,
+            "quality": 0.0,
+            "estimated_cost": 0.002192,
+            "latency_ms": 1441.0162333321448,
+            "utility": -0.1165003246666429,
+            "exploration_bonus": 0.16424470103775546,
+            "score": 0.04774437637111256
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "train-general-4",
+      "category": "general",
+      "phase": "train",
+      "route": "strong",
+      "answer": "[\"R6\",\"R0\",\"R2\"]",
+      "expected": [
+        "R6",
+        "R0",
+        "R2"
+      ],
+      "score": 1.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 220,
+        "prompt_tokens": 220,
+        "completion_tokens": 10,
+        "total_tokens": 230
+      },
+      "finish_reason": "stop",
+      "latency_ms": 1041.1013999255374,
+      "provider_latency_ms": 997.0022999914363,
+      "cost_upper_cny": 0.00225,
+      "decision": {
+        "selected_model": "strong",
+        "reason": "ucb",
+        "learning_samples": 10,
+        "candidates": [
+          {
+            "model": "strong",
+            "samples": 3,
+            "attempts": 3,
+            "quality": 0.6666666666666666,
+            "estimated_cost": 0.0022229999999999997,
+            "latency_ms": 1009.6123000451674,
+            "utility": 0.5575544206657633,
+            "exploration_bonus": 0.16719808554560364,
+            "score": 0.724752506211367
+          },
+          {
+            "model": "budget",
+            "samples": 7,
+            "attempts": 7,
+            "quality": 0.5714285714285714,
+            "estimated_cost": 0.00052,
+            "latency_ms": 693.2802143273875,
+            "utility": 0.5367629671420237,
+            "exploration_bonus": 0.11822690009070483,
+            "score": 0.6549898672327285
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "train-coding-13",
+      "category": "coding",
+      "phase": "train",
+      "route": "strong",
+      "answer": "585",
+      "expected": 495,
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 72,
+        "prompt_tokens": 72,
+        "completion_tokens": 1,
+        "total_tokens": 73
+      },
+      "finish_reason": "stop",
+      "latency_ms": 966.0967999370769,
+      "provider_latency_ms": 921.6860000742599,
+      "cost_upper_cny": 0.000675,
+      "decision": {
+        "selected_model": "strong",
+        "reason": "ucb",
+        "learning_samples": 10,
+        "candidates": [
+          {
+            "model": "strong",
+            "samples": 7,
+            "attempts": 7,
+            "quality": 0.0,
+            "estimated_cost": 0.000675,
+            "latency_ms": 878.2782571423533,
+            "utility": -0.04456556514284707,
+            "exploration_bonus": 0.11822690009070483,
+            "score": 0.07366133494785776
+          },
+          {
+            "model": "budget",
+            "samples": 3,
+            "attempts": 3,
+            "quality": 0.0,
+            "estimated_cost": 0.002192,
+            "latency_ms": 1441.0162333321448,
+            "utility": -0.1165003246666429,
+            "exploration_bonus": 0.16719808554560364,
+            "score": 0.050697760878960746
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "train-coding-14",
+      "category": "coding",
+      "phase": "train",
+      "route": "strong",
+      "answer": "166",
+      "expected": 198,
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 72,
+        "prompt_tokens": 72,
+        "completion_tokens": 1,
+        "total_tokens": 73
+      },
+      "finish_reason": "stop",
+      "latency_ms": 1255.592399975285,
+      "provider_latency_ms": 1211.8248000042513,
+      "cost_upper_cny": 0.000675,
+      "decision": {
+        "selected_model": "strong",
+        "reason": "ucb",
+        "learning_samples": 11,
+        "candidates": [
+          {
+            "model": "strong",
+            "samples": 8,
+            "attempts": 8,
+            "quality": 0.0,
+            "estimated_cost": 0.000675,
+            "latency_ms": 885.2413374988828,
+            "utility": -0.04470482674997766,
+            "exploration_bonus": 0.1132463985621957,
+            "score": 0.06854157181221804
+          },
+          {
+            "model": "budget",
+            "samples": 3,
+            "attempts": 3,
+            "quality": 0.0,
+            "estimated_cost": 0.002192,
+            "latency_ms": 1441.0162333321448,
+            "utility": -0.1165003246666429,
+            "exploration_bonus": 0.16986959784329356,
+            "score": 0.05336927317665066
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "train-coding-3",
+      "category": "coding",
+      "phase": "train",
+      "route": "strong",
+      "answer": "235",
+      "expected": 219,
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 72,
+        "prompt_tokens": 72,
+        "completion_tokens": 1,
+        "total_tokens": 73
+      },
+      "finish_reason": "stop",
+      "latency_ms": 921.176900039427,
+      "provider_latency_ms": 856.9125999929383,
+      "cost_upper_cny": 0.000675,
+      "decision": {
+        "selected_model": "strong",
+        "reason": "ucb",
+        "learning_samples": 12,
+        "candidates": [
+          {
+            "model": "strong",
+            "samples": 9,
+            "attempts": 9,
+            "quality": 0.0,
+            "estimated_cost": 0.000675,
+            "latency_ms": 922.9612000053748,
+            "utility": -0.045459224000107504,
+            "exploration_bonus": 0.10897595139877726,
+            "score": 0.06351672739866976
+          },
+          {
+            "model": "budget",
+            "samples": 3,
+            "attempts": 3,
+            "quality": 0.0,
+            "estimated_cost": 0.002192,
+            "latency_ms": 1441.0162333321448,
+            "utility": -0.1165003246666429,
+            "exploration_bonus": 0.17230610830197415,
+            "score": 0.05580578363533126
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "train-math-1",
+      "category": "math",
+      "phase": "train",
+      "route": "budget",
+      "answer": "Let's compute step by step.\n\nFirst, reduce 907 modulo 113:\n\n113 \u00d7 8 = 904, so  \n907 \u2261 3 (mod 113).\n\nNext, reduce 9193 modulo 113:\n\n113 \u00d7 81 = 9153, remainder 40, so  \n9193 \u2261 40 (mod 113).\n\nNow multiply:  \n3 \u00d7 40 = 120 \u2261 7 (mod 113).\n\nAdd 4636 mod 113:\n\n113 \u00d7 41 = 4633, remainder 3, so  \n4636 \u2261 3 (mod 113).\n\nNow 7 + 3 = 10.\n\n**Final answer:**  \n10",
+      "expected": 10,
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 28,
+        "prompt_tokens": 28,
+        "completion_tokens": 138,
+        "total_tokens": 166
+      },
+      "finish_reason": "stop",
+      "latency_ms": 1044.6617000270635,
+      "provider_latency_ms": 997.4172000074759,
+      "cost_upper_cny": 0.00116,
+      "decision": {
+        "selected_model": "budget",
+        "reason": "ucb",
+        "learning_samples": 11,
+        "candidates": [
+          {
+            "model": "budget",
+            "samples": 8,
+            "attempts": 8,
+            "quality": 0.0,
+            "estimated_cost": 0.000658,
+            "latency_ms": 1058.0421875201864,
+            "utility": -0.047480843750403734,
+            "exploration_bonus": 0.1132463985621957,
+            "score": 0.06576555481179197
+          },
+          {
+            "model": "strong",
+            "samples": 3,
+            "attempts": 3,
+            "quality": 0.0,
+            "estimated_cost": 0.006522,
+            "latency_ms": 2595.1797333157933,
+            "utility": -0.2519035946663159,
+            "exploration_bonus": 0.16986959784329356,
+            "score": -0.08203399682302234
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "train-math-7",
+      "category": "math",
+      "phase": "train",
+      "route": "budget",
+      "answer": "37",
+      "expected": 24,
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 29,
+        "prompt_tokens": 29,
+        "completion_tokens": 1,
+        "total_tokens": 30
+      },
+      "finish_reason": "stop",
+      "latency_ms": 910.2985999779776,
+      "provider_latency_ms": 870.7593999570236,
+      "cost_upper_cny": 6.6e-05,
+      "decision": {
+        "selected_model": "budget",
+        "reason": "ucb",
+        "learning_samples": 12,
+        "candidates": [
+          {
+            "model": "budget",
+            "samples": 9,
+            "attempts": 9,
+            "quality": 0.0,
+            "estimated_cost": 0.0007137777777777778,
+            "latency_ms": 1052.682544466936,
+            "utility": -0.04960476200044983,
+            "exploration_bonus": 0.10897595139877726,
+            "score": 0.05937118939832743
+          },
+          {
+            "model": "strong",
+            "samples": 3,
+            "attempts": 3,
+            "quality": 0.0,
+            "estimated_cost": 0.006522,
+            "latency_ms": 2595.1797333157933,
+            "utility": -0.2519035946663159,
+            "exploration_bonus": 0.17230610830197415,
+            "score": -0.07959748636434175
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "train-math-2",
+      "category": "math",
+      "phase": "train",
+      "route": "budget",
+      "answer": "34",
+      "expected": 83,
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 29,
+        "prompt_tokens": 29,
+        "completion_tokens": 1,
+        "total_tokens": 30
+      },
+      "finish_reason": "stop",
+      "latency_ms": 650.9636000264436,
+      "provider_latency_ms": 587.8815000178292,
+      "cost_upper_cny": 6.6e-05,
+      "decision": {
+        "selected_model": "budget",
+        "reason": "ucb",
+        "learning_samples": 13,
+        "candidates": [
+          {
+            "model": "budget",
+            "samples": 10,
+            "attempts": 10,
+            "quality": 0.0,
+            "estimated_cost": 0.0006490000000000001,
+            "latency_ms": 1035.5907900142483,
+            "utility": -0.04667181580028497,
+            "exploration_bonus": 0.10525391767686,
+            "score": 0.05858210187657503
+          },
+          {
+            "model": "strong",
+            "samples": 3,
+            "attempts": 3,
+            "quality": 0.0,
+            "estimated_cost": 0.006522,
+            "latency_ms": 2595.1797333157933,
+            "utility": -0.2519035946663159,
+            "exploration_bonus": 0.17454387632455018,
+            "score": -0.07735971834176572
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "train-coding-7",
+      "category": "coding",
+      "phase": "train",
+      "route": "strong",
+      "answer": "235",
+      "expected": 276,
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 72,
+        "prompt_tokens": 72,
+        "completion_tokens": 1,
+        "total_tokens": 73
+      },
+      "finish_reason": "stop",
+      "latency_ms": 915.3261000756174,
+      "provider_latency_ms": 873.9518999354914,
+      "cost_upper_cny": 0.000675,
+      "decision": {
+        "selected_model": "strong",
+        "reason": "ucb",
+        "learning_samples": 13,
+        "candidates": [
+          {
+            "model": "strong",
+            "samples": 10,
+            "attempts": 10,
+            "quality": 0.0,
+            "estimated_cost": 0.000675,
+            "latency_ms": 918.1525700143538,
+            "utility": -0.04536305140028708,
+            "exploration_bonus": 0.10525391767686,
+            "score": 0.05989086627657292
+          },
+          {
+            "model": "budget",
+            "samples": 3,
+            "attempts": 3,
+            "quality": 0.0,
+            "estimated_cost": 0.002192,
+            "latency_ms": 1441.0162333321448,
+            "utility": -0.1165003246666429,
+            "exploration_bonus": 0.17454387632455018,
+            "score": 0.05804355165790728
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "train-coding-2",
+      "category": "coding",
+      "phase": "train",
+      "route": "budget",
+      "answer": "Let\u2019s go through it step-by-step.\n\nWe start with:\n\n- `x = 16`\n- `total = 0`\n\nLoop runs for `i` from 0 to 14.\n\n---\n\n**i = 0**  \nx = (16*7 + 0 + 7) % 75  \n= (112 + 7) % 75 = 119 % 75 = 44  \n44 % 3 = 2 \u2260 0 \u2192 total = 0 + 44 = 44\n\n**i = 1**  \nx = (44*7 + 1 + 7) % 75  \n= (308 + 8) % 75 = 316 % 75  \n75*4 = 300, remainder 16 \u2192 x = 16  \n16 % 3 = 1 \u2260 0 \u2192 total = 44 + 16 = 60\n\n**i = 2**  \nx = (16*7 + 2 + 7) % 75  \n= (112 + 9) = 121 % 75 = 46  \n46 % 3 = 1 \u2260 0 \u2192 total = 60 + 46 = 106\n\n**i = 3**",
+      "expected": 506,
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 72,
+        "prompt_tokens": 72,
+        "completion_tokens": 256,
+        "total_tokens": 328
+      },
+      "finish_reason": "length",
+      "latency_ms": 1327.1751999855042,
+      "provider_latency_ms": 1281.5497000701725,
+      "cost_upper_cny": 0.002192,
+      "decision": {
+        "selected_model": "budget",
+        "reason": "ucb",
+        "learning_samples": 14,
+        "candidates": [
+          {
+            "model": "budget",
+            "samples": 3,
+            "attempts": 3,
+            "quality": 0.0,
+            "estimated_cost": 0.002192,
+            "latency_ms": 1441.0162333321448,
+            "utility": -0.1165003246666429,
+            "exploration_bonus": 0.1766115033773212,
+            "score": 0.06011117871067831
+          },
+          {
+            "model": "strong",
+            "samples": 11,
+            "attempts": 11,
+            "quality": 0.0,
+            "estimated_cost": 0.000675,
+            "latency_ms": 915.118645474484,
+            "utility": -0.045302372909489685,
+            "exploration_bonus": 0.1019666990168809,
+            "score": 0.05666432610739121
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "train-general-5",
+      "category": "general",
+      "phase": "train",
+      "route": "strong",
+      "answer": "[\"R6\",\"R3\"]",
+      "expected": [
+        "R6",
+        "R3"
+      ],
+      "score": 1.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 220,
+        "prompt_tokens": 220,
+        "completion_tokens": 7,
+        "total_tokens": 227
+      },
+      "finish_reason": "stop",
+      "latency_ms": 1276.9843999994919,
+      "provider_latency_ms": 1207.8696000389755,
+      "cost_upper_cny": 0.002169,
+      "decision": {
+        "selected_model": "strong",
+        "reason": "ucb",
+        "learning_samples": 11,
+        "candidates": [
+          {
+            "model": "strong",
+            "samples": 4,
+            "attempts": 4,
+            "quality": 0.75,
+            "estimated_cost": 0.00222975,
+            "latency_ms": 1008.9760250411928,
+            "utility": 0.6406304794991762,
+            "exploration_bonus": 0.15193598723526242,
+            "score": 0.7925664667344385
+          },
+          {
+            "model": "budget",
+            "samples": 7,
+            "attempts": 7,
+            "quality": 0.5714285714285714,
+            "estimated_cost": 0.00052,
+            "latency_ms": 693.2802143273875,
+            "utility": 0.5367629671420237,
+            "exploration_bonus": 0.12011594455242461,
+            "score": 0.6568789116944482
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "train-general-9",
+      "category": "general",
+      "phase": "train",
+      "route": "strong",
+      "answer": "[\"R6\",\"R5\",\"R3\"]",
+      "expected": [
+        "R6",
+        "R5",
+        "R3"
+      ],
+      "score": 1.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 220,
+        "prompt_tokens": 220,
+        "completion_tokens": 10,
+        "total_tokens": 230
+      },
+      "finish_reason": "stop",
+      "latency_ms": 829.0922000305727,
+      "provider_latency_ms": 786.6272999672219,
+      "cost_upper_cny": 0.00225,
+      "decision": {
+        "selected_model": "strong",
+        "reason": "ucb",
+        "learning_samples": 12,
+        "candidates": [
+          {
+            "model": "strong",
+            "samples": 5,
+            "attempts": 5,
+            "quality": 0.8,
+            "estimated_cost": 0.0022175999999999997,
+            "latency_ms": 1052.5289800250903,
+            "utility": 0.6902454203994982,
+            "exploration_bonus": 0.14068734830152438,
+            "score": 0.8309327687010226
+          },
+          {
+            "model": "budget",
+            "samples": 7,
+            "attempts": 7,
+            "quality": 0.5714285714285714,
+            "estimated_cost": 0.00052,
+            "latency_ms": 693.2802143273875,
+            "utility": 0.5367629671420237,
+            "exploration_bonus": 0.12183881762018962,
+            "score": 0.6586017847622133
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "train-math-9",
+      "category": "math",
+      "phase": "train",
+      "route": "budget",
+      "answer": "34",
+      "expected": 67,
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 28,
+        "prompt_tokens": 28,
+        "completion_tokens": 1,
+        "total_tokens": 29
+      },
+      "finish_reason": "stop",
+      "latency_ms": 946.9207000220194,
+      "provider_latency_ms": 906.569299986586,
+      "cost_upper_cny": 6.4e-05,
+      "decision": {
+        "selected_model": "budget",
+        "reason": "ucb",
+        "learning_samples": 14,
+        "candidates": [
+          {
+            "model": "budget",
+            "samples": 11,
+            "attempts": 11,
+            "quality": 0.0,
+            "estimated_cost": 0.000596,
+            "latency_ms": 996.1360545553775,
+            "utility": -0.043762721091107556,
+            "exploration_bonus": 0.1019666990168809,
+            "score": 0.05820397792577334
+          },
+          {
+            "model": "strong",
+            "samples": 3,
+            "attempts": 3,
+            "quality": 0.0,
+            "estimated_cost": 0.006522,
+            "latency_ms": 2595.1797333157933,
+            "utility": -0.2519035946663159,
+            "exploration_bonus": 0.1766115033773212,
+            "score": -0.0752920912889947
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "train-general-1",
+      "category": "general",
+      "phase": "train",
+      "route": "strong",
+      "answer": "[\"R3\",\"R4\",\"R9\"]",
+      "expected": [
+        "R3",
+        "R4",
+        "R9"
+      ],
+      "score": 1.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 220,
+        "prompt_tokens": 220,
+        "completion_tokens": 10,
+        "total_tokens": 230
+      },
+      "finish_reason": "stop",
+      "latency_ms": 1363.5065000271425,
+      "provider_latency_ms": 1315.1058999355882,
+      "cost_upper_cny": 0.00225,
+      "decision": {
+        "selected_model": "strong",
+        "reason": "ucb",
+        "learning_samples": 13,
+        "candidates": [
+          {
+            "model": "strong",
+            "samples": 6,
+            "attempts": 6,
+            "quality": 0.8333333333333334,
+            "estimated_cost": 0.0022229999999999997,
+            "latency_ms": 1010.144716691381,
+            "utility": 0.7242104389995058,
+            "exploration_bonus": 0.13194276846399267,
+            "score": 0.8561532074634984
+          },
+          {
+            "model": "budget",
+            "samples": 7,
+            "attempts": 7,
+            "quality": 0.5714285714285714,
+            "estimated_cost": 0.00052,
+            "latency_ms": 693.2802143273875,
+            "utility": 0.5367629671420237,
+            "exploration_bonus": 0.1234211585636755,
+            "score": 0.6601841257056992
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "train-general-14",
+      "category": "general",
+      "phase": "train",
+      "route": "strong",
+      "answer": "[\"R3\",\"R0\",\"R2\"]",
+      "expected": [
+        "R3",
+        "R0",
+        "R2"
+      ],
+      "score": 1.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 220,
+        "prompt_tokens": 220,
+        "completion_tokens": 10,
+        "total_tokens": 230
+      },
+      "finish_reason": "stop",
+      "latency_ms": 1110.9863000456244,
+      "provider_latency_ms": 1071.2018999038264,
+      "cost_upper_cny": 0.00225,
+      "decision": {
+        "selected_model": "strong",
+        "reason": "ucb",
+        "learning_samples": 14,
+        "candidates": [
+          {
+            "model": "strong",
+            "samples": 7,
+            "attempts": 7,
+            "quality": 0.8571428571428571,
+            "estimated_cost": 0.002226857142857143,
+            "latency_ms": 1055.6957285817978,
+            "utility": 0.7469546568569354,
+            "exploration_bonus": 0.12488319167365465,
+            "score": 0.8718378485305901
+          },
+          {
+            "model": "budget",
+            "samples": 7,
+            "attempts": 7,
+            "quality": 0.5714285714285714,
+            "estimated_cost": 0.00052,
+            "latency_ms": 693.2802143273875,
+            "utility": 0.5367629671420237,
+            "exploration_bonus": 0.12488319167365465,
+            "score": 0.6616461588156783
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "train-coding-4",
+      "category": "coding",
+      "phase": "train",
+      "route": "strong",
+      "answer": "435",
+      "expected": 366,
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 72,
+        "prompt_tokens": 72,
+        "completion_tokens": 1,
+        "total_tokens": 73
+      },
+      "finish_reason": "stop",
+      "latency_ms": 1117.372400010936,
+      "provider_latency_ms": 1059.7299999790266,
+      "cost_upper_cny": 0.000675,
+      "decision": {
+        "selected_model": "strong",
+        "reason": "ucb",
+        "learning_samples": 15,
+        "candidates": [
+          {
+            "model": "strong",
+            "samples": 11,
+            "attempts": 11,
+            "quality": 0.0,
+            "estimated_cost": 0.000675,
+            "latency_ms": 915.118645474484,
+            "utility": -0.045302372909489685,
+            "exploration_bonus": 0.10307545799175868,
+            "score": 0.057773085082269
+          },
+          {
+            "model": "budget",
+            "samples": 4,
+            "attempts": 4,
+            "quality": 0.0,
+            "estimated_cost": 0.002192,
+            "latency_ms": 1404.2357500002254,
+            "utility": -0.1157647150000045,
+            "exploration_bonus": 0.15968381288191344,
+            "score": 0.04391909788190894
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "train-general-15",
+      "category": "general",
+      "phase": "train",
+      "route": "strong",
+      "answer": "[\"R5\",\"R8\"]",
+      "expected": [
+        "R5",
+        "R8"
+      ],
+      "score": 1.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 220,
+        "prompt_tokens": 220,
+        "completion_tokens": 7,
+        "total_tokens": 227
+      },
+      "finish_reason": "stop",
+      "latency_ms": 875.9841000428423,
+      "provider_latency_ms": 840.3021999401972,
+      "cost_upper_cny": 0.002169,
+      "decision": {
+        "selected_model": "strong",
+        "reason": "ucb",
+        "learning_samples": 15,
+        "candidates": [
+          {
+            "model": "strong",
+            "samples": 8,
+            "attempts": 8,
+            "quality": 0.875,
+            "estimated_cost": 0.00222975,
+            "latency_ms": 1059.2842625046615,
+            "utility": 0.7646243147499068,
+            "exploration_bonus": 0.11902128683677168,
+            "score": 0.8836456015866785
+          },
+          {
+            "model": "budget",
+            "samples": 7,
+            "attempts": 7,
+            "quality": 0.5714285714285714,
+            "estimated_cost": 0.00052,
+            "latency_ms": 693.2802143273875,
+            "utility": 0.5367629671420237,
+            "exploration_bonus": 0.12624113854174562,
+            "score": 0.6630041056837692
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "train-math-10",
+      "category": "math",
+      "phase": "train",
+      "route": "budget",
+      "answer": "37",
+      "expected": 17,
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 28,
+        "prompt_tokens": 28,
+        "completion_tokens": 1,
+        "total_tokens": 29
+      },
+      "finish_reason": "stop",
+      "latency_ms": 763.8472000835463,
+      "provider_latency_ms": 710.1619000313804,
+      "cost_upper_cny": 6.4e-05,
+      "decision": {
+        "selected_model": "budget",
+        "reason": "ucb",
+        "learning_samples": 15,
+        "candidates": [
+          {
+            "model": "budget",
+            "samples": 12,
+            "attempts": 12,
+            "quality": 0.0,
+            "estimated_cost": 0.0005516666666666667,
+            "latency_ms": 989.7529916779604,
+            "utility": -0.041861726500225876,
+            "exploration_bonus": 0.0990316967450048,
+            "score": 0.05716997024477892
+          },
+          {
+            "model": "strong",
+            "samples": 3,
+            "attempts": 3,
+            "quality": 0.0,
+            "estimated_cost": 0.006522,
+            "latency_ms": 2595.1797333157933,
+            "utility": -0.2519035946663159,
+            "exploration_bonus": 0.17853193025515754,
+            "score": -0.07337166441115836
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "test-general-3",
+      "category": "general",
+      "phase": "test",
+      "route": "budget",
+      "answer": "[\"R9\",\"R0\"]",
+      "expected": [
+        "R9",
+        "R0"
+      ],
+      "score": 1.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 220,
+        "prompt_tokens": 220,
+        "completion_tokens": 7,
+        "total_tokens": 227
+      },
+      "finish_reason": "stop",
+      "latency_ms": 881.6544000292197,
+      "provider_latency_ms": 854.2795999674127,
+      "cost_upper_cny": 0.000496
+    },
+    {
+      "case_id": "test-general-3",
+      "category": "general",
+      "phase": "test",
+      "route": "strong",
+      "answer": "[\"R9\",\"R0\"]",
+      "expected": [
+        "R9",
+        "R0"
+      ],
+      "score": 1.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 220,
+        "prompt_tokens": 220,
+        "completion_tokens": 7,
+        "total_tokens": 227
+      },
+      "finish_reason": "stop",
+      "latency_ms": 978.5355000058189,
+      "provider_latency_ms": 951.5894000651315,
+      "cost_upper_cny": 0.002169
+    },
+    {
+      "case_id": "test-math-5",
+      "category": "math",
+      "phase": "test",
+      "route": "strong",
+      "answer": "Alright, let\u2019s break it down step-by-step.\n\nFirst, reduce each number modulo 113:\n\n- \\( 3634 \\mod 113 \\)  \n  \\( 113 \\times 32 = 3616 \\), remainder \\( 18 \\)  \n  So \\( 3634 \\equiv 18 \\mod 113 \\)\n\n- \\( 2052 \\mod 113 \\)  \n  \\( 113 \\times 18 = 2034 \\), remainder \\( 18 \\)  \n  So \\( 2052 \\equiv 18 \\mod 113 \\)\n\n- \\( 9032 \\mod 113 \\)  \n  \\( 113 \\times 79 = 8927 \\), remainder \\( 105 \\)  \n  So \\( 9032 \\equiv 105 \\mod 113 \\)\n\nNow compute:\n\n\\[\n(18 \\times 18 + 105) \\mod 113\n\\]\n\\[\n18 \\times 18 = 324\n\\]\n\\[\n324 + 105 = 429\n\\]\n\\[\n429 \\mod 113\n\\]\n\\( 113 \\times 3 = 339 \\), remainder \\( 90 \\)\n\nFinal answer:\n\n\\[\n\\boxed{90}\n\\]",
+      "expected": 90,
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 29,
+        "prompt_tokens": 29,
+        "completion_tokens": 249,
+        "total_tokens": 278
+      },
+      "finish_reason": "stop",
+      "latency_ms": 2674.710600054823,
+      "provider_latency_ms": 2646.992400055751,
+      "cost_upper_cny": 0.006984
+    },
+    {
+      "case_id": "test-math-5",
+      "category": "math",
+      "phase": "test",
+      "route": "budget",
+      "answer": "95",
+      "expected": 90,
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 29,
+        "prompt_tokens": 29,
+        "completion_tokens": 1,
+        "total_tokens": 30
+      },
+      "finish_reason": "stop",
+      "latency_ms": 522.0816000364721,
+      "provider_latency_ms": 500.2077000681311,
+      "cost_upper_cny": 6.6e-05
+    },
+    {
+      "case_id": "test-math-2",
+      "category": "math",
+      "phase": "test",
+      "route": "budget",
+      "answer": "37",
+      "expected": 3,
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 29,
+        "prompt_tokens": 29,
+        "completion_tokens": 1,
+        "total_tokens": 30
+      },
+      "finish_reason": "stop",
+      "latency_ms": 777.3847000207752,
+      "provider_latency_ms": 753.711299970746,
+      "cost_upper_cny": 6.6e-05
+    },
+    {
+      "case_id": "test-math-2",
+      "category": "math",
+      "phase": "test",
+      "route": "strong",
+      "answer": "Alright, let\u2019s go step-by-step.\n\nFirst, reduce the numbers modulo 101:\n\n- \\( 7654 \\mod 101 \\):  \n  \\( 101 \\times 75 = 7575 \\),  \n  \\( 7654 - 7575 = 79 \\).  \n  So \\( 7654 \\equiv 79 \\).\n\n- \\( 1566 \\mod 101 \\):  \n  \\( 101 \\times 15 = 1515 \\),  \n  \\( 1566 - 1515 = 51 \\).  \n  So \\( 1566 \\equiv 51 \\).\n\n- \\( 2135 \\mod 101 \\):  \n  \\( 101 \\times 21 = 2121 \\),  \n  \\( 2135 - 2121 = 14 \\).  \n  So \\( 2135 \\equiv 14 \\).\n\nNow compute:\n\n\\( 79 \\times 51 = 4029 \\).  \n\\( 4029 \\mod 101 \\):  \n\\( 101 \\times 39 = 3939 \\),  \n\\( 4029 - 3939 = 90 \\).\n\nAdd \\( 14 \\):  \n\\( 90 + 14 = 104 \\).  \n\\(",
+      "expected": 3,
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 29,
+        "prompt_tokens": 29,
+        "completion_tokens": 256,
+        "total_tokens": 285
+      },
+      "finish_reason": "length",
+      "latency_ms": 2575.427500065416,
+      "provider_latency_ms": 2532.391699962318,
+      "cost_upper_cny": 0.007173
+    },
+    {
+      "case_id": "test-general-0",
+      "category": "general",
+      "phase": "test",
+      "route": "strong",
+      "answer": "[\"R6\",\"R5\",\"R3\"]",
+      "expected": [
+        "R6",
+        "R5",
+        "R7"
+      ],
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 220,
+        "prompt_tokens": 220,
+        "completion_tokens": 10,
+        "total_tokens": 230
+      },
+      "finish_reason": "stop",
+      "latency_ms": 1337.9276000196114,
+      "provider_latency_ms": 1309.4681999646127,
+      "cost_upper_cny": 0.00225
+    },
+    {
+      "case_id": "test-general-0",
+      "category": "general",
+      "phase": "test",
+      "route": "budget",
+      "answer": "[\"R6\",\"R5\",\"R0\"]",
+      "expected": [
+        "R6",
+        "R5",
+        "R7"
+      ],
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 220,
+        "prompt_tokens": 220,
+        "completion_tokens": 10,
+        "total_tokens": 230
+      },
+      "finish_reason": "stop",
+      "latency_ms": 693.5227999929339,
+      "provider_latency_ms": 668.485299916938,
+      "cost_upper_cny": 0.00052
+    },
+    {
+      "case_id": "test-coding-5",
+      "category": "coding",
+      "phase": "test",
+      "route": "budget",
+      "answer": "Let's go step-by-step.\n\nWe have:\n\n- `x = 5`\n- `total = 0`\n- Loop `i` from 0 to 17.\n\n---\n\n**i = 0**  \nx = (5*4 + 0 + 1) % 40 = (20 + 1) % 40 = 21 % 40 = 21  \n21 % 3 = 0 \u2192 skip adding.\n\n**i = 1**  \nx = (21*4 + 1 + 1) % 40 = (84 + 2) % 40 = 86 % 40 = 6  \n6 % 3 = 0 \u2192 skip.\n\n**i = 2**  \nx = (6*4 + 2 + 1) % 40 = (24 + 3) % 40 = 27  \n27 % 3 = 0 \u2192 skip.\n\n**i = 3**  \nx = (27*4 + 3 + 1) % 40 = (108 + 4) % 40 = 112 % 40 = 32  \n32 % 3 = 2 \u2192 add 32. total = 32.\n\n**i = 4",
+      "expected": 205,
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 72,
+        "prompt_tokens": 72,
+        "completion_tokens": 256,
+        "total_tokens": 328
+      },
+      "finish_reason": "length",
+      "latency_ms": 1431.9277999456972,
+      "provider_latency_ms": 1396.4915999677032,
+      "cost_upper_cny": 0.002192
+    },
+    {
+      "case_id": "test-coding-5",
+      "category": "coding",
+      "phase": "test",
+      "route": "strong",
+      "answer": "235",
+      "expected": 205,
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 72,
+        "prompt_tokens": 72,
+        "completion_tokens": 1,
+        "total_tokens": 73
+      },
+      "finish_reason": "stop",
+      "latency_ms": 805.3345999214798,
+      "provider_latency_ms": 775.8922999491915,
+      "cost_upper_cny": 0.000675
+    },
+    {
+      "case_id": "test-math-7",
+      "category": "math",
+      "phase": "test",
+      "route": "strong",
+      "answer": "Alright, let\u2019s break it down step-by-step.\n\nWe need:\n\n\\[\n(7199 \\times 9083 + 441) \\bmod 101\n\\]\n\n**Step 1: Reduce each number modulo 101**\n\n- \\(7199 \\div 101 = 71\\) remainder \\(28\\) \u2192 \\(7199 \\equiv 28 \\pmod{101}\\)  \n- \\(9083 \\div 101 = 89\\) remainder \\(94\\) \u2192 \\(9083 \\equiv 94 \\pmod{101}\\)  \n- \\(441 \\div 101 = 4\\) remainder \\(37\\) \u2192 \\(441 \\equiv 37 \\pmod{101}\\)\n\n**Step 2: Multiply the reduced numbers**\n\n\\[\n28 \\times 94 = 2632\n\\]\n\n**Step 3: Reduce the product modulo 101**\n\n\\(2632 \\div 101 = 26\\) remainder \\(6\\) \u2192 \\(2632 \\equiv 6 \\pmod{101}\\)\n\n**Step 4: Add 37**\n\n\\[\n6 + 37 = 43\n\\]\n\n**Final answer:**\n\n\\[\n\\boxed{43}\n\\]",
+      "expected": 43,
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 28,
+        "prompt_tokens": 28,
+        "completion_tokens": 235,
+        "total_tokens": 263
+      },
+      "finish_reason": "stop",
+      "latency_ms": 3180.938999983482,
+      "provider_latency_ms": 3149.7608000645414,
+      "cost_upper_cny": 0.006597
+    },
+    {
+      "case_id": "test-math-7",
+      "category": "math",
+      "phase": "test",
+      "route": "budget",
+      "answer": "37",
+      "expected": 43,
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 28,
+        "prompt_tokens": 28,
+        "completion_tokens": 1,
+        "total_tokens": 29
+      },
+      "finish_reason": "stop",
+      "latency_ms": 753.0559999868274,
+      "provider_latency_ms": 719.8766999645159,
+      "cost_upper_cny": 6.4e-05
+    },
+    {
+      "case_id": "test-coding-6",
+      "category": "coding",
+      "phase": "test",
+      "route": "budget",
+      "answer": "Let's go through the code step by step.\n\nWe have:\n\n- `x = 6`\n- `total = 0`\n- Loop `i` from 0 to 16 (17 iterations).\n\nEach iteration:\n1. Update `x = (x * 5 + i + 8) % 64`\n2. If `x % 3 != 0`, add `x` to `total`.\n\n---\n\n**i = 0**  \nx = (6*5 + 0 + 8) % 64 = (30 + 8) % 64 = 38 % 64 = 38  \n38 % 3 = 2 \u2260 0 \u2192 total = 38\n\n**i = 1**  \nx = (38*5 + 1 + 8) % 64 = (190 + 9) % 64 = 199 % 64  \n64*3 = 192, remainder 7 \u2192 x = 7  \n7 % 3 = 1 \u2260 0 \u2192 total = 38 + 7 = 45\n\n**i = 2**  \nx = (7*5 + 2 + 8) % 64 = (35 + 10) % ",
+      "expected": 496,
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 72,
+        "prompt_tokens": 72,
+        "completion_tokens": 256,
+        "total_tokens": 328
+      },
+      "finish_reason": "length",
+      "latency_ms": 1570.6560999387875,
+      "provider_latency_ms": 1550.041600014083,
+      "cost_upper_cny": 0.002192
+    },
+    {
+      "case_id": "test-coding-6",
+      "category": "coding",
+      "phase": "test",
+      "route": "strong",
+      "answer": "435",
+      "expected": 496,
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 72,
+        "prompt_tokens": 72,
+        "completion_tokens": 1,
+        "total_tokens": 73
+      },
+      "finish_reason": "stop",
+      "latency_ms": 1127.3409998975694,
+      "provider_latency_ms": 1105.67069996614,
+      "cost_upper_cny": 0.000675
+    },
+    {
+      "case_id": "test-coding-4",
+      "category": "coding",
+      "phase": "test",
+      "route": "strong",
+      "answer": "166",
+      "expected": 142,
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 72,
+        "prompt_tokens": 72,
+        "completion_tokens": 1,
+        "total_tokens": 73
+      },
+      "finish_reason": "stop",
+      "latency_ms": 1371.4498999761418,
+      "provider_latency_ms": 1335.0351999979466,
+      "cost_upper_cny": 0.000675
+    },
+    {
+      "case_id": "test-coding-4",
+      "category": "coding",
+      "phase": "test",
+      "route": "budget",
+      "answer": "Let\u2019s go through it step-by-step.\n\nWe have:\n\n- `x = 8`\n- `total = 0`\n- Loop `i` from 0 to 13.\n\n---\n\n**i = 0**  \nx = (8*4 + 0 + 10) % 32 = (32 + 10) % 32 = 42 % 32 = 10  \n10 % 3 = 1 \u2260 0 \u2192 total = 0 + 10 = 10\n\n**i = 1**  \nx = (10*4 + 1 + 10) % 32 = (40 + 11) % 32 = 51 % 32 = 19  \n19 % 3 = 1 \u2260 0 \u2192 total = 10 + 19 = 29\n\n**i = 2**  \nx = (19*4 + 2 + 10) % 32 = (76 + 12) % 32 = 88 % 32 = 24  \n24 % 3 = 0 \u2192 skip\n\n**i = 3**  \nx = (24*4 + 3 + 10) % 32 = (96 + 13) % 32",
+      "expected": 142,
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 72,
+        "prompt_tokens": 72,
+        "completion_tokens": 256,
+        "total_tokens": 328
+      },
+      "finish_reason": "length",
+      "latency_ms": 1279.4462000019848,
+      "provider_latency_ms": 1253.890199935995,
+      "cost_upper_cny": 0.002192
+    },
+    {
+      "case_id": "test-coding-7",
+      "category": "coding",
+      "phase": "test",
+      "route": "budget",
+      "answer": "Let's go step-by-step.\n\nWe have:\n\n- `x = 9`\n- `total = 0`\n- Loop `i` from 0 to 11.\n\nFormula each iteration:  \n`x = (x * 2 + i + 7) % 94`  \nThen if `x % 3 != 0`, add `x` to `total`.\n\n---\n\n**i = 0:**  \nx = (9*2 + 0 + 7) % 94 = (18 + 7) = 25 % 94 = 25  \n25 % 3 = 1 \u2260 0 \u2192 total = 25\n\n**i = 1:**  \nx = (25*2 + 1 + 7) = 50 + 8 = 58 % 94 = 58  \n58 % 3 = 1 \u2260 0 \u2192 total = 25 + 58 = 83\n\n**i = 2:**  \nx = (58*2 + 2 + 7) = 116 + 9 = 125 % 94 = 31  \n31 % 3 = 1 \u2260 0 \u2192 total = 83 + 31 = 114\n\n**i = ",
+      "expected": 284,
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 72,
+        "prompt_tokens": 72,
+        "completion_tokens": 256,
+        "total_tokens": 328
+      },
+      "finish_reason": "length",
+      "latency_ms": 1437.5683000544086,
+      "provider_latency_ms": 1412.911899969913,
+      "cost_upper_cny": 0.002192
+    },
+    {
+      "case_id": "test-coding-7",
+      "category": "coding",
+      "phase": "test",
+      "route": "strong",
+      "answer": "585",
+      "expected": 284,
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 72,
+        "prompt_tokens": 72,
+        "completion_tokens": 1,
+        "total_tokens": 73
+      },
+      "finish_reason": "stop",
+      "latency_ms": 1177.7122999774292,
+      "provider_latency_ms": 1141.2182999774814,
+      "cost_upper_cny": 0.000675
+    },
+    {
+      "case_id": "test-general-2",
+      "category": "general",
+      "phase": "test",
+      "route": "strong",
+      "answer": "[\"R2\",\"R0\",\"R3\"]",
+      "expected": [
+        "R2",
+        "R3",
+        "R0"
+      ],
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 220,
+        "prompt_tokens": 220,
+        "completion_tokens": 10,
+        "total_tokens": 230
+      },
+      "finish_reason": "stop",
+      "latency_ms": 1089.3754999851808,
+      "provider_latency_ms": 1064.2642000457272,
+      "cost_upper_cny": 0.00225
+    },
+    {
+      "case_id": "test-general-2",
+      "category": "general",
+      "phase": "test",
+      "route": "budget",
+      "answer": "[\"R2\",\"R3\",\"R0\"]",
+      "expected": [
+        "R2",
+        "R3",
+        "R0"
+      ],
+      "score": 1.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 220,
+        "prompt_tokens": 220,
+        "completion_tokens": 10,
+        "total_tokens": 230
+      },
+      "finish_reason": "stop",
+      "latency_ms": 847.884799935855,
+      "provider_latency_ms": 821.2676000548527,
+      "cost_upper_cny": 0.00052
+    },
+    {
+      "case_id": "test-coding-2",
+      "category": "coding",
+      "phase": "test",
+      "route": "budget",
+      "answer": "Let's go step-by-step.\n\nWe have:\n\n- `x = 5`\n- `total = 0`\n- Loop `i` from 0 to 15.\n\nFormula each iteration:  \n`x = (x * 2 + i + 4) % 82`  \nIf `x % 3 != 0`, add `x` to `total`.\n\n---\n\n**i = 0:**  \nx = (5*2 + 0 + 4) % 82 = (10 + 4) % 82 = 14  \n14 % 3 = 2 \u2260 0 \u2192 total = 14\n\n**i = 1:**  \nx = (14*2 + 1 + 4) % 82 = (28 + 5) = 33 % 82 = 33  \n33 % 3 = 0 \u2192 skip, total = 14\n\n**i = 2:**  \nx = (33*2 + 2 + 4) = 66 + 6 = 72 % 82 = 72  \n72 % 3 = 0 \u2192 skip, total = 14\n\n**i = 3:**  \nx = (72*2 + 3 + ",
+      "expected": 483,
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 72,
+        "prompt_tokens": 72,
+        "completion_tokens": 256,
+        "total_tokens": 328
+      },
+      "finish_reason": "length",
+      "latency_ms": 1611.1959000118077,
+      "provider_latency_ms": 1578.7592999404296,
+      "cost_upper_cny": 0.002192
+    },
+    {
+      "case_id": "test-coding-2",
+      "category": "coding",
+      "phase": "test",
+      "route": "strong",
+      "answer": "585",
+      "expected": 483,
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 72,
+        "prompt_tokens": 72,
+        "completion_tokens": 1,
+        "total_tokens": 73
+      },
+      "finish_reason": "stop",
+      "latency_ms": 974.5832999469712,
+      "provider_latency_ms": 950.164100038819,
+      "cost_upper_cny": 0.000675
+    },
+    {
+      "case_id": "test-math-6",
+      "category": "math",
+      "phase": "test",
+      "route": "strong",
+      "answer": "Alright, let\u2019s break it down step-by-step.\n\nFirst, compute:\n\n\\[\n7389 \\times 251 = 7389 \\times (250 + 1) = 7389 \\times 250 + 7389\n\\]\n\\[\n7389 \\times 250 = 7389 \\times 1000 / 4 = 7,389,000 / 4 = 1,847,250\n\\]\nSo:\n\\[\n7389 \\times 251 = 1,847,250 + 7,389 = 1,854,639\n\\]\n\nNow add 5313:\n\n\\[\n1,854,639 + 5,313 = 1,859,952\n\\]\n\nNow compute modulo 113:\n\nFirst, find \\( 113 \\times 16459 = 1,859,867 \\).\n\nSubtract:\n\n\\[\n1,859,952 - 1,859,867 = 85\n\\]\n\nSo the result is:\n\n\\[\n\\boxed{85}\n\\]",
+      "expected": 85,
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 28,
+        "prompt_tokens": 28,
+        "completion_tokens": 211,
+        "total_tokens": 239
+      },
+      "finish_reason": "stop",
+      "latency_ms": 2961.745999986306,
+      "provider_latency_ms": 2909.253799938597,
+      "cost_upper_cny": 0.005949
+    },
+    {
+      "case_id": "test-math-6",
+      "category": "math",
+      "phase": "test",
+      "route": "budget",
+      "answer": "73",
+      "expected": 85,
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 28,
+        "prompt_tokens": 28,
+        "completion_tokens": 1,
+        "total_tokens": 29
+      },
+      "finish_reason": "stop",
+      "latency_ms": 792.3391999211162,
+      "provider_latency_ms": 759.7742999205366,
+      "cost_upper_cny": 6.4e-05
+    },
+    {
+      "case_id": "test-coding-1",
+      "category": "coding",
+      "phase": "test",
+      "route": "budget",
+      "answer": "Let\u2019s go through it step-by-step.\n\nWe start with:\n\n- `x = 13`\n- `total = 0`\n\nLoop from `i = 0` to `14`:\n\n---\n\n**i = 0**  \nx = (13*3 + 0 + 3) % 60 = (39 + 3) % 60 = 42 % 60 = 42  \n42 % 3 == 0 \u2192 skip  \ntotal = 0\n\n**i = 1**  \nx = (42*3 + 1 + 3) % 60 = (126 + 4) % 60 = 130 % 60 = 10  \n10 % 3 = 1 \u2260 0 \u2192 add  \ntotal = 10\n\n**i = 2**  \nx = (10*3 + 2 + 3) % 60 = (30 + 5) % 60 = 35  \n35 % 3 = 2 \u2260 0 \u2192 add  \ntotal = 45\n\n**i = 3**  \nx = (35*3 + 3 + 3) % 60 = (105 + 6) % 60 = 111 % 60 =",
+      "expected": 291,
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 72,
+        "prompt_tokens": 72,
+        "completion_tokens": 256,
+        "total_tokens": 328
+      },
+      "finish_reason": "length",
+      "latency_ms": 1509.309699991718,
+      "provider_latency_ms": 1481.781900045462,
+      "cost_upper_cny": 0.002192
+    },
+    {
+      "case_id": "test-coding-1",
+      "category": "coding",
+      "phase": "test",
+      "route": "strong",
+      "answer": "435",
+      "expected": 291,
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 72,
+        "prompt_tokens": 72,
+        "completion_tokens": 1,
+        "total_tokens": 73
+      },
+      "finish_reason": "stop",
+      "latency_ms": 798.1494999257848,
+      "provider_latency_ms": 765.8692999975756,
+      "cost_upper_cny": 0.000675
+    },
+    {
+      "case_id": "test-math-3",
+      "category": "math",
+      "phase": "test",
+      "route": "strong",
+      "answer": "Let\u2019s break it down step-by-step.\n\nFirst, reduce each number modulo 113:\n\n- 1988 mod 113:  \n  113 \u00d7 17 = 1921, remainder = 1988 \u2212 1921 = 67.\n\n- 2991 mod 113:  \n  113 \u00d7 26 = 2938, remainder = 2991 \u2212 2938 = 53.\n\n- 1498 mod 113:  \n  113 \u00d7 13 = 1469, remainder = 1498 \u2212 1469 = 29.\n\nNow compute:\n\n(67 \u00d7 53 + 29) mod 113\n\n67 \u00d7 53 = 3551.  \n3551 mod 113:  \n113 \u00d7 31 = 3503, remainder = 3551 \u2212 3503 = 48.\n\nThen 48 + 29 = 77.\n\nFinal answer:\n\n**77**",
+      "expected": 77,
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 29,
+        "prompt_tokens": 29,
+        "completion_tokens": 186,
+        "total_tokens": 215
+      },
+      "finish_reason": "stop",
+      "latency_ms": 2408.9616000419483,
+      "provider_latency_ms": 2385.841100011021,
+      "cost_upper_cny": 0.005283
+    },
+    {
+      "case_id": "test-math-3",
+      "category": "math",
+      "phase": "test",
+      "route": "budget",
+      "answer": "Let's go step-by-step.\n\nWe want:\n\n\\[\n(1988 \\times 2991 + 1498) \\bmod 113\n\\]\n\n---\n\n**Step 1: Reduce 1988 mod 113**\n\n113 \u00d7 17 = 1921  \n1988 \u2212 1921 = 67  \nSo 1988 \u2261 67 (mod 113).\n\n---\n\n**Step 2: Reduce 2991 mod 113**\n\n113 \u00d7 26 = 2938  \n2991 \u2212 2938 = 53  \nSo 2991 \u2261 53 (mod 113).\n\n---\n\n**Step 3: Multiply the reduced values**\n\n67 \u00d7 53 = 3551\n\nNow reduce 3551 mod 113:\n\n113 \u00d7 31 = 3503  \n3551 \u2212 3503 = 48\n\nSo 1988 \u00d7 2991 \u2261 48 (mod 113).\n\n---\n\n**Step 4: Reduce 1498 mod 113**\n\n113 \u00d7 13 = 1469  \n1498 \u2212 1469 = 29\n\nSo 1498 \u2261 29 (mod 113).\n\n---\n\n**Step 5: Add**\n\n48 + 29 = 77\n\n77 < 113, so the result is",
+      "expected": 77,
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 29,
+        "prompt_tokens": 29,
+        "completion_tokens": 256,
+        "total_tokens": 285
+      },
+      "finish_reason": "length",
+      "latency_ms": 1561.1012000590563,
+      "provider_latency_ms": 1506.4783999696374,
+      "cost_upper_cny": 0.002106
+    },
+    {
+      "case_id": "test-general-4",
+      "category": "general",
+      "phase": "test",
+      "route": "budget",
+      "answer": "[\"R7\",\"R9\",\"R8\"]",
+      "expected": [
+        "R7",
+        "R9",
+        "R8"
+      ],
+      "score": 1.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 220,
+        "prompt_tokens": 220,
+        "completion_tokens": 10,
+        "total_tokens": 230
+      },
+      "finish_reason": "stop",
+      "latency_ms": 781.9588000420481,
+      "provider_latency_ms": 735.918499995023,
+      "cost_upper_cny": 0.00052
+    },
+    {
+      "case_id": "test-general-4",
+      "category": "general",
+      "phase": "test",
+      "route": "strong",
+      "answer": "[\"R7\",\"R9\",\"R8\"]",
+      "expected": [
+        "R7",
+        "R9",
+        "R8"
+      ],
+      "score": 1.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 220,
+        "prompt_tokens": 220,
+        "completion_tokens": 10,
+        "total_tokens": 230
+      },
+      "finish_reason": "stop",
+      "latency_ms": 459.91169998887926,
+      "provider_latency_ms": 437.2569000115618,
+      "cost_upper_cny": 0.00225
+    },
+    {
+      "case_id": "test-coding-3",
+      "category": "coding",
+      "phase": "test",
+      "route": "strong",
+      "answer": "435",
+      "expected": 215,
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 72,
+        "prompt_tokens": 72,
+        "completion_tokens": 1,
+        "total_tokens": 73
+      },
+      "finish_reason": "stop",
+      "latency_ms": 861.6560000227764,
+      "provider_latency_ms": 826.8723000073805,
+      "cost_upper_cny": 0.000675
+    },
+    {
+      "case_id": "test-coding-3",
+      "category": "coding",
+      "phase": "test",
+      "route": "budget",
+      "answer": "Let's go step-by-step.\n\nWe have:\n\n- x = 18  \n- total = 0  \n- Loop i from 0 to 8 (9 iterations).\n\n---\n\n**i = 0**  \nx = (18*4 + 0 + 6) % 95 = (72 + 6) % 95 = 78 % 95 = 78  \n78 % 3 = 0 \u2192 skip adding.\n\n---\n\n**i = 1**  \nx = (78*4 + 1 + 6) % 95 = (312 + 7) % 95 = 319 % 95  \n95*3 = 285, remainder 34 \u2192 x = 34  \n34 % 3 = 1 \u2260 0 \u2192 total += 34 \u2192 total = 34\n\n---\n\n**i = 2**  \nx = (34*4 + 2 + 6) % 95 = (136 + 8) % 95 = 144 % 95 = 49  \n49 % 3 = 1 \u2260 0 \u2192 total = 34 + 49 = 83\n\n---\n\n**i = 3**  \nx = (49*4 + 3 + 6) %",
+      "expected": 215,
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 72,
+        "prompt_tokens": 72,
+        "completion_tokens": 256,
+        "total_tokens": 328
+      },
+      "finish_reason": "length",
+      "latency_ms": 1626.7555000958964,
+      "provider_latency_ms": 1601.5836999285966,
+      "cost_upper_cny": 0.002192
+    },
+    {
+      "case_id": "test-general-7",
+      "category": "general",
+      "phase": "test",
+      "route": "budget",
+      "answer": "[\"R7\",\"R5\",\"R1\"]",
+      "expected": [
+        "R7",
+        "R5",
+        "R1"
+      ],
+      "score": 1.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 220,
+        "prompt_tokens": 220,
+        "completion_tokens": 10,
+        "total_tokens": 230
+      },
+      "finish_reason": "stop",
+      "latency_ms": 731.4683999866247,
+      "provider_latency_ms": 708.902099984698,
+      "cost_upper_cny": 0.00052
+    },
+    {
+      "case_id": "test-general-7",
+      "category": "general",
+      "phase": "test",
+      "route": "strong",
+      "answer": "[\"R7\",\"R1\",\"R5\"]",
+      "expected": [
+        "R7",
+        "R5",
+        "R1"
+      ],
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 220,
+        "prompt_tokens": 220,
+        "completion_tokens": 10,
+        "total_tokens": 230
+      },
+      "finish_reason": "stop",
+      "latency_ms": 1158.762300037779,
+      "provider_latency_ms": 1130.1475999644026,
+      "cost_upper_cny": 0.00225
+    },
+    {
+      "case_id": "test-general-5",
+      "category": "general",
+      "phase": "test",
+      "route": "strong",
+      "answer": "[\"R8\",\"R5\",\"R4\"]",
+      "expected": [
+        "R4",
+        "R8",
+        "R9"
+      ],
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 220,
+        "prompt_tokens": 220,
+        "completion_tokens": 10,
+        "total_tokens": 230
+      },
+      "finish_reason": "stop",
+      "latency_ms": 954.9973999382928,
+      "provider_latency_ms": 918.9416000153869,
+      "cost_upper_cny": 0.00225
+    },
+    {
+      "case_id": "test-general-5",
+      "category": "general",
+      "phase": "test",
+      "route": "budget",
+      "answer": "[\"R4\",\"R8\",\"R9\"]",
+      "expected": [
+        "R4",
+        "R8",
+        "R9"
+      ],
+      "score": 1.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 220,
+        "prompt_tokens": 220,
+        "completion_tokens": 10,
+        "total_tokens": 230
+      },
+      "finish_reason": "stop",
+      "latency_ms": 584.6168000716716,
+      "provider_latency_ms": 551.7079000128433,
+      "cost_upper_cny": 0.00052
+    },
+    {
+      "case_id": "test-general-6",
+      "category": "general",
+      "phase": "test",
+      "route": "budget",
+      "answer": "[\"R3\",\"R4\",\"R1\"]",
+      "expected": [
+        "R3",
+        "R4",
+        "R1"
+      ],
+      "score": 1.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 220,
+        "prompt_tokens": 220,
+        "completion_tokens": 10,
+        "total_tokens": 230
+      },
+      "finish_reason": "stop",
+      "latency_ms": 877.1772999316454,
+      "provider_latency_ms": 847.97530004289,
+      "cost_upper_cny": 0.00052
+    },
+    {
+      "case_id": "test-general-6",
+      "category": "general",
+      "phase": "test",
+      "route": "strong",
+      "answer": "[\"R3\",\"R4\",\"R1\"]",
+      "expected": [
+        "R3",
+        "R4",
+        "R1"
+      ],
+      "score": 1.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 220,
+        "prompt_tokens": 220,
+        "completion_tokens": 10,
+        "total_tokens": 230
+      },
+      "finish_reason": "stop",
+      "latency_ms": 1119.8602999793366,
+      "provider_latency_ms": 1091.571900062263,
+      "cost_upper_cny": 0.00225
+    },
+    {
+      "case_id": "test-math-4",
+      "category": "math",
+      "phase": "test",
+      "route": "strong",
+      "answer": "Alright, let\u2019s break it down step-by-step.\n\nWe need:\n\n\\[\n(3413 \\times 1300 + 4483) \\bmod 97\n\\]\n\n**Step 1: Reduce each number modulo 97**\n\n- \\(3413 \\bmod 97\\)  \n\\(97 \\times 35 = 3395\\)  \n\\(3413 - 3395 = 18\\)  \nSo \\(3413 \\equiv 18 \\pmod{97}\\)\n\n- \\(1300 \\bmod 97\\)  \n\\(97 \\times 13 = 1261\\)  \n\\(1300 - 1261 = 39\\)  \nSo \\(1300 \\equiv 39 \\pmod{97}\\)\n\n- \\(4483 \\bmod 97\\)  \n\\(97 \\times 46 = 4462\\)  \n\\(4483 - 4462 = 21\\)  \nSo \\(4483 \\equiv 21 \\pmod{97}\\)\n\n**Step 2: Multiply and add in mod 97**\n\n\\[\n18 \\times 39 = 702\n\\]\n\\(702 \\bmod 97\\):  \n\\(97 \\times 7 = 679\\)  \n\\(702 - 679 = 23\\)  \nSo \\(18",
+      "expected": 44,
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 29,
+        "prompt_tokens": 29,
+        "completion_tokens": 256,
+        "total_tokens": 285
+      },
+      "finish_reason": "length",
+      "latency_ms": 2537.22589998506,
+      "provider_latency_ms": 2499.177800025791,
+      "cost_upper_cny": 0.007173
+    },
+    {
+      "case_id": "test-math-4",
+      "category": "math",
+      "phase": "test",
+      "route": "budget",
+      "answer": "43",
+      "expected": 44,
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 29,
+        "prompt_tokens": 29,
+        "completion_tokens": 1,
+        "total_tokens": 30
+      },
+      "finish_reason": "stop",
+      "latency_ms": 886.2889999290928,
+      "provider_latency_ms": 851.1731000617146,
+      "cost_upper_cny": 6.6e-05
+    },
+    {
+      "case_id": "test-general-1",
+      "category": "general",
+      "phase": "test",
+      "route": "budget",
+      "answer": "[\"R4\",\"R1\",\"R3\"]",
+      "expected": [
+        "R4",
+        "R1",
+        "R3"
+      ],
+      "score": 1.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 220,
+        "prompt_tokens": 220,
+        "completion_tokens": 10,
+        "total_tokens": 230
+      },
+      "finish_reason": "stop",
+      "latency_ms": 486.17309995461255,
+      "provider_latency_ms": 466.16730000823736,
+      "cost_upper_cny": 0.00052
+    },
+    {
+      "case_id": "test-general-1",
+      "category": "general",
+      "phase": "test",
+      "route": "strong",
+      "answer": "[\"R4\",\"R1\",\"R3\"]",
+      "expected": [
+        "R4",
+        "R1",
+        "R3"
+      ],
+      "score": 1.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 220,
+        "prompt_tokens": 220,
+        "completion_tokens": 10,
+        "total_tokens": 230
+      },
+      "finish_reason": "stop",
+      "latency_ms": 953.8636999204755,
+      "provider_latency_ms": 927.5593000929803,
+      "cost_upper_cny": 0.00225
+    },
+    {
+      "case_id": "test-coding-0",
+      "category": "coding",
+      "phase": "test",
+      "route": "strong",
+      "answer": "235",
+      "expected": 214,
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 72,
+        "prompt_tokens": 72,
+        "completion_tokens": 1,
+        "total_tokens": 73
+      },
+      "finish_reason": "stop",
+      "latency_ms": 910.9824999468401,
+      "provider_latency_ms": 881.0791000723839,
+      "cost_upper_cny": 0.000675
+    },
+    {
+      "case_id": "test-coding-0",
+      "category": "coding",
+      "phase": "test",
+      "route": "budget",
+      "answer": "Let's go step-by-step.\n\nWe have:\n\n```python\nx = 5\ntotal = 0\nfor i in range(9):\n    x = (x * 5 + i + 5) % 81\n    if x % 3 != 0:\n        total += x\nprint(total)\n```\n\n---\n\n**i = 0**  \nx = (5*5 + 0 + 5) % 81 = (25 + 5) % 81 = 30 % 81 = 30  \n30 % 3 == 0 \u2192 skip  \ntotal = 0\n\n**i = 1**  \nx = (30*5 + 1 + 5) % 81 = (150 + 6) % 81 = 156 % 81 = 75  \n75 % 3 == 0 \u2192 skip  \ntotal = 0\n\n**i = 2**  \nx = (75*5 + 2 + 5) % 81 = (375 + 7) % 81 = 382 % 81  \n81*4 = 324, 382 - 324 = 58  \n58 % 3 = 1 \u2260 0 \u2192 add 58  \ntotal",
+      "expected": 214,
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 72,
+        "prompt_tokens": 72,
+        "completion_tokens": 256,
+        "total_tokens": 328
+      },
+      "finish_reason": "length",
+      "latency_ms": 1562.3364000348374,
+      "provider_latency_ms": 1537.3726000543684,
+      "cost_upper_cny": 0.002192
+    },
+    {
+      "case_id": "test-math-1",
+      "category": "math",
+      "phase": "test",
+      "route": "budget",
+      "answer": "37",
+      "expected": 65,
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 28,
+        "prompt_tokens": 28,
+        "completion_tokens": 1,
+        "total_tokens": 29
+      },
+      "finish_reason": "stop",
+      "latency_ms": 719.0248999977484,
+      "provider_latency_ms": 675.0010000541806,
+      "cost_upper_cny": 6.4e-05
+    },
+    {
+      "case_id": "test-math-1",
+      "category": "math",
+      "phase": "test",
+      "route": "strong",
+      "answer": "Alright, let\u2019s break it down step-by-step.\n\nFirst, compute:\n\n942 \u00d7 5197 = 4,895,574\n\nThen add 8243:\n\n4,895,574 + 8243 = 4,903,817\n\nNow, find 4,903,817 mod 101.\n\nWe can do this by dividing:\n\n101 \u00d7 48,552 = 4,903,752\n\nSubtract:\n\n4,903,817 \u2212 4,903,752 = 65\n\nSo the result is:\n\n**65**",
+      "expected": 65,
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 28,
+        "prompt_tokens": 28,
+        "completion_tokens": 113,
+        "total_tokens": 141
+      },
+      "finish_reason": "stop",
+      "latency_ms": 2382.3625999502838,
+      "provider_latency_ms": 2348.858700017445,
+      "cost_upper_cny": 0.003303
+    },
+    {
+      "case_id": "test-math-0",
+      "category": "math",
+      "phase": "test",
+      "route": "strong",
+      "answer": "Alright, let\u2019s break it down step-by-step.\n\nFirst, reduce each number modulo 127:\n\n- \\(3446 \\mod 127\\):  \n  \\(127 \\times 27 = 3429\\), remainder \\(3446 - 3429 = 17\\).  \n  So \\(3446 \\equiv 17 \\pmod{127}\\).\n\n- \\(2541 \\mod 127\\):  \n  \\(127 \\times 20 = 2540\\), remainder \\(1\\).  \n  So \\(2541 \\equiv 1 \\pmod{127}\\).\n\n- \\(2460 \\mod 127\\):  \n  \\(127 \\times 19 = 2413\\), remainder \\(47\\).  \n  So \\(2460 \\equiv 47 \\pmod{127}\\).\n\nNow compute:\n\n\\[\n(17 \\times 1 + 47) \\mod 127 = (17 + 47) \\mod 127 = 64\n\\]\n\nThe answer is:\n\n**64**",
+      "expected": 64,
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 29,
+        "prompt_tokens": 29,
+        "completion_tokens": 200,
+        "total_tokens": 229
+      },
+      "finish_reason": "stop",
+      "latency_ms": 2415.850799996406,
+      "provider_latency_ms": 2390.587199945003,
+      "cost_upper_cny": 0.005661
+    },
+    {
+      "case_id": "test-math-0",
+      "category": "math",
+      "phase": "test",
+      "route": "budget",
+      "answer": "67",
+      "expected": 64,
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 29,
+        "prompt_tokens": 29,
+        "completion_tokens": 1,
+        "total_tokens": 30
+      },
+      "finish_reason": "stop",
+      "latency_ms": 655.3233999293298,
+      "provider_latency_ms": 621.0041000740603,
+      "cost_upper_cny": 6.6e-05
+    }
+  ],
+  "training_checkpoints": [
+    {
+      "round": 12,
+      "stats": [
+        {
+          "category": "coding",
+          "model": "budget",
+          "attempts": 1,
+          "samples": 1,
+          "quality": 0.0,
+          "avg_cost": 0.002192,
+          "cost_samples": 1,
+          "avg_latency_ms": 1607.4480999959633,
+          "generation_cost": 0.002192,
+          "judge_cost": 0.0,
+          "unknown_cost_attempts": 0
+        },
+        {
+          "category": "coding",
+          "model": "strong",
+          "attempts": 2,
+          "samples": 2,
+          "quality": 0.0,
+          "avg_cost": 0.000675,
+          "cost_samples": 2,
+          "avg_latency_ms": 833.0731999594718,
+          "generation_cost": 0.00135,
+          "judge_cost": 0.0,
+          "unknown_cost_attempts": 0
+        },
+        {
+          "category": "general",
+          "model": "budget",
+          "attempts": 4,
+          "samples": 4,
+          "quality": 0.75,
+          "avg_cost": 0.00052,
+          "cost_samples": 4,
+          "avg_latency_ms": 742.3002500436269,
+          "generation_cost": 0.00208,
+          "judge_cost": 0.0,
+          "unknown_cost_attempts": 0
+        },
+        {
+          "category": "general",
+          "model": "strong",
+          "attempts": 3,
+          "samples": 3,
+          "quality": 0.6666666666666666,
+          "avg_cost": 0.0022229999999999997,
+          "cost_samples": 3,
+          "avg_latency_ms": 1009.6123000451674,
+          "generation_cost": 0.006669,
+          "judge_cost": 0.0,
+          "unknown_cost_attempts": 0
+        },
+        {
+          "category": "math",
+          "model": "budget",
+          "attempts": 1,
+          "samples": 1,
+          "quality": 0.0,
+          "avg_cost": 6.6e-05,
+          "cost_samples": 1,
+          "avg_latency_ms": 1044.1460000583902,
+          "generation_cost": 6.6e-05,
+          "judge_cost": 0.0,
+          "unknown_cost_attempts": 0
+        },
+        {
+          "category": "math",
+          "model": "strong",
+          "attempts": 1,
+          "samples": 1,
+          "quality": 0.0,
+          "avg_cost": 0.006525,
+          "cost_samples": 1,
+          "avg_latency_ms": 2582.4005999602377,
+          "generation_cost": 0.006525,
+          "judge_cost": 0.0,
+          "unknown_cost_attempts": 0
+        }
+      ]
+    },
+    {
+      "round": 24,
+      "stats": [
+        {
+          "category": "coding",
+          "model": "budget",
+          "attempts": 3,
+          "samples": 3,
+          "quality": 0.0,
+          "avg_cost": 0.002192,
+          "cost_samples": 3,
+          "avg_latency_ms": 1441.0162333321448,
+          "generation_cost": 0.006576,
+          "judge_cost": 0.0,
+          "unknown_cost_attempts": 0
+        },
+        {
+          "category": "coding",
+          "model": "strong",
+          "attempts": 4,
+          "samples": 4,
+          "quality": 0.0,
+          "avg_cost": 0.000675,
+          "cost_samples": 4,
+          "avg_latency_ms": 860.2829249866772,
+          "generation_cost": 0.0027,
+          "judge_cost": 0.0,
+          "unknown_cost_attempts": 0
+        },
+        {
+          "category": "general",
+          "model": "budget",
+          "attempts": 6,
+          "samples": 6,
+          "quality": 0.6666666666666666,
+          "avg_cost": 0.00052,
+          "cost_samples": 6,
+          "avg_latency_ms": 701.3161333743483,
+          "generation_cost": 0.0031199999999999995,
+          "judge_cost": 0.0,
+          "unknown_cost_attempts": 0
+        },
+        {
+          "category": "general",
+          "model": "strong",
+          "attempts": 3,
+          "samples": 3,
+          "quality": 0.6666666666666666,
+          "avg_cost": 0.0022229999999999997,
+          "cost_samples": 3,
+          "avg_latency_ms": 1009.6123000451674,
+          "generation_cost": 0.006669,
+          "judge_cost": 0.0,
+          "unknown_cost_attempts": 0
+        },
+        {
+          "category": "math",
+          "model": "budget",
+          "attempts": 5,
+          "samples": 5,
+          "quality": 0.0,
+          "avg_cost": 0.0007384,
+          "cost_samples": 5,
+          "avg_latency_ms": 1187.6263400306925,
+          "generation_cost": 0.003692,
+          "judge_cost": 0.0,
+          "unknown_cost_attempts": 0
+        },
+        {
+          "category": "math",
+          "model": "strong",
+          "attempts": 3,
+          "samples": 3,
+          "quality": 0.0,
+          "avg_cost": 0.006522,
+          "cost_samples": 3,
+          "avg_latency_ms": 2595.1797333157933,
+          "generation_cost": 0.019566,
+          "judge_cost": 0.0,
+          "unknown_cost_attempts": 0
+        }
+      ]
+    },
+    {
+      "round": 36,
+      "stats": [
+        {
+          "category": "coding",
+          "model": "budget",
+          "attempts": 3,
+          "samples": 3,
+          "quality": 0.0,
+          "avg_cost": 0.002192,
+          "cost_samples": 3,
+          "avg_latency_ms": 1441.0162333321448,
+          "generation_cost": 0.006576,
+          "judge_cost": 0.0,
+          "unknown_cost_attempts": 0
+        },
+        {
+          "category": "coding",
+          "model": "strong",
+          "attempts": 10,
+          "samples": 10,
+          "quality": 0.0,
+          "avg_cost": 0.000675,
+          "cost_samples": 10,
+          "avg_latency_ms": 918.1525700143538,
+          "generation_cost": 0.006750000000000001,
+          "judge_cost": 0.0,
+          "unknown_cost_attempts": 0
+        },
+        {
+          "category": "general",
+          "model": "budget",
+          "attempts": 7,
+          "samples": 7,
+          "quality": 0.5714285714285714,
+          "avg_cost": 0.00052,
+          "cost_samples": 7,
+          "avg_latency_ms": 693.2802143273875,
+          "generation_cost": 0.0036399999999999996,
+          "judge_cost": 0.0,
+          "unknown_cost_attempts": 0
+        },
+        {
+          "category": "general",
+          "model": "strong",
+          "attempts": 4,
+          "samples": 4,
+          "quality": 0.75,
+          "avg_cost": 0.00222975,
+          "cost_samples": 4,
+          "avg_latency_ms": 1008.9760250411928,
+          "generation_cost": 0.008919,
+          "judge_cost": 0.0,
+          "unknown_cost_attempts": 0
+        },
+        {
+          "category": "math",
+          "model": "budget",
+          "attempts": 9,
+          "samples": 9,
+          "quality": 0.0,
+          "avg_cost": 0.0007137777777777778,
+          "cost_samples": 9,
+          "avg_latency_ms": 1052.682544466936,
+          "generation_cost": 0.006424,
+          "judge_cost": 0.0,
+          "unknown_cost_attempts": 0
+        },
+        {
+          "category": "math",
+          "model": "strong",
+          "attempts": 3,
+          "samples": 3,
+          "quality": 0.0,
+          "avg_cost": 0.006522,
+          "cost_samples": 3,
+          "avg_latency_ms": 2595.1797333157933,
+          "generation_cost": 0.019566,
+          "judge_cost": 0.0,
+          "unknown_cost_attempts": 0
+        }
+      ]
+    },
+    {
+      "round": 48,
+      "stats": [
+        {
+          "category": "coding",
+          "model": "budget",
+          "attempts": 4,
+          "samples": 4,
+          "quality": 0.0,
+          "avg_cost": 0.002192,
+          "cost_samples": 4,
+          "avg_latency_ms": 1404.2357500002254,
+          "generation_cost": 0.008768,
+          "judge_cost": 0.0,
+          "unknown_cost_attempts": 0
+        },
+        {
+          "category": "coding",
+          "model": "strong",
+          "attempts": 12,
+          "samples": 12,
+          "quality": 0.0,
+          "avg_cost": 0.0006749999999999999,
+          "cost_samples": 12,
+          "avg_latency_ms": 928.1919666779382,
+          "generation_cost": 0.0081,
+          "judge_cost": 0.0,
+          "unknown_cost_attempts": 0
+        },
+        {
+          "category": "general",
+          "model": "budget",
+          "attempts": 7,
+          "samples": 7,
+          "quality": 0.5714285714285714,
+          "avg_cost": 0.00052,
+          "cost_samples": 7,
+          "avg_latency_ms": 693.2802143273875,
+          "generation_cost": 0.0036399999999999996,
+          "judge_cost": 0.0,
+          "unknown_cost_attempts": 0
+        },
+        {
+          "category": "general",
+          "model": "strong",
+          "attempts": 9,
+          "samples": 9,
+          "quality": 0.8888888888888888,
+          "avg_cost": 0.0022229999999999997,
+          "cost_samples": 9,
+          "avg_latency_ms": 1036.1841444521108,
+          "generation_cost": 0.020006999999999997,
+          "judge_cost": 0.0,
+          "unknown_cost_attempts": 0
+        },
+        {
+          "category": "math",
+          "model": "budget",
+          "attempts": 13,
+          "samples": 13,
+          "quality": 0.0,
+          "avg_cost": 0.0005141538461538461,
+          "cost_samples": 13,
+          "avg_latency_ms": 969.6364000153083,
+          "generation_cost": 0.006684,
+          "judge_cost": 0.0,
+          "unknown_cost_attempts": 0
+        },
+        {
+          "category": "math",
+          "model": "strong",
+          "attempts": 3,
+          "samples": 3,
+          "quality": 0.0,
+          "avg_cost": 0.006522,
+          "cost_samples": 3,
+          "avg_latency_ms": 2595.1797333157933,
+          "generation_cost": 0.019566,
+          "judge_cost": 0.0,
+          "unknown_cost_attempts": 0
+        }
+      ]
+    }
+  ],
+  "frozen_routes": {
+    "test-general-3": {
+      "selected_model": "strong",
+      "task_category": "general",
+      "reason": "frozen_policy",
+      "learning_samples": 16,
+      "candidates": [
+        {
+          "model": "strong",
+          "samples": 9,
+          "attempts": 9,
+          "quality": 0.8888888888888888,
+          "estimated_cost": 0.0022229999999999997,
+          "latency_ms": 1036.1841444521108,
+          "utility": 0.7792452059998466,
+          "exploration_bonus": 0,
+          "score": 0.7792452059998466
+        },
+        {
+          "model": "budget",
+          "samples": 7,
+          "attempts": 7,
+          "quality": 0.5714285714285714,
+          "estimated_cost": 0.00052,
+          "latency_ms": 693.2802143273875,
+          "utility": 0.5367629671420237,
+          "exploration_bonus": 0,
+          "score": 0.5367629671420237
+        }
+      ],
+      "algorithm": "task-ucb-v1"
+    },
+    "test-math-5": {
+      "selected_model": "budget",
+      "task_category": "math",
+      "reason": "frozen_policy",
+      "learning_samples": 16,
+      "candidates": [
+        {
+          "model": "budget",
+          "samples": 13,
+          "attempts": 13,
+          "quality": 0.0,
+          "estimated_cost": 0.0005141538461538461,
+          "latency_ms": 969.6364000153083,
+          "utility": -0.039958881846460015,
+          "exploration_bonus": 0,
+          "score": -0.039958881846460015
+        },
+        {
+          "model": "strong",
+          "samples": 3,
+          "attempts": 3,
+          "quality": 0.0,
+          "estimated_cost": 0.006522,
+          "latency_ms": 2595.1797333157933,
+          "utility": -0.2519035946663159,
+          "exploration_bonus": 0,
+          "score": -0.2519035946663159
+        }
+      ],
+      "algorithm": "task-ucb-v1"
+    },
+    "test-math-2": {
+      "selected_model": "budget",
+      "task_category": "math",
+      "reason": "frozen_policy",
+      "learning_samples": 16,
+      "candidates": [
+        {
+          "model": "budget",
+          "samples": 13,
+          "attempts": 13,
+          "quality": 0.0,
+          "estimated_cost": 0.0005141538461538461,
+          "latency_ms": 969.6364000153083,
+          "utility": -0.039958881846460015,
+          "exploration_bonus": 0,
+          "score": -0.039958881846460015
+        },
+        {
+          "model": "strong",
+          "samples": 3,
+          "attempts": 3,
+          "quality": 0.0,
+          "estimated_cost": 0.006522,
+          "latency_ms": 2595.1797333157933,
+          "utility": -0.2519035946663159,
+          "exploration_bonus": 0,
+          "score": -0.2519035946663159
+        }
+      ],
+      "algorithm": "task-ucb-v1"
+    },
+    "test-general-0": {
+      "selected_model": "strong",
+      "task_category": "general",
+      "reason": "frozen_policy",
+      "learning_samples": 16,
+      "candidates": [
+        {
+          "model": "strong",
+          "samples": 9,
+          "attempts": 9,
+          "quality": 0.8888888888888888,
+          "estimated_cost": 0.0022229999999999997,
+          "latency_ms": 1036.1841444521108,
+          "utility": 0.7792452059998466,
+          "exploration_bonus": 0,
+          "score": 0.7792452059998466
+        },
+        {
+          "model": "budget",
+          "samples": 7,
+          "attempts": 7,
+          "quality": 0.5714285714285714,
+          "estimated_cost": 0.00052,
+          "latency_ms": 693.2802143273875,
+          "utility": 0.5367629671420237,
+          "exploration_bonus": 0,
+          "score": 0.5367629671420237
+        }
+      ],
+      "algorithm": "task-ucb-v1"
+    },
+    "test-coding-5": {
+      "selected_model": "strong",
+      "task_category": "coding",
+      "reason": "frozen_policy",
+      "learning_samples": 16,
+      "candidates": [
+        {
+          "model": "strong",
+          "samples": 12,
+          "attempts": 12,
+          "quality": 0.0,
+          "estimated_cost": 0.0006749999999999999,
+          "latency_ms": 928.1919666779382,
+          "utility": -0.04556383933355876,
+          "exploration_bonus": 0,
+          "score": -0.04556383933355876
+        },
+        {
+          "model": "budget",
+          "samples": 4,
+          "attempts": 4,
+          "quality": 0.0,
+          "estimated_cost": 0.002192,
+          "latency_ms": 1404.2357500002254,
+          "utility": -0.1157647150000045,
+          "exploration_bonus": 0,
+          "score": -0.1157647150000045
+        }
+      ],
+      "algorithm": "task-ucb-v1"
+    },
+    "test-math-7": {
+      "selected_model": "budget",
+      "task_category": "math",
+      "reason": "frozen_policy",
+      "learning_samples": 16,
+      "candidates": [
+        {
+          "model": "budget",
+          "samples": 13,
+          "attempts": 13,
+          "quality": 0.0,
+          "estimated_cost": 0.0005141538461538461,
+          "latency_ms": 969.6364000153083,
+          "utility": -0.039958881846460015,
+          "exploration_bonus": 0,
+          "score": -0.039958881846460015
+        },
+        {
+          "model": "strong",
+          "samples": 3,
+          "attempts": 3,
+          "quality": 0.0,
+          "estimated_cost": 0.006522,
+          "latency_ms": 2595.1797333157933,
+          "utility": -0.2519035946663159,
+          "exploration_bonus": 0,
+          "score": -0.2519035946663159
+        }
+      ],
+      "algorithm": "task-ucb-v1"
+    },
+    "test-coding-6": {
+      "selected_model": "strong",
+      "task_category": "coding",
+      "reason": "frozen_policy",
+      "learning_samples": 16,
+      "candidates": [
+        {
+          "model": "strong",
+          "samples": 12,
+          "attempts": 12,
+          "quality": 0.0,
+          "estimated_cost": 0.0006749999999999999,
+          "latency_ms": 928.1919666779382,
+          "utility": -0.04556383933355876,
+          "exploration_bonus": 0,
+          "score": -0.04556383933355876
+        },
+        {
+          "model": "budget",
+          "samples": 4,
+          "attempts": 4,
+          "quality": 0.0,
+          "estimated_cost": 0.002192,
+          "latency_ms": 1404.2357500002254,
+          "utility": -0.1157647150000045,
+          "exploration_bonus": 0,
+          "score": -0.1157647150000045
+        }
+      ],
+      "algorithm": "task-ucb-v1"
+    },
+    "test-coding-4": {
+      "selected_model": "strong",
+      "task_category": "coding",
+      "reason": "frozen_policy",
+      "learning_samples": 16,
+      "candidates": [
+        {
+          "model": "strong",
+          "samples": 12,
+          "attempts": 12,
+          "quality": 0.0,
+          "estimated_cost": 0.0006749999999999999,
+          "latency_ms": 928.1919666779382,
+          "utility": -0.04556383933355876,
+          "exploration_bonus": 0,
+          "score": -0.04556383933355876
+        },
+        {
+          "model": "budget",
+          "samples": 4,
+          "attempts": 4,
+          "quality": 0.0,
+          "estimated_cost": 0.002192,
+          "latency_ms": 1404.2357500002254,
+          "utility": -0.1157647150000045,
+          "exploration_bonus": 0,
+          "score": -0.1157647150000045
+        }
+      ],
+      "algorithm": "task-ucb-v1"
+    },
+    "test-coding-7": {
+      "selected_model": "strong",
+      "task_category": "coding",
+      "reason": "frozen_policy",
+      "learning_samples": 16,
+      "candidates": [
+        {
+          "model": "strong",
+          "samples": 12,
+          "attempts": 12,
+          "quality": 0.0,
+          "estimated_cost": 0.0006749999999999999,
+          "latency_ms": 928.1919666779382,
+          "utility": -0.04556383933355876,
+          "exploration_bonus": 0,
+          "score": -0.04556383933355876
+        },
+        {
+          "model": "budget",
+          "samples": 4,
+          "attempts": 4,
+          "quality": 0.0,
+          "estimated_cost": 0.002192,
+          "latency_ms": 1404.2357500002254,
+          "utility": -0.1157647150000045,
+          "exploration_bonus": 0,
+          "score": -0.1157647150000045
+        }
+      ],
+      "algorithm": "task-ucb-v1"
+    },
+    "test-general-2": {
+      "selected_model": "strong",
+      "task_category": "general",
+      "reason": "frozen_policy",
+      "learning_samples": 16,
+      "candidates": [
+        {
+          "model": "strong",
+          "samples": 9,
+          "attempts": 9,
+          "quality": 0.8888888888888888,
+          "estimated_cost": 0.0022229999999999997,
+          "latency_ms": 1036.1841444521108,
+          "utility": 0.7792452059998466,
+          "exploration_bonus": 0,
+          "score": 0.7792452059998466
+        },
+        {
+          "model": "budget",
+          "samples": 7,
+          "attempts": 7,
+          "quality": 0.5714285714285714,
+          "estimated_cost": 0.00052,
+          "latency_ms": 693.2802143273875,
+          "utility": 0.5367629671420237,
+          "exploration_bonus": 0,
+          "score": 0.5367629671420237
+        }
+      ],
+      "algorithm": "task-ucb-v1"
+    },
+    "test-coding-2": {
+      "selected_model": "strong",
+      "task_category": "coding",
+      "reason": "frozen_policy",
+      "learning_samples": 16,
+      "candidates": [
+        {
+          "model": "strong",
+          "samples": 12,
+          "attempts": 12,
+          "quality": 0.0,
+          "estimated_cost": 0.0006749999999999999,
+          "latency_ms": 928.1919666779382,
+          "utility": -0.04556383933355876,
+          "exploration_bonus": 0,
+          "score": -0.04556383933355876
+        },
+        {
+          "model": "budget",
+          "samples": 4,
+          "attempts": 4,
+          "quality": 0.0,
+          "estimated_cost": 0.002192,
+          "latency_ms": 1404.2357500002254,
+          "utility": -0.1157647150000045,
+          "exploration_bonus": 0,
+          "score": -0.1157647150000045
+        }
+      ],
+      "algorithm": "task-ucb-v1"
+    },
+    "test-math-6": {
+      "selected_model": "budget",
+      "task_category": "math",
+      "reason": "frozen_policy",
+      "learning_samples": 16,
+      "candidates": [
+        {
+          "model": "budget",
+          "samples": 13,
+          "attempts": 13,
+          "quality": 0.0,
+          "estimated_cost": 0.0005141538461538461,
+          "latency_ms": 969.6364000153083,
+          "utility": -0.039958881846460015,
+          "exploration_bonus": 0,
+          "score": -0.039958881846460015
+        },
+        {
+          "model": "strong",
+          "samples": 3,
+          "attempts": 3,
+          "quality": 0.0,
+          "estimated_cost": 0.006522,
+          "latency_ms": 2595.1797333157933,
+          "utility": -0.2519035946663159,
+          "exploration_bonus": 0,
+          "score": -0.2519035946663159
+        }
+      ],
+      "algorithm": "task-ucb-v1"
+    },
+    "test-coding-1": {
+      "selected_model": "strong",
+      "task_category": "coding",
+      "reason": "frozen_policy",
+      "learning_samples": 16,
+      "candidates": [
+        {
+          "model": "strong",
+          "samples": 12,
+          "attempts": 12,
+          "quality": 0.0,
+          "estimated_cost": 0.0006749999999999999,
+          "latency_ms": 928.1919666779382,
+          "utility": -0.04556383933355876,
+          "exploration_bonus": 0,
+          "score": -0.04556383933355876
+        },
+        {
+          "model": "budget",
+          "samples": 4,
+          "attempts": 4,
+          "quality": 0.0,
+          "estimated_cost": 0.002192,
+          "latency_ms": 1404.2357500002254,
+          "utility": -0.1157647150000045,
+          "exploration_bonus": 0,
+          "score": -0.1157647150000045
+        }
+      ],
+      "algorithm": "task-ucb-v1"
+    },
+    "test-math-3": {
+      "selected_model": "budget",
+      "task_category": "math",
+      "reason": "frozen_policy",
+      "learning_samples": 16,
+      "candidates": [
+        {
+          "model": "budget",
+          "samples": 13,
+          "attempts": 13,
+          "quality": 0.0,
+          "estimated_cost": 0.0005141538461538461,
+          "latency_ms": 969.6364000153083,
+          "utility": -0.039958881846460015,
+          "exploration_bonus": 0,
+          "score": -0.039958881846460015
+        },
+        {
+          "model": "strong",
+          "samples": 3,
+          "attempts": 3,
+          "quality": 0.0,
+          "estimated_cost": 0.006522,
+          "latency_ms": 2595.1797333157933,
+          "utility": -0.2519035946663159,
+          "exploration_bonus": 0,
+          "score": -0.2519035946663159
+        }
+      ],
+      "algorithm": "task-ucb-v1"
+    },
+    "test-general-4": {
+      "selected_model": "strong",
+      "task_category": "general",
+      "reason": "frozen_policy",
+      "learning_samples": 16,
+      "candidates": [
+        {
+          "model": "strong",
+          "samples": 9,
+          "attempts": 9,
+          "quality": 0.8888888888888888,
+          "estimated_cost": 0.0022229999999999997,
+          "latency_ms": 1036.1841444521108,
+          "utility": 0.7792452059998466,
+          "exploration_bonus": 0,
+          "score": 0.7792452059998466
+        },
+        {
+          "model": "budget",
+          "samples": 7,
+          "attempts": 7,
+          "quality": 0.5714285714285714,
+          "estimated_cost": 0.00052,
+          "latency_ms": 693.2802143273875,
+          "utility": 0.5367629671420237,
+          "exploration_bonus": 0,
+          "score": 0.5367629671420237
+        }
+      ],
+      "algorithm": "task-ucb-v1"
+    },
+    "test-coding-3": {
+      "selected_model": "strong",
+      "task_category": "coding",
+      "reason": "frozen_policy",
+      "learning_samples": 16,
+      "candidates": [
+        {
+          "model": "strong",
+          "samples": 12,
+          "attempts": 12,
+          "quality": 0.0,
+          "estimated_cost": 0.0006749999999999999,
+          "latency_ms": 928.1919666779382,
+          "utility": -0.04556383933355876,
+          "exploration_bonus": 0,
+          "score": -0.04556383933355876
+        },
+        {
+          "model": "budget",
+          "samples": 4,
+          "attempts": 4,
+          "quality": 0.0,
+          "estimated_cost": 0.002192,
+          "latency_ms": 1404.2357500002254,
+          "utility": -0.1157647150000045,
+          "exploration_bonus": 0,
+          "score": -0.1157647150000045
+        }
+      ],
+      "algorithm": "task-ucb-v1"
+    },
+    "test-general-7": {
+      "selected_model": "strong",
+      "task_category": "general",
+      "reason": "frozen_policy",
+      "learning_samples": 16,
+      "candidates": [
+        {
+          "model": "strong",
+          "samples": 9,
+          "attempts": 9,
+          "quality": 0.8888888888888888,
+          "estimated_cost": 0.0022229999999999997,
+          "latency_ms": 1036.1841444521108,
+          "utility": 0.7792452059998466,
+          "exploration_bonus": 0,
+          "score": 0.7792452059998466
+        },
+        {
+          "model": "budget",
+          "samples": 7,
+          "attempts": 7,
+          "quality": 0.5714285714285714,
+          "estimated_cost": 0.00052,
+          "latency_ms": 693.2802143273875,
+          "utility": 0.5367629671420237,
+          "exploration_bonus": 0,
+          "score": 0.5367629671420237
+        }
+      ],
+      "algorithm": "task-ucb-v1"
+    },
+    "test-general-5": {
+      "selected_model": "strong",
+      "task_category": "general",
+      "reason": "frozen_policy",
+      "learning_samples": 16,
+      "candidates": [
+        {
+          "model": "strong",
+          "samples": 9,
+          "attempts": 9,
+          "quality": 0.8888888888888888,
+          "estimated_cost": 0.0022229999999999997,
+          "latency_ms": 1036.1841444521108,
+          "utility": 0.7792452059998466,
+          "exploration_bonus": 0,
+          "score": 0.7792452059998466
+        },
+        {
+          "model": "budget",
+          "samples": 7,
+          "attempts": 7,
+          "quality": 0.5714285714285714,
+          "estimated_cost": 0.00052,
+          "latency_ms": 693.2802143273875,
+          "utility": 0.5367629671420237,
+          "exploration_bonus": 0,
+          "score": 0.5367629671420237
+        }
+      ],
+      "algorithm": "task-ucb-v1"
+    },
+    "test-general-6": {
+      "selected_model": "strong",
+      "task_category": "general",
+      "reason": "frozen_policy",
+      "learning_samples": 16,
+      "candidates": [
+        {
+          "model": "strong",
+          "samples": 9,
+          "attempts": 9,
+          "quality": 0.8888888888888888,
+          "estimated_cost": 0.0022229999999999997,
+          "latency_ms": 1036.1841444521108,
+          "utility": 0.7792452059998466,
+          "exploration_bonus": 0,
+          "score": 0.7792452059998466
+        },
+        {
+          "model": "budget",
+          "samples": 7,
+          "attempts": 7,
+          "quality": 0.5714285714285714,
+          "estimated_cost": 0.00052,
+          "latency_ms": 693.2802143273875,
+          "utility": 0.5367629671420237,
+          "exploration_bonus": 0,
+          "score": 0.5367629671420237
+        }
+      ],
+      "algorithm": "task-ucb-v1"
+    },
+    "test-math-4": {
+      "selected_model": "budget",
+      "task_category": "math",
+      "reason": "frozen_policy",
+      "learning_samples": 16,
+      "candidates": [
+        {
+          "model": "budget",
+          "samples": 13,
+          "attempts": 13,
+          "quality": 0.0,
+          "estimated_cost": 0.0005141538461538461,
+          "latency_ms": 969.6364000153083,
+          "utility": -0.039958881846460015,
+          "exploration_bonus": 0,
+          "score": -0.039958881846460015
+        },
+        {
+          "model": "strong",
+          "samples": 3,
+          "attempts": 3,
+          "quality": 0.0,
+          "estimated_cost": 0.006522,
+          "latency_ms": 2595.1797333157933,
+          "utility": -0.2519035946663159,
+          "exploration_bonus": 0,
+          "score": -0.2519035946663159
+        }
+      ],
+      "algorithm": "task-ucb-v1"
+    },
+    "test-general-1": {
+      "selected_model": "strong",
+      "task_category": "general",
+      "reason": "frozen_policy",
+      "learning_samples": 16,
+      "candidates": [
+        {
+          "model": "strong",
+          "samples": 9,
+          "attempts": 9,
+          "quality": 0.8888888888888888,
+          "estimated_cost": 0.0022229999999999997,
+          "latency_ms": 1036.1841444521108,
+          "utility": 0.7792452059998466,
+          "exploration_bonus": 0,
+          "score": 0.7792452059998466
+        },
+        {
+          "model": "budget",
+          "samples": 7,
+          "attempts": 7,
+          "quality": 0.5714285714285714,
+          "estimated_cost": 0.00052,
+          "latency_ms": 693.2802143273875,
+          "utility": 0.5367629671420237,
+          "exploration_bonus": 0,
+          "score": 0.5367629671420237
+        }
+      ],
+      "algorithm": "task-ucb-v1"
+    },
+    "test-coding-0": {
+      "selected_model": "strong",
+      "task_category": "coding",
+      "reason": "frozen_policy",
+      "learning_samples": 16,
+      "candidates": [
+        {
+          "model": "strong",
+          "samples": 12,
+          "attempts": 12,
+          "quality": 0.0,
+          "estimated_cost": 0.0006749999999999999,
+          "latency_ms": 928.1919666779382,
+          "utility": -0.04556383933355876,
+          "exploration_bonus": 0,
+          "score": -0.04556383933355876
+        },
+        {
+          "model": "budget",
+          "samples": 4,
+          "attempts": 4,
+          "quality": 0.0,
+          "estimated_cost": 0.002192,
+          "latency_ms": 1404.2357500002254,
+          "utility": -0.1157647150000045,
+          "exploration_bonus": 0,
+          "score": -0.1157647150000045
+        }
+      ],
+      "algorithm": "task-ucb-v1"
+    },
+    "test-math-1": {
+      "selected_model": "budget",
+      "task_category": "math",
+      "reason": "frozen_policy",
+      "learning_samples": 16,
+      "candidates": [
+        {
+          "model": "budget",
+          "samples": 13,
+          "attempts": 13,
+          "quality": 0.0,
+          "estimated_cost": 0.0005141538461538461,
+          "latency_ms": 969.6364000153083,
+          "utility": -0.039958881846460015,
+          "exploration_bonus": 0,
+          "score": -0.039958881846460015
+        },
+        {
+          "model": "strong",
+          "samples": 3,
+          "attempts": 3,
+          "quality": 0.0,
+          "estimated_cost": 0.006522,
+          "latency_ms": 2595.1797333157933,
+          "utility": -0.2519035946663159,
+          "exploration_bonus": 0,
+          "score": -0.2519035946663159
+        }
+      ],
+      "algorithm": "task-ucb-v1"
+    },
+    "test-math-0": {
+      "selected_model": "budget",
+      "task_category": "math",
+      "reason": "frozen_policy",
+      "learning_samples": 16,
+      "candidates": [
+        {
+          "model": "budget",
+          "samples": 13,
+          "attempts": 13,
+          "quality": 0.0,
+          "estimated_cost": 0.0005141538461538461,
+          "latency_ms": 969.6364000153083,
+          "utility": -0.039958881846460015,
+          "exploration_bonus": 0,
+          "score": -0.039958881846460015
+        },
+        {
+          "model": "strong",
+          "samples": 3,
+          "attempts": 3,
+          "quality": 0.0,
+          "estimated_cost": 0.006522,
+          "latency_ms": 2595.1797333157933,
+          "utility": -0.2519035946663159,
+          "exploration_bonus": 0,
+          "score": -0.2519035946663159
+        }
+      ],
+      "algorithm": "task-ucb-v1"
+    }
+  },
+  "completed_utc": "2026-10-23T11:11:59.504056+00:00",
+  "final_stats": [
+    {
+      "category": "coding",
+      "model": "budget",
+      "attempts": 4,
+      "samples": 4,
+      "quality": 0.0,
+      "avg_cost": 0.002192,
+      "cost_samples": 4,
+      "avg_latency_ms": 1404.2357500002254,
+      "generation_cost": 0.008768,
+      "judge_cost": 0.0,
+      "unknown_cost_attempts": 0
+    },
+    {
+      "category": "coding",
+      "model": "strong",
+      "attempts": 12,
+      "samples": 12,
+      "quality": 0.0,
+      "avg_cost": 0.0006749999999999999,
+      "cost_samples": 12,
+      "avg_latency_ms": 928.1919666779382,
+      "generation_cost": 0.0081,
+      "judge_cost": 0.0,
+      "unknown_cost_attempts": 0
+    },
+    {
+      "category": "general",
+      "model": "budget",
+      "attempts": 7,
+      "samples": 7,
+      "quality": 0.5714285714285714,
+      "avg_cost": 0.00052,
+      "cost_samples": 7,
+      "avg_latency_ms": 693.2802143273875,
+      "generation_cost": 0.0036399999999999996,
+      "judge_cost": 0.0,
+      "unknown_cost_attempts": 0
+    },
+    {
+      "category": "general",
+      "model": "strong",
+      "attempts": 9,
+      "samples": 9,
+      "quality": 0.8888888888888888,
+      "avg_cost": 0.0022229999999999997,
+      "cost_samples": 9,
+      "avg_latency_ms": 1036.1841444521108,
+      "generation_cost": 0.020006999999999997,
+      "judge_cost": 0.0,
+      "unknown_cost_attempts": 0
+    },
+    {
+      "category": "math",
+      "model": "budget",
+      "attempts": 13,
+      "samples": 13,
+      "quality": 0.0,
+      "avg_cost": 0.0005141538461538461,
+      "cost_samples": 13,
+      "avg_latency_ms": 969.6364000153083,
+      "generation_cost": 0.006684,
+      "judge_cost": 0.0,
+      "unknown_cost_attempts": 0
+    },
+    {
+      "category": "math",
+      "model": "strong",
+      "attempts": 3,
+      "samples": 3,
+      "quality": 0.0,
+      "avg_cost": 0.006522,
+      "cost_samples": 3,
+      "avg_latency_ms": 2595.1797333157933,
+      "generation_cost": 0.019566,
+      "judge_cost": 0.0,
+      "unknown_cost_attempts": 0
+    }
+  ],
+  "provider_observations": [
+    {
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 72,
+        "prompt_tokens": 72,
+        "completion_tokens": 256,
+        "total_tokens": 328
+      },
+      "http_status": 200,
+      "provider_latency_ms": 1603.8016000529751
+    },
+    {
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 29,
+        "prompt_tokens": 29,
+        "completion_tokens": 1,
+        "total_tokens": 30
+      },
+      "http_status": 200,
+      "provider_latency_ms": 1032.220800057985
+    },
+    {
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 220,
+        "prompt_tokens": 220,
+        "completion_tokens": 10,
+        "total_tokens": 230
+      },
+      "http_status": 200,
+      "provider_latency_ms": 765.9244000678882
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 29,
+        "prompt_tokens": 29,
+        "completion_tokens": 232,
+        "total_tokens": 261
+      },
+      "http_status": 200,
+      "provider_latency_ms": 2571.654099971056
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 72,
+        "prompt_tokens": 72,
+        "completion_tokens": 1,
+        "total_tokens": 73
+      },
+      "http_status": 200,
+      "provider_latency_ms": 740.3693000087515
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 220,
+        "prompt_tokens": 220,
+        "completion_tokens": 7,
+        "total_tokens": 227
+      },
+      "http_status": 200,
+      "provider_latency_ms": 928.6340000107884
+    },
+    {
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 220,
+        "prompt_tokens": 220,
+        "completion_tokens": 10,
+        "total_tokens": 230
+      },
+      "http_status": 200,
+      "provider_latency_ms": 483.3177999826148
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 220,
+        "prompt_tokens": 220,
+        "completion_tokens": 10,
+        "total_tokens": 230
+      },
+      "http_status": 200,
+      "provider_latency_ms": 1036.2121999496594
+    },
+    {
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 220,
+        "prompt_tokens": 220,
+        "completion_tokens": 10,
+        "total_tokens": 230
+      },
+      "http_status": 200,
+      "provider_latency_ms": 916.7263000272214
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 220,
+        "prompt_tokens": 220,
+        "completion_tokens": 10,
+        "total_tokens": 230
+      },
+      "http_status": 200,
+      "provider_latency_ms": 1019.9688000138849
+    },
+    {
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 220,
+        "prompt_tokens": 220,
+        "completion_tokens": 10,
+        "total_tokens": 230
+      },
+      "http_status": 200,
+      "provider_latency_ms": 748.968500061892
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 72,
+        "prompt_tokens": 72,
+        "completion_tokens": 1,
+        "total_tokens": 73
+      },
+      "http_status": 200,
+      "provider_latency_ms": 902.962899999693
+    },
+    {
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 220,
+        "prompt_tokens": 220,
+        "completion_tokens": 10,
+        "total_tokens": 230
+      },
+      "http_status": 200,
+      "provider_latency_ms": 500.2955000381917
+    },
+    {
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 72,
+        "prompt_tokens": 72,
+        "completion_tokens": 256,
+        "total_tokens": 328
+      },
+      "http_status": 200,
+      "provider_latency_ms": 1355.5180999683216
+    },
+    {
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 220,
+        "prompt_tokens": 220,
+        "completion_tokens": 10,
+        "total_tokens": 230
+      },
+      "http_status": 200,
+      "provider_latency_ms": 694.4752000272274
+    },
+    {
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 28,
+        "prompt_tokens": 28,
+        "completion_tokens": 1,
+        "total_tokens": 29
+      },
+      "http_status": 200,
+      "provider_latency_ms": 769.4062000373378
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 29,
+        "prompt_tokens": 29,
+        "completion_tokens": 256,
+        "total_tokens": 285
+      },
+      "http_status": 200,
+      "provider_latency_ms": 2804.2361999396235
+    },
+    {
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 29,
+        "prompt_tokens": 29,
+        "completion_tokens": 232,
+        "total_tokens": 261
+      },
+      "http_status": 200,
+      "provider_latency_ms": 1729.6542000258341
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 72,
+        "prompt_tokens": 72,
+        "completion_tokens": 1,
+        "total_tokens": 73
+      },
+      "http_status": 200,
+      "provider_latency_ms": 645.6421000184491
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 28,
+        "prompt_tokens": 28,
+        "completion_tokens": 208,
+        "total_tokens": 236
+      },
+      "http_status": 200,
+      "provider_latency_ms": 2367.1615999192
+    },
+    {
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 28,
+        "prompt_tokens": 28,
+        "completion_tokens": 1,
+        "total_tokens": 29
+      },
+      "http_status": 200,
+      "provider_latency_ms": 749.5379999745637
+    },
+    {
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 72,
+        "prompt_tokens": 72,
+        "completion_tokens": 256,
+        "total_tokens": 328
+      },
+      "http_status": 200,
+      "provider_latency_ms": 1327.2025999613106
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 72,
+        "prompt_tokens": 72,
+        "completion_tokens": 1,
+        "total_tokens": 73
+      },
+      "http_status": 200,
+      "provider_latency_ms": 1107.6270000776276
+    },
+    {
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 28,
+        "prompt_tokens": 28,
+        "completion_tokens": 191,
+        "total_tokens": 219
+      },
+      "http_status": 200,
+      "provider_latency_ms": 1601.5214999206364
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 72,
+        "prompt_tokens": 72,
+        "completion_tokens": 1,
+        "total_tokens": 73
+      },
+      "http_status": 200,
+      "provider_latency_ms": 1053.2244000351056
+    },
+    {
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 29,
+        "prompt_tokens": 29,
+        "completion_tokens": 173,
+        "total_tokens": 202
+      },
+      "http_status": 200,
+      "provider_latency_ms": 1215.8656999235973
+    },
+    {
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 28,
+        "prompt_tokens": 28,
+        "completion_tokens": 1,
+        "total_tokens": 29
+      },
+      "http_status": 200,
+      "provider_latency_ms": 669.7578999446705
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 72,
+        "prompt_tokens": 72,
+        "completion_tokens": 1,
+        "total_tokens": 73
+      },
+      "http_status": 200,
+      "provider_latency_ms": 932.2939000558108
+    },
+    {
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 29,
+        "prompt_tokens": 29,
+        "completion_tokens": 1,
+        "total_tokens": 30
+      },
+      "http_status": 200,
+      "provider_latency_ms": 587.950799963437
+    },
+    {
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 220,
+        "prompt_tokens": 220,
+        "completion_tokens": 10,
+        "total_tokens": 230
+      },
+      "http_status": 200,
+      "provider_latency_ms": 633.3257000660524
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 72,
+        "prompt_tokens": 72,
+        "completion_tokens": 1,
+        "total_tokens": 73
+      },
+      "http_status": 200,
+      "provider_latency_ms": 679.9544000532478
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 220,
+        "prompt_tokens": 220,
+        "completion_tokens": 10,
+        "total_tokens": 230
+      },
+      "http_status": 200,
+      "provider_latency_ms": 997.0022999914363
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 72,
+        "prompt_tokens": 72,
+        "completion_tokens": 1,
+        "total_tokens": 73
+      },
+      "http_status": 200,
+      "provider_latency_ms": 921.6860000742599
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 72,
+        "prompt_tokens": 72,
+        "completion_tokens": 1,
+        "total_tokens": 73
+      },
+      "http_status": 200,
+      "provider_latency_ms": 1211.8248000042513
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 72,
+        "prompt_tokens": 72,
+        "completion_tokens": 1,
+        "total_tokens": 73
+      },
+      "http_status": 200,
+      "provider_latency_ms": 856.9125999929383
+    },
+    {
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 28,
+        "prompt_tokens": 28,
+        "completion_tokens": 138,
+        "total_tokens": 166
+      },
+      "http_status": 200,
+      "provider_latency_ms": 997.4172000074759
+    },
+    {
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 29,
+        "prompt_tokens": 29,
+        "completion_tokens": 1,
+        "total_tokens": 30
+      },
+      "http_status": 200,
+      "provider_latency_ms": 870.7593999570236
+    },
+    {
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 29,
+        "prompt_tokens": 29,
+        "completion_tokens": 1,
+        "total_tokens": 30
+      },
+      "http_status": 200,
+      "provider_latency_ms": 587.8815000178292
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 72,
+        "prompt_tokens": 72,
+        "completion_tokens": 1,
+        "total_tokens": 73
+      },
+      "http_status": 200,
+      "provider_latency_ms": 873.9518999354914
+    },
+    {
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 72,
+        "prompt_tokens": 72,
+        "completion_tokens": 256,
+        "total_tokens": 328
+      },
+      "http_status": 200,
+      "provider_latency_ms": 1281.5497000701725
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 220,
+        "prompt_tokens": 220,
+        "completion_tokens": 7,
+        "total_tokens": 227
+      },
+      "http_status": 200,
+      "provider_latency_ms": 1207.8696000389755
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 220,
+        "prompt_tokens": 220,
+        "completion_tokens": 10,
+        "total_tokens": 230
+      },
+      "http_status": 200,
+      "provider_latency_ms": 786.6272999672219
+    },
+    {
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 28,
+        "prompt_tokens": 28,
+        "completion_tokens": 1,
+        "total_tokens": 29
+      },
+      "http_status": 200,
+      "provider_latency_ms": 906.569299986586
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 220,
+        "prompt_tokens": 220,
+        "completion_tokens": 10,
+        "total_tokens": 230
+      },
+      "http_status": 200,
+      "provider_latency_ms": 1315.1058999355882
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 220,
+        "prompt_tokens": 220,
+        "completion_tokens": 10,
+        "total_tokens": 230
+      },
+      "http_status": 200,
+      "provider_latency_ms": 1071.2018999038264
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 72,
+        "prompt_tokens": 72,
+        "completion_tokens": 1,
+        "total_tokens": 73
+      },
+      "http_status": 200,
+      "provider_latency_ms": 1059.7299999790266
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 220,
+        "prompt_tokens": 220,
+        "completion_tokens": 7,
+        "total_tokens": 227
+      },
+      "http_status": 200,
+      "provider_latency_ms": 840.3021999401972
+    },
+    {
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 28,
+        "prompt_tokens": 28,
+        "completion_tokens": 1,
+        "total_tokens": 29
+      },
+      "http_status": 200,
+      "provider_latency_ms": 710.1619000313804
+    },
+    {
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 220,
+        "prompt_tokens": 220,
+        "completion_tokens": 7,
+        "total_tokens": 227
+      },
+      "http_status": 200,
+      "provider_latency_ms": 854.2795999674127
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 220,
+        "prompt_tokens": 220,
+        "completion_tokens": 7,
+        "total_tokens": 227
+      },
+      "http_status": 200,
+      "provider_latency_ms": 951.5894000651315
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 29,
+        "prompt_tokens": 29,
+        "completion_tokens": 249,
+        "total_tokens": 278
+      },
+      "http_status": 200,
+      "provider_latency_ms": 2646.992400055751
+    },
+    {
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 29,
+        "prompt_tokens": 29,
+        "completion_tokens": 1,
+        "total_tokens": 30
+      },
+      "http_status": 200,
+      "provider_latency_ms": 500.2077000681311
+    },
+    {
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 29,
+        "prompt_tokens": 29,
+        "completion_tokens": 1,
+        "total_tokens": 30
+      },
+      "http_status": 200,
+      "provider_latency_ms": 753.711299970746
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 29,
+        "prompt_tokens": 29,
+        "completion_tokens": 256,
+        "total_tokens": 285
+      },
+      "http_status": 200,
+      "provider_latency_ms": 2532.391699962318
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 220,
+        "prompt_tokens": 220,
+        "completion_tokens": 10,
+        "total_tokens": 230
+      },
+      "http_status": 200,
+      "provider_latency_ms": 1309.4681999646127
+    },
+    {
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 220,
+        "prompt_tokens": 220,
+        "completion_tokens": 10,
+        "total_tokens": 230
+      },
+      "http_status": 200,
+      "provider_latency_ms": 668.485299916938
+    },
+    {
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 72,
+        "prompt_tokens": 72,
+        "completion_tokens": 256,
+        "total_tokens": 328
+      },
+      "http_status": 200,
+      "provider_latency_ms": 1396.4915999677032
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 72,
+        "prompt_tokens": 72,
+        "completion_tokens": 1,
+        "total_tokens": 73
+      },
+      "http_status": 200,
+      "provider_latency_ms": 775.8922999491915
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 28,
+        "prompt_tokens": 28,
+        "completion_tokens": 235,
+        "total_tokens": 263
+      },
+      "http_status": 200,
+      "provider_latency_ms": 3149.7608000645414
+    },
+    {
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 28,
+        "prompt_tokens": 28,
+        "completion_tokens": 1,
+        "total_tokens": 29
+      },
+      "http_status": 200,
+      "provider_latency_ms": 719.8766999645159
+    },
+    {
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 72,
+        "prompt_tokens": 72,
+        "completion_tokens": 256,
+        "total_tokens": 328
+      },
+      "http_status": 200,
+      "provider_latency_ms": 1550.041600014083
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 72,
+        "prompt_tokens": 72,
+        "completion_tokens": 1,
+        "total_tokens": 73
+      },
+      "http_status": 200,
+      "provider_latency_ms": 1105.67069996614
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 72,
+        "prompt_tokens": 72,
+        "completion_tokens": 1,
+        "total_tokens": 73
+      },
+      "http_status": 200,
+      "provider_latency_ms": 1335.0351999979466
+    },
+    {
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 72,
+        "prompt_tokens": 72,
+        "completion_tokens": 256,
+        "total_tokens": 328
+      },
+      "http_status": 200,
+      "provider_latency_ms": 1253.890199935995
+    },
+    {
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 72,
+        "prompt_tokens": 72,
+        "completion_tokens": 256,
+        "total_tokens": 328
+      },
+      "http_status": 200,
+      "provider_latency_ms": 1412.911899969913
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 72,
+        "prompt_tokens": 72,
+        "completion_tokens": 1,
+        "total_tokens": 73
+      },
+      "http_status": 200,
+      "provider_latency_ms": 1141.2182999774814
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 220,
+        "prompt_tokens": 220,
+        "completion_tokens": 10,
+        "total_tokens": 230
+      },
+      "http_status": 200,
+      "provider_latency_ms": 1064.2642000457272
+    },
+    {
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 220,
+        "prompt_tokens": 220,
+        "completion_tokens": 10,
+        "total_tokens": 230
+      },
+      "http_status": 200,
+      "provider_latency_ms": 821.2676000548527
+    },
+    {
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 72,
+        "prompt_tokens": 72,
+        "completion_tokens": 256,
+        "total_tokens": 328
+      },
+      "http_status": 200,
+      "provider_latency_ms": 1578.7592999404296
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 72,
+        "prompt_tokens": 72,
+        "completion_tokens": 1,
+        "total_tokens": 73
+      },
+      "http_status": 200,
+      "provider_latency_ms": 950.164100038819
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 28,
+        "prompt_tokens": 28,
+        "completion_tokens": 211,
+        "total_tokens": 239
+      },
+      "http_status": 200,
+      "provider_latency_ms": 2909.253799938597
+    },
+    {
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 28,
+        "prompt_tokens": 28,
+        "completion_tokens": 1,
+        "total_tokens": 29
+      },
+      "http_status": 200,
+      "provider_latency_ms": 759.7742999205366
+    },
+    {
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 72,
+        "prompt_tokens": 72,
+        "completion_tokens": 256,
+        "total_tokens": 328
+      },
+      "http_status": 200,
+      "provider_latency_ms": 1481.781900045462
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 72,
+        "prompt_tokens": 72,
+        "completion_tokens": 1,
+        "total_tokens": 73
+      },
+      "http_status": 200,
+      "provider_latency_ms": 765.8692999975756
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 29,
+        "prompt_tokens": 29,
+        "completion_tokens": 186,
+        "total_tokens": 215
+      },
+      "http_status": 200,
+      "provider_latency_ms": 2385.841100011021
+    },
+    {
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 29,
+        "prompt_tokens": 29,
+        "completion_tokens": 256,
+        "total_tokens": 285
+      },
+      "http_status": 200,
+      "provider_latency_ms": 1506.4783999696374
+    },
+    {
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 220,
+        "prompt_tokens": 220,
+        "completion_tokens": 10,
+        "total_tokens": 230
+      },
+      "http_status": 200,
+      "provider_latency_ms": 735.918499995023
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 220,
+        "prompt_tokens": 220,
+        "completion_tokens": 10,
+        "total_tokens": 230
+      },
+      "http_status": 200,
+      "provider_latency_ms": 437.2569000115618
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 72,
+        "prompt_tokens": 72,
+        "completion_tokens": 1,
+        "total_tokens": 73
+      },
+      "http_status": 200,
+      "provider_latency_ms": 826.8723000073805
+    },
+    {
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 72,
+        "prompt_tokens": 72,
+        "completion_tokens": 256,
+        "total_tokens": 328
+      },
+      "http_status": 200,
+      "provider_latency_ms": 1601.5836999285966
+    },
+    {
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 220,
+        "prompt_tokens": 220,
+        "completion_tokens": 10,
+        "total_tokens": 230
+      },
+      "http_status": 200,
+      "provider_latency_ms": 708.902099984698
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 220,
+        "prompt_tokens": 220,
+        "completion_tokens": 10,
+        "total_tokens": 230
+      },
+      "http_status": 200,
+      "provider_latency_ms": 1130.1475999644026
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 220,
+        "prompt_tokens": 220,
+        "completion_tokens": 10,
+        "total_tokens": 230
+      },
+      "http_status": 200,
+      "provider_latency_ms": 918.9416000153869
+    },
+    {
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 220,
+        "prompt_tokens": 220,
+        "completion_tokens": 10,
+        "total_tokens": 230
+      },
+      "http_status": 200,
+      "provider_latency_ms": 551.7079000128433
+    },
+    {
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 220,
+        "prompt_tokens": 220,
+        "completion_tokens": 10,
+        "total_tokens": 230
+      },
+      "http_status": 200,
+      "provider_latency_ms": 847.97530004289
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 220,
+        "prompt_tokens": 220,
+        "completion_tokens": 10,
+        "total_tokens": 230
+      },
+      "http_status": 200,
+      "provider_latency_ms": 1091.571900062263
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 29,
+        "prompt_tokens": 29,
+        "completion_tokens": 256,
+        "total_tokens": 285
+      },
+      "http_status": 200,
+      "provider_latency_ms": 2499.177800025791
+    },
+    {
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 29,
+        "prompt_tokens": 29,
+        "completion_tokens": 1,
+        "total_tokens": 30
+      },
+      "http_status": 200,
+      "provider_latency_ms": 851.1731000617146
+    },
+    {
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 220,
+        "prompt_tokens": 220,
+        "completion_tokens": 10,
+        "total_tokens": 230
+      },
+      "http_status": 200,
+      "provider_latency_ms": 466.16730000823736
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 220,
+        "prompt_tokens": 220,
+        "completion_tokens": 10,
+        "total_tokens": 230
+      },
+      "http_status": 200,
+      "provider_latency_ms": 927.5593000929803
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 72,
+        "prompt_tokens": 72,
+        "completion_tokens": 1,
+        "total_tokens": 73
+      },
+      "http_status": 200,
+      "provider_latency_ms": 881.0791000723839
+    },
+    {
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 72,
+        "prompt_tokens": 72,
+        "completion_tokens": 256,
+        "total_tokens": 328
+      },
+      "http_status": 200,
+      "provider_latency_ms": 1537.3726000543684
+    },
+    {
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 28,
+        "prompt_tokens": 28,
+        "completion_tokens": 1,
+        "total_tokens": 29
+      },
+      "http_status": 200,
+      "provider_latency_ms": 675.0010000541806
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 28,
+        "prompt_tokens": 28,
+        "completion_tokens": 113,
+        "total_tokens": 141
+      },
+      "http_status": 200,
+      "provider_latency_ms": 2348.858700017445
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 29,
+        "prompt_tokens": 29,
+        "completion_tokens": 200,
+        "total_tokens": 229
+      },
+      "http_status": 200,
+      "provider_latency_ms": 2390.587199945003
+    },
+    {
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 29,
+        "prompt_tokens": 29,
+        "completion_tokens": 1,
+        "total_tokens": 30
+      },
+      "http_status": 200,
+      "provider_latency_ms": 621.0041000740603
+    }
+  ],
+  "budget_reserved_cny_total": 2.92
+}

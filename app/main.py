@@ -8,6 +8,7 @@ from fastapi.responses import JSONResponse
 
 from app.core.config import load_config
 from app.core.db import Database
+from app.core.rsl import RSLStore
 from app.core.router import RouterEngine
 from app.core.embedder import SemanticEmbedder
 from app.core.cascade import CascadeEngine
@@ -96,7 +97,7 @@ async def lifespan(app: FastAPI):
 
     count = await db._fetchone("SELECT COUNT(*) FROM providers")
     if count and count[0] == 0:
-        await db.seed_from_yaml("config/providers.yaml")
+        await db.seed_from_yaml(os.environ.get("ROUTER_CONFIG", "config/providers.yaml"))
 
     auto_sync_models = os.environ.get("AUTO_SYNC_PROVIDER_MODELS", "false").lower() not in {
         "0",
@@ -115,6 +116,7 @@ async def lifespan(app: FastAPI):
     recommender = ModelRecommender()
 
     app.state.db = db
+    app.state.rsl_store = RSLStore(os.environ.get("RSL_DB", db_path + ".rsl.db"))
     app.state.router = router
     app.state.cascade = cascade
     app.state.recommender = recommender
@@ -148,9 +150,14 @@ async def lifespan(app: FastAPI):
         print("  Admin API: POST /admin/providers, POST /admin/models, etc.")
         print()
 
-    yield
-
-    await db.close()
+    try:
+        yield
+    finally:
+        for provider in router.providers.values():
+            client = getattr(provider, "client", None)
+            if client:
+                await client.aclose()
+        await db.close()
 
 
 app = FastAPI(title="Model Router", version="0.2.0", lifespan=lifespan)

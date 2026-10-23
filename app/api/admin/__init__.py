@@ -1,7 +1,9 @@
 from fastapi import APIRouter
+from . import rsl
 from . import providers, models, keys, usage, status, keyword, cascade, inspect, routing_profiles
 
 router = APIRouter(prefix="/admin")
+router.include_router(rsl.router)
 router.include_router(providers.router)
 router.include_router(models.router)
 router.include_router(keys.router)

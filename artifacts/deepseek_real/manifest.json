@@ -1,0 +1,47 @@
+{
+  "train_seed": 6023,
+  "test_seed": 6024,
+  "training_cases": 48,
+  "held_out_cases": 24,
+  "paid_call_limit": 96,
+  "max_output_tokens": 256,
+  "thinking": "disabled",
+  "policy": {
+    "rsl_enabled": true,
+    "rsl_judge_model": null,
+    "rsl_min_samples": 3,
+    "rsl_quality_weight": 1.0,
+    "rsl_cost_weight": 0.2,
+    "rsl_latency_weight": 0.1,
+    "rsl_exploration_weight": 0.15,
+    "rsl_cost_scale": 0.005,
+    "rsl_latency_scale_ms": 5000,
+    "allowed_models": [
+      "budget",
+      "strong"
+    ],
+    "recommendation_enabled": false,
+    "recommendation_apply_to_explicit": false,
+    "keyword_routing_enabled": false,
+    "semantic_routing_enabled": false,
+    "cascade_enabled": false
+  },
+  "scoring": "computed integer / JSON reference; no model judge",
+  "test_method": "paired frozen-policy replay",
+  "price_basis": "2026-10-23 CNY peak cache-miss; conservative upper estimate",
+  "price_source": "https://api-docs.deepseek.com/zh-cn/quick_start/pricing/",
+  "max_reserved_cny_this_run": 2.88,
+  "models": {
+    "budget": [
+      "deepseek-flash",
+      2.0,
+      8.0
+    ],
+    "strong": [
+      "deepseek-v4-pro",
+      9.0,
+      27.0
+    ]
+  },
+  "data_sha256": "5c1dddaf4d6cc375de6bc7e53e825cd724b0fc04bdd1623c65f00bd6bcbea311"
+}

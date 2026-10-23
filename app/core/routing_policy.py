@@ -19,6 +19,16 @@ def _normalize_model_list(value) -> set[str] | None:
 
 
 class RoutingPolicy(BaseModel):
+    rsl_enabled: bool = False
+    rsl_judge_model: str | None = None
+    rsl_min_samples: int = Field(default=3, ge=0, le=100)
+    rsl_exploration_weight: float = Field(default=0.15, ge=0, le=10, allow_inf_nan=False)
+    rsl_quality_weight: float = Field(default=1.0, ge=0, le=10, allow_inf_nan=False)
+    rsl_cost_weight: float = Field(default=0.2, ge=0, le=10, allow_inf_nan=False)
+    rsl_latency_weight: float = Field(default=0.1, ge=0, le=10, allow_inf_nan=False)
+    rsl_cost_scale: float = Field(default=0.01, gt=0, allow_inf_nan=False)
+    rsl_latency_scale_ms: float = Field(default=5000, gt=0, allow_inf_nan=False)
+    rsl_quality_threshold: float = Field(default=0.7, ge=0, le=1, allow_inf_nan=False)
     default_model: str | None = None
     preferred_providers: list[str] = Field(default_factory=list)
     allowed_models: list[str] | None = None

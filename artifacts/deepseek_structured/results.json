@@ -1,0 +1,3031 @@
+{
+  "status": "complete",
+  "started_utc": "2026-10-23T12:37:29.183372+00:00",
+  "manifest": {
+    "primary_comparison": "same frozen RSL routes: plain versus structured output",
+    "limitation": "9 held-out cases; tests output protocol, not a routing algorithm change",
+    "train_seed": 7023,
+    "test_seed": 7024,
+    "training_cases": 18,
+    "held_out_cases": 9,
+    "paid_call_limit": 54,
+    "max_output_tokens": 256,
+    "thinking": "disabled",
+    "policy": {
+      "rsl_enabled": true,
+      "rsl_judge_model": null,
+      "rsl_min_samples": 3,
+      "rsl_quality_weight": 1.0,
+      "rsl_cost_weight": 0.2,
+      "rsl_latency_weight": 0.1,
+      "rsl_exploration_weight": 0.15,
+      "rsl_cost_scale": 0.005,
+      "rsl_latency_scale_ms": 5000,
+      "allowed_models": [
+        "budget",
+        "strong"
+      ],
+      "recommendation_enabled": false,
+      "recommendation_apply_to_explicit": false,
+      "keyword_routing_enabled": false,
+      "semantic_routing_enabled": false,
+      "cascade_enabled": false
+    },
+    "scoring": "computed integer / JSON reference; no model judge",
+    "test_method": "paired frozen-policy replay",
+    "price_basis": "2026-10-23 CNY peak cache-miss; conservative upper estimate",
+    "price_source": "https://api-docs.deepseek.com/zh-cn/quick_start/pricing/",
+    "max_reserved_cny_this_run": 1.62,
+    "models": {
+      "budget": [
+        "deepseek-flash",
+        2.0,
+        8.0
+      ],
+      "strong": [
+        "deepseek-v4-pro",
+        9.0,
+        27.0
+      ]
+    },
+    "data_sha256": "0ceb9cdf4eb5b3a1b54f7e4d18cb4b33fde2c6491082a16b47a6b0f3df2200f1"
+  },
+  "records": [
+    {
+      "case_id": "train-math-3",
+      "category": "math",
+      "phase": "train",
+      "route": "budget",
+      "protocol": "structured",
+      "answer": "{\"answer\":52}",
+      "expected": 74,
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 90,
+        "prompt_tokens": 90,
+        "completion_tokens": 5,
+        "total_tokens": 95
+      },
+      "finish_reason": "stop",
+      "latency_ms": 591.84499992989,
+      "provider_latency_ms": 555.9048999566585,
+      "cost_upper_cny": 0.00022,
+      "decision": {
+        "selected_model": "budget",
+        "reason": "cold_start",
+        "learning_samples": 0,
+        "candidates": [
+          {
+            "model": "budget",
+            "samples": 0,
+            "attempts": 0,
+            "quality": 0.5,
+            "estimated_cost": 0.0022053333333333335,
+            "latency_ms": 5000.0,
+            "utility": 0.31178666666666666,
+            "exploration_bonus": 0.1766115033773212,
+            "score": 0.4883981700439879
+          },
+          {
+            "model": "strong",
+            "samples": 0,
+            "attempts": 0,
+            "quality": 0.5,
+            "estimated_cost": 0.00762,
+            "latency_ms": 5000.0,
+            "utility": 0.19999999999999998,
+            "exploration_bonus": 0.1766115033773212,
+            "score": 0.3766115033773212
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "train-general-3",
+      "category": "general",
+      "phase": "train",
+      "route": "budget",
+      "protocol": "structured",
+      "answer": "{\"answer\":[\"R7\",\"R0\",\"R3\"]}",
+      "expected": [
+        "R7",
+        "R0",
+        "R3"
+      ],
+      "score": 1.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 278,
+        "prompt_tokens": 278,
+        "completion_tokens": 14,
+        "total_tokens": 292
+      },
+      "finish_reason": "stop",
+      "latency_ms": 504.03209996875376,
+      "provider_latency_ms": 449.9769000103697,
+      "cost_upper_cny": 0.000668,
+      "decision": {
+        "selected_model": "budget",
+        "reason": "cold_start",
+        "learning_samples": 0,
+        "candidates": [
+          {
+            "model": "budget",
+            "samples": 0,
+            "attempts": 0,
+            "quality": 0.5,
+            "estimated_cost": 0.002578,
+            "latency_ms": 5000.0,
+            "utility": 0.29688000000000003,
+            "exploration_bonus": 0.1766115033773212,
+            "score": 0.47349150337732127
+          },
+          {
+            "model": "strong",
+            "samples": 0,
+            "attempts": 0,
+            "quality": 0.5,
+            "estimated_cost": 0.009297,
+            "latency_ms": 5000.0,
+            "utility": 0.19999999999999998,
+            "exploration_bonus": 0.1766115033773212,
+            "score": 0.3766115033773212
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "train-general-4",
+      "category": "general",
+      "phase": "train",
+      "route": "strong",
+      "protocol": "structured",
+      "answer": "{\n  \"answer\": [\"R5\", \"R0\"]\n}",
+      "expected": [
+        "R5",
+        "R0"
+      ],
+      "score": 1.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 275,
+        "prompt_tokens": 275,
+        "completion_tokens": 14,
+        "total_tokens": 289
+      },
+      "finish_reason": "stop",
+      "latency_ms": 1180.8912000851706,
+      "provider_latency_ms": 1113.0371000617743,
+      "cost_upper_cny": 0.002853,
+      "decision": {
+        "selected_model": "strong",
+        "reason": "cold_start",
+        "learning_samples": 1,
+        "candidates": [
+          {
+            "model": "budget",
+            "samples": 1,
+            "attempts": 1,
+            "quality": 1.0,
+            "estimated_cost": 0.000668,
+            "latency_ms": 468.8203999539837,
+            "utility": 0.9639035920009204,
+            "exploration_bonus": 0.15722206109523076,
+            "score": 1.121125653096151
+          },
+          {
+            "model": "strong",
+            "samples": 0,
+            "attempts": 0,
+            "quality": 0.5,
+            "estimated_cost": 0.0093,
+            "latency_ms": 5000.0,
+            "utility": 0.19999999999999998,
+            "exploration_bonus": 0.22234557110512668,
+            "score": 0.42234557110512666
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "train-general-1",
+      "category": "general",
+      "phase": "train",
+      "route": "budget",
+      "protocol": "structured",
+      "answer": "{\"answer\":[\"R3\",\"R2\"]}",
+      "expected": [
+        "R3",
+        "R2"
+      ],
+      "score": 1.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 278,
+        "prompt_tokens": 278,
+        "completion_tokens": 11,
+        "total_tokens": 289
+      },
+      "finish_reason": "stop",
+      "latency_ms": 741.0045999567956,
+      "provider_latency_ms": 669.9515999061987,
+      "cost_upper_cny": 0.000644,
+      "decision": {
+        "selected_model": "budget",
+        "reason": "cold_start",
+        "learning_samples": 2,
+        "candidates": [
+          {
+            "model": "budget",
+            "samples": 1,
+            "attempts": 1,
+            "quality": 1.0,
+            "estimated_cost": 0.000668,
+            "latency_ms": 468.8203999539837,
+            "utility": 0.9639035920009204,
+            "exploration_bonus": 0.1766115033773212,
+            "score": 1.1405150953782415
+          },
+          {
+            "model": "strong",
+            "samples": 1,
+            "attempts": 1,
+            "quality": 1.0,
+            "estimated_cost": 0.002853,
+            "latency_ms": 1133.0724998842925,
+            "utility": 0.8632185500023142,
+            "exploration_bonus": 0.1766115033773212,
+            "score": 1.0398300533796354
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "train-coding-1",
+      "category": "coding",
+      "phase": "train",
+      "route": "budget",
+      "protocol": "structured",
+      "answer": "{\"answer\": 1230}",
+      "expected": 358,
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 133,
+        "prompt_tokens": 133,
+        "completion_tokens": 7,
+        "total_tokens": 140
+      },
+      "finish_reason": "stop",
+      "latency_ms": 690.1264000916854,
+      "provider_latency_ms": 607.2198000038043,
+      "cost_upper_cny": 0.000322,
+      "decision": {
+        "selected_model": "budget",
+        "reason": "cold_start",
+        "learning_samples": 0,
+        "candidates": [
+          {
+            "model": "budget",
+            "samples": 0,
+            "attempts": 0,
+            "quality": 0.5,
+            "estimated_cost": 0.0022773333333333335,
+            "latency_ms": 5000.0,
+            "utility": 0.30890666666666666,
+            "exploration_bonus": 0.1766115033773212,
+            "score": 0.4855181700439879
+          },
+          {
+            "model": "strong",
+            "samples": 0,
+            "attempts": 0,
+            "quality": 0.5,
+            "estimated_cost": 0.007944,
+            "latency_ms": 5000.0,
+            "utility": 0.19999999999999998,
+            "exploration_bonus": 0.1766115033773212,
+            "score": 0.3766115033773212
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "train-math-2",
+      "category": "math",
+      "phase": "train",
+      "route": "strong",
+      "protocol": "structured",
+      "answer": "{\"answer\": 0}",
+      "expected": 7,
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 86,
+        "prompt_tokens": 86,
+        "completion_tokens": 6,
+        "total_tokens": 92
+      },
+      "finish_reason": "stop",
+      "latency_ms": 964.8721000412479,
+      "provider_latency_ms": 896.1308000143617,
+      "cost_upper_cny": 0.000936,
+      "decision": {
+        "selected_model": "strong",
+        "reason": "cold_start",
+        "learning_samples": 1,
+        "candidates": [
+          {
+            "model": "strong",
+            "samples": 0,
+            "attempts": 0,
+            "quality": 0.5,
+            "estimated_cost": 0.00762,
+            "latency_ms": 5000.0,
+            "utility": 0.19999999999999998,
+            "exploration_bonus": 0.22234557110512668,
+            "score": 0.42234557110512666
+          },
+          {
+            "model": "budget",
+            "samples": 1,
+            "attempts": 1,
+            "quality": 0.0,
+            "estimated_cost": 0.00022,
+            "latency_ms": 558.3269000053406,
+            "utility": -0.019966538000106813,
+            "exploration_bonus": 0.15722206109523076,
+            "score": 0.13725552309512395
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "train-math-0",
+      "category": "math",
+      "phase": "train",
+      "route": "budget",
+      "protocol": "structured",
+      "answer": "{\"answer\": 60}",
+      "expected": 9,
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 90,
+        "prompt_tokens": 90,
+        "completion_tokens": 6,
+        "total_tokens": 96
+      },
+      "finish_reason": "stop",
+      "latency_ms": 620.9444999694824,
+      "provider_latency_ms": 538.6198000051081,
+      "cost_upper_cny": 0.000228,
+      "decision": {
+        "selected_model": "budget",
+        "reason": "cold_start",
+        "learning_samples": 2,
+        "candidates": [
+          {
+            "model": "budget",
+            "samples": 1,
+            "attempts": 1,
+            "quality": 0.0,
+            "estimated_cost": 0.00022,
+            "latency_ms": 558.3269000053406,
+            "utility": -0.019966538000106813,
+            "exploration_bonus": 0.1766115033773212,
+            "score": 0.1566449653772144
+          },
+          {
+            "model": "strong",
+            "samples": 1,
+            "attempts": 1,
+            "quality": 0.0,
+            "estimated_cost": 0.000936,
+            "latency_ms": 921.6286999871954,
+            "utility": -0.05587257399974391,
+            "exploration_bonus": 0.1766115033773212,
+            "score": 0.1207389293775773
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "train-coding-0",
+      "category": "coding",
+      "phase": "train",
+      "route": "strong",
+      "protocol": "structured",
+      "answer": "{\"answer\": 0}",
+      "expected": 561,
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 130,
+        "prompt_tokens": 130,
+        "completion_tokens": 6,
+        "total_tokens": 136
+      },
+      "finish_reason": "stop",
+      "latency_ms": 1179.7050000168383,
+      "provider_latency_ms": 1082.0857000071555,
+      "cost_upper_cny": 0.001332,
+      "decision": {
+        "selected_model": "strong",
+        "reason": "cold_start",
+        "learning_samples": 1,
+        "candidates": [
+          {
+            "model": "strong",
+            "samples": 0,
+            "attempts": 0,
+            "quality": 0.5,
+            "estimated_cost": 0.007947,
+            "latency_ms": 5000.0,
+            "utility": 0.19999999999999998,
+            "exploration_bonus": 0.22234557110512668,
+            "score": 0.42234557110512666
+          },
+          {
+            "model": "budget",
+            "samples": 1,
+            "attempts": 1,
+            "quality": 0.0,
+            "estimated_cost": 0.000322,
+            "latency_ms": 635.3767999680713,
+            "utility": -0.02558753599936143,
+            "exploration_bonus": 0.15722206109523076,
+            "score": 0.13163452509586934
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "train-coding-2",
+      "category": "coding",
+      "phase": "train",
+      "route": "budget",
+      "protocol": "structured",
+      "answer": "{\"answer\": 396}",
+      "expected": 233,
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 133,
+        "prompt_tokens": 133,
+        "completion_tokens": 6,
+        "total_tokens": 139
+      },
+      "finish_reason": "stop",
+      "latency_ms": 793.1092000799254,
+      "provider_latency_ms": 696.4495000429451,
+      "cost_upper_cny": 0.000314,
+      "decision": {
+        "selected_model": "budget",
+        "reason": "cold_start",
+        "learning_samples": 2,
+        "candidates": [
+          {
+            "model": "budget",
+            "samples": 1,
+            "attempts": 1,
+            "quality": 0.0,
+            "estimated_cost": 0.000322,
+            "latency_ms": 635.3767999680713,
+            "utility": -0.02558753599936143,
+            "exploration_bonus": 0.1766115033773212,
+            "score": 0.15102396737795978
+          },
+          {
+            "model": "strong",
+            "samples": 1,
+            "attempts": 1,
+            "quality": 0.0,
+            "estimated_cost": 0.001332,
+            "latency_ms": 1119.7004000423476,
+            "utility": -0.07567400800084696,
+            "exploration_bonus": 0.1766115033773212,
+            "score": 0.10093749537647424
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "train-coding-3",
+      "category": "coding",
+      "phase": "train",
+      "route": "strong",
+      "protocol": "structured",
+      "answer": "{\"answer\": 816}",
+      "expected": 219,
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 130,
+        "prompt_tokens": 130,
+        "completion_tokens": 6,
+        "total_tokens": 136
+      },
+      "finish_reason": "stop",
+      "latency_ms": 1191.2898999871686,
+      "provider_latency_ms": 1078.742599929683,
+      "cost_upper_cny": 0.001332,
+      "decision": {
+        "selected_model": "strong",
+        "reason": "cold_start",
+        "learning_samples": 3,
+        "candidates": [
+          {
+            "model": "budget",
+            "samples": 2,
+            "attempts": 2,
+            "quality": 0.0,
+            "estimated_cost": 0.00031800000000000003,
+            "latency_ms": 694.0528999548405,
+            "utility": -0.026601057999096813,
+            "exploration_bonus": 0.15537557300461197,
+            "score": 0.12877451500551515
+          },
+          {
+            "model": "strong",
+            "samples": 1,
+            "attempts": 1,
+            "quality": 0.0,
+            "estimated_cost": 0.001332,
+            "latency_ms": 1119.7004000423476,
+            "utility": -0.07567400800084696,
+            "exploration_bonus": 0.19029543617692793,
+            "score": 0.11462142817608097
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "train-math-4",
+      "category": "math",
+      "phase": "train",
+      "route": "strong",
+      "protocol": "structured",
+      "answer": "{\"answer\":0}",
+      "expected": 87,
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 87,
+        "prompt_tokens": 87,
+        "completion_tokens": 5,
+        "total_tokens": 92
+      },
+      "finish_reason": "stop",
+      "latency_ms": 1004.5312000438571,
+      "provider_latency_ms": 946.2392999557778,
+      "cost_upper_cny": 0.000918,
+      "decision": {
+        "selected_model": "strong",
+        "reason": "cold_start",
+        "learning_samples": 3,
+        "candidates": [
+          {
+            "model": "budget",
+            "samples": 2,
+            "attempts": 2,
+            "quality": 0.0,
+            "estimated_cost": 0.00022400000000000002,
+            "latency_ms": 563.7284000404179,
+            "utility": -0.02023456800080836,
+            "exploration_bonus": 0.15537557300461197,
+            "score": 0.1351410050038036
+          },
+          {
+            "model": "strong",
+            "samples": 1,
+            "attempts": 1,
+            "quality": 0.0,
+            "estimated_cost": 0.000936,
+            "latency_ms": 921.6286999871954,
+            "utility": -0.05587257399974391,
+            "exploration_bonus": 0.19029543617692793,
+            "score": 0.13442286217718402
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "train-coding-5",
+      "category": "coding",
+      "phase": "train",
+      "route": "budget",
+      "protocol": "structured",
+      "answer": "{\"answer\": 252}",
+      "expected": 197,
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 133,
+        "prompt_tokens": 133,
+        "completion_tokens": 6,
+        "total_tokens": 139
+      },
+      "finish_reason": "stop",
+      "latency_ms": 673.2175999786705,
+      "provider_latency_ms": 542.4648999469355,
+      "cost_upper_cny": 0.000314,
+      "decision": {
+        "selected_model": "budget",
+        "reason": "cold_start",
+        "learning_samples": 4,
+        "candidates": [
+          {
+            "model": "budget",
+            "samples": 2,
+            "attempts": 2,
+            "quality": 0.0,
+            "estimated_cost": 0.00031800000000000003,
+            "latency_ms": 694.0528999548405,
+            "utility": -0.026601057999096813,
+            "exploration_bonus": 0.16394020872995382,
+            "score": 0.137339150730857
+          },
+          {
+            "model": "strong",
+            "samples": 2,
+            "attempts": 2,
+            "quality": 0.0,
+            "estimated_cost": 0.001332,
+            "latency_ms": 1131.3383000087924,
+            "utility": -0.07590676600017586,
+            "exploration_bonus": 0.16394020872995382,
+            "score": 0.08803344272977796
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "train-math-1",
+      "category": "math",
+      "phase": "train",
+      "route": "budget",
+      "protocol": "structured",
+      "answer": "{\"answer\": 40}",
+      "expected": 78,
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 89,
+        "prompt_tokens": 89,
+        "completion_tokens": 6,
+        "total_tokens": 95
+      },
+      "finish_reason": "stop",
+      "latency_ms": 1015.0295000057667,
+      "provider_latency_ms": 928.8041000254452,
+      "cost_upper_cny": 0.000226,
+      "decision": {
+        "selected_model": "budget",
+        "reason": "cold_start",
+        "learning_samples": 4,
+        "candidates": [
+          {
+            "model": "budget",
+            "samples": 2,
+            "attempts": 2,
+            "quality": 0.0,
+            "estimated_cost": 0.00022400000000000002,
+            "latency_ms": 563.7284000404179,
+            "utility": -0.02023456800080836,
+            "exploration_bonus": 0.16394020872995382,
+            "score": 0.14370564072914546
+          },
+          {
+            "model": "strong",
+            "samples": 2,
+            "attempts": 2,
+            "quality": 0.0,
+            "estimated_cost": 0.000927,
+            "latency_ms": 945.486249984242,
+            "utility": -0.05598972499968484,
+            "exploration_bonus": 0.16394020872995382,
+            "score": 0.10795048373026898
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "train-coding-4",
+      "category": "coding",
+      "phase": "train",
+      "route": "strong",
+      "protocol": "structured",
+      "answer": "{\"answer\": 156}",
+      "expected": 98,
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 130,
+        "prompt_tokens": 130,
+        "completion_tokens": 6,
+        "total_tokens": 136
+      },
+      "finish_reason": "stop",
+      "latency_ms": 1056.3152999384329,
+      "provider_latency_ms": 952.7082999702543,
+      "cost_upper_cny": 0.001332,
+      "decision": {
+        "selected_model": "strong",
+        "reason": "cold_start",
+        "learning_samples": 5,
+        "candidates": [
+          {
+            "model": "budget",
+            "samples": 3,
+            "attempts": 3,
+            "quality": 0.0,
+            "estimated_cost": 0.00031666666666666665,
+            "latency_ms": 657.6645666500553,
+            "utility": -0.025819957999667777,
+            "exploration_bonus": 0.14795772766865634,
+            "score": 0.12213776966898857
+          },
+          {
+            "model": "strong",
+            "samples": 2,
+            "attempts": 2,
+            "quality": 0.0,
+            "estimated_cost": 0.001332,
+            "latency_ms": 1131.3383000087924,
+            "utility": -0.07590676600017586,
+            "exploration_bonus": 0.17084686779636818,
+            "score": 0.09494010179619232
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "train-general-2",
+      "category": "general",
+      "phase": "train",
+      "route": "strong",
+      "protocol": "structured",
+      "answer": "{\n  \"answer\": [\"R7\", \"R2\"]\n}",
+      "expected": [
+        "R7",
+        "R2"
+      ],
+      "score": 1.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 275,
+        "prompt_tokens": 275,
+        "completion_tokens": 14,
+        "total_tokens": 289
+      },
+      "finish_reason": "stop",
+      "latency_ms": 573.2027000049129,
+      "provider_latency_ms": 515.132199972868,
+      "cost_upper_cny": 0.002853,
+      "decision": {
+        "selected_model": "strong",
+        "reason": "cold_start",
+        "learning_samples": 3,
+        "candidates": [
+          {
+            "model": "budget",
+            "samples": 2,
+            "attempts": 2,
+            "quality": 1.0,
+            "estimated_cost": 0.000656,
+            "latency_ms": 580.9000000008382,
+            "utility": 0.9621419999999832,
+            "exploration_bonus": 0.15537557300461197,
+            "score": 1.1175175730045952
+          },
+          {
+            "model": "strong",
+            "samples": 1,
+            "attempts": 1,
+            "quality": 1.0,
+            "estimated_cost": 0.002853,
+            "latency_ms": 1133.0724998842925,
+            "utility": 0.8632185500023142,
+            "exploration_bonus": 0.19029543617692793,
+            "score": 1.0535139861792422
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "train-math-5",
+      "category": "math",
+      "phase": "train",
+      "route": "strong",
+      "protocol": "structured",
+      "answer": "{\"answer\":108}",
+      "expected": 91,
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 87,
+        "prompt_tokens": 87,
+        "completion_tokens": 5,
+        "total_tokens": 92
+      },
+      "finish_reason": "stop",
+      "latency_ms": 1038.3576999884099,
+      "provider_latency_ms": 955.720099969767,
+      "cost_upper_cny": 0.000918,
+      "decision": {
+        "selected_model": "strong",
+        "reason": "cold_start",
+        "learning_samples": 5,
+        "candidates": [
+          {
+            "model": "budget",
+            "samples": 3,
+            "attempts": 3,
+            "quality": 0.0,
+            "estimated_cost": 0.00022466666666666666,
+            "latency_ms": 695.7944000217443,
+            "utility": -0.022902554667101553,
+            "exploration_bonus": 0.14795772766865634,
+            "score": 0.12505517300155478
+          },
+          {
+            "model": "strong",
+            "samples": 2,
+            "attempts": 2,
+            "quality": 0.0,
+            "estimated_cost": 0.000927,
+            "latency_ms": 945.486249984242,
+            "utility": -0.05598972499968484,
+            "exploration_bonus": 0.17084686779636818,
+            "score": 0.11485714279668334
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "train-general-5",
+      "category": "general",
+      "phase": "train",
+      "route": "budget",
+      "protocol": "structured",
+      "answer": "{\"answer\":[\"R5\",\"R1\",\"R0\"]}",
+      "expected": [
+        "R5",
+        "R1",
+        "R8"
+      ],
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 278,
+        "prompt_tokens": 278,
+        "completion_tokens": 14,
+        "total_tokens": 292
+      },
+      "finish_reason": "stop",
+      "latency_ms": 1237.4307999853045,
+      "provider_latency_ms": 903.2065999926999,
+      "cost_upper_cny": 0.000668,
+      "decision": {
+        "selected_model": "budget",
+        "reason": "cold_start",
+        "learning_samples": 4,
+        "candidates": [
+          {
+            "model": "budget",
+            "samples": 2,
+            "attempts": 2,
+            "quality": 1.0,
+            "estimated_cost": 0.000656,
+            "latency_ms": 580.9000000008382,
+            "utility": 0.9621419999999832,
+            "exploration_bonus": 0.16394020872995382,
+            "score": 1.126082208729937
+          },
+          {
+            "model": "strong",
+            "samples": 2,
+            "attempts": 2,
+            "quality": 1.0,
+            "estimated_cost": 0.002853,
+            "latency_ms": 834.8829499445856,
+            "utility": 0.8691823410011082,
+            "exploration_bonus": 0.16394020872995382,
+            "score": 1.033122549731062
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "train-general-0",
+      "category": "general",
+      "phase": "train",
+      "route": "strong",
+      "protocol": "structured",
+      "answer": "{\n  \"answer\": [\"R3\", \"R1\", \"R4\"]\n}",
+      "expected": [
+        "R3",
+        "R1",
+        "R4"
+      ],
+      "score": 1.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 275,
+        "prompt_tokens": 275,
+        "completion_tokens": 18,
+        "total_tokens": 293
+      },
+      "finish_reason": "stop",
+      "latency_ms": 777.8025000588968,
+      "provider_latency_ms": 732.8694000607356,
+      "cost_upper_cny": 0.002961,
+      "decision": {
+        "selected_model": "strong",
+        "reason": "cold_start",
+        "learning_samples": 5,
+        "candidates": [
+          {
+            "model": "strong",
+            "samples": 2,
+            "attempts": 2,
+            "quality": 1.0,
+            "estimated_cost": 0.002853,
+            "latency_ms": 834.8829499445856,
+            "utility": 0.8691823410011082,
+            "exploration_bonus": 0.17084686779636818,
+            "score": 1.0400292087974765
+          },
+          {
+            "model": "budget",
+            "samples": 3,
+            "attempts": 3,
+            "quality": 0.6666666666666666,
+            "estimated_cost": 0.00066,
+            "latency_ms": 693.8171333167702,
+            "utility": 0.6263903240003312,
+            "exploration_bonus": 0.14795772766865634,
+            "score": 0.7743480516689876
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "test-coding-2",
+      "category": "coding",
+      "phase": "test",
+      "route": "budget",
+      "protocol": "plain",
+      "answer": "Let's go step-by-step.\n\nWe have:\n\n- `x = 3`\n- `total = 0`\n- Loop `i` from 0 to 19.\n\nFormula each iteration:  \n`x = (x * 2 + i + 4) % 47`  \nIf `x % 3 != 0`, add `x` to `total`.\n\n---\n\n**i = 0:**  \nx = (3*2 + 0 + 4) = 10 % 47 = 10  \n10 % 3 = 1 \u2260 0 \u2192 total = 10\n\n**i = 1:**  \nx = (10*2 + 1 + 4) = 25 % 47 = 25  \n25 % 3 = 1 \u2192 total = 35\n\n**i = 2:**  \nx = (25*2 + 2 + 4) = 56 % 47 = 9  \n9 % 3 = 0 \u2192 skip, total = 35\n\n**i = 3:**  \nx = (9*2 + 3 + 4) = 25 % 47 = 25  \n25 % 3 = 1 \u2192 total = 60\n\n",
+      "expected": 332,
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 72,
+        "prompt_tokens": 72,
+        "completion_tokens": 256,
+        "total_tokens": 328
+      },
+      "finish_reason": "length",
+      "latency_ms": 1375.6579000037163,
+      "provider_latency_ms": 1344.1422999603674,
+      "cost_upper_cny": 0.002192
+    },
+    {
+      "case_id": "test-coding-2",
+      "category": "coding",
+      "phase": "test",
+      "route": "budget",
+      "protocol": "structured",
+      "answer": "{\"answer\": 233}",
+      "expected": 332,
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 133,
+        "prompt_tokens": 133,
+        "completion_tokens": 6,
+        "total_tokens": 139
+      },
+      "finish_reason": "stop",
+      "latency_ms": 800.9161000372842,
+      "provider_latency_ms": 768.3204999193549,
+      "cost_upper_cny": 0.000314
+    },
+    {
+      "case_id": "test-coding-2",
+      "category": "coding",
+      "phase": "test",
+      "route": "strong",
+      "protocol": "plain",
+      "answer": "255",
+      "expected": 332,
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 72,
+        "prompt_tokens": 72,
+        "completion_tokens": 1,
+        "total_tokens": 73
+      },
+      "finish_reason": "stop",
+      "latency_ms": 934.1515999985859,
+      "provider_latency_ms": 903.4240000182763,
+      "cost_upper_cny": 0.000675
+    },
+    {
+      "case_id": "test-coding-2",
+      "category": "coding",
+      "phase": "test",
+      "route": "strong",
+      "protocol": "structured",
+      "answer": "{\"answer\": 322}",
+      "expected": 332,
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 130,
+        "prompt_tokens": 130,
+        "completion_tokens": 6,
+        "total_tokens": 136
+      },
+      "finish_reason": "stop",
+      "latency_ms": 542.994900024496,
+      "provider_latency_ms": 520.4414000036195,
+      "cost_upper_cny": 0.001332
+    },
+    {
+      "case_id": "test-general-0",
+      "category": "general",
+      "phase": "test",
+      "route": "strong",
+      "protocol": "structured",
+      "answer": "{\n  \"answer\": [\"R6\", \"R3\", \"R2\"]\n}",
+      "expected": [
+        "R6",
+        "R3",
+        "R2"
+      ],
+      "score": 1.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 275,
+        "prompt_tokens": 275,
+        "completion_tokens": 18,
+        "total_tokens": 293
+      },
+      "finish_reason": "stop",
+      "latency_ms": 1027.924200054258,
+      "provider_latency_ms": 999.683800037019,
+      "cost_upper_cny": 0.002961
+    },
+    {
+      "case_id": "test-general-0",
+      "category": "general",
+      "phase": "test",
+      "route": "strong",
+      "protocol": "plain",
+      "answer": "[\"R6\",\"R3\",\"R2\"]",
+      "expected": [
+        "R6",
+        "R3",
+        "R2"
+      ],
+      "score": 1.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 220,
+        "prompt_tokens": 220,
+        "completion_tokens": 10,
+        "total_tokens": 230
+      },
+      "finish_reason": "stop",
+      "latency_ms": 931.5056001069024,
+      "provider_latency_ms": 903.3838000614196,
+      "cost_upper_cny": 0.00225
+    },
+    {
+      "case_id": "test-general-0",
+      "category": "general",
+      "phase": "test",
+      "route": "budget",
+      "protocol": "structured",
+      "answer": "{\"answer\":[\"R6\",\"R3\",\"R2\"]}",
+      "expected": [
+        "R6",
+        "R3",
+        "R2"
+      ],
+      "score": 1.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 278,
+        "prompt_tokens": 278,
+        "completion_tokens": 14,
+        "total_tokens": 292
+      },
+      "finish_reason": "stop",
+      "latency_ms": 948.9227999001741,
+      "provider_latency_ms": 919.4923000177369,
+      "cost_upper_cny": 0.000668
+    },
+    {
+      "case_id": "test-general-0",
+      "category": "general",
+      "phase": "test",
+      "route": "budget",
+      "protocol": "plain",
+      "answer": "[\"R6\",\"R3\",\"R2\"]",
+      "expected": [
+        "R6",
+        "R3",
+        "R2"
+      ],
+      "score": 1.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 220,
+        "prompt_tokens": 220,
+        "completion_tokens": 10,
+        "total_tokens": 230
+      },
+      "finish_reason": "stop",
+      "latency_ms": 565.0105000240728,
+      "provider_latency_ms": 509.51119989622384,
+      "cost_upper_cny": 0.00052
+    },
+    {
+      "case_id": "test-math-2",
+      "category": "math",
+      "phase": "test",
+      "route": "budget",
+      "protocol": "plain",
+      "answer": "37",
+      "expected": 44,
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 29,
+        "prompt_tokens": 29,
+        "completion_tokens": 1,
+        "total_tokens": 30
+      },
+      "finish_reason": "stop",
+      "latency_ms": 570.7922000437975,
+      "provider_latency_ms": 537.9002001136541,
+      "cost_upper_cny": 6.6e-05
+    },
+    {
+      "case_id": "test-math-2",
+      "category": "math",
+      "phase": "test",
+      "route": "budget",
+      "protocol": "structured",
+      "answer": "{\"answer\":86}",
+      "expected": 44,
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 90,
+        "prompt_tokens": 90,
+        "completion_tokens": 5,
+        "total_tokens": 95
+      },
+      "finish_reason": "stop",
+      "latency_ms": 946.7707000439987,
+      "provider_latency_ms": 922.9753999970853,
+      "cost_upper_cny": 0.00022
+    },
+    {
+      "case_id": "test-math-2",
+      "category": "math",
+      "phase": "test",
+      "route": "strong",
+      "protocol": "plain",
+      "answer": "We need to compute:\n\n\\[\n(7163 \\times 6557 + 7704) \\mod 97\n\\]\n\nFirst, reduce each number modulo 97:\n\n- \\(7163 \\mod 97\\):  \n  \\(97 \\times 73 = 7081\\), remainder \\(7163 - 7081 = 82\\).\n\n- \\(6557 \\mod 97\\):  \n  \\(97 \\times 67 = 6499\\), remainder \\(6557 - 6499 = 58\\).\n\n- \\(7704 \\mod 97\\):  \n  \\(97 \\times 79 = 7663\\), remainder \\(7704 - 7663 = 41\\).\n\nNow compute:\n\n\\[\n82 \\times 58 = 4756\n\\]\n\\(4756 \\mod 97\\):  \n\\(97 \\times 49 = 4753\\), remainder \\(3\\).\n\nAdd \\(41\\):\n\n\\[\n3 + 41 = 44\n\\]\n\nFinal answer:\n\n\\[\n\\boxed{44}\n\\]",
+      "expected": 44,
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 29,
+        "prompt_tokens": 29,
+        "completion_tokens": 210,
+        "total_tokens": 239
+      },
+      "finish_reason": "stop",
+      "latency_ms": 2756.5541000803933,
+      "provider_latency_ms": 2724.060699925758,
+      "cost_upper_cny": 0.005931
+    },
+    {
+      "case_id": "test-math-2",
+      "category": "math",
+      "phase": "test",
+      "route": "strong",
+      "protocol": "structured",
+      "answer": "{\"answer\": 0}",
+      "expected": 44,
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 87,
+        "prompt_tokens": 87,
+        "completion_tokens": 6,
+        "total_tokens": 93
+      },
+      "finish_reason": "stop",
+      "latency_ms": 1134.2384000308812,
+      "provider_latency_ms": 1099.4900999357924,
+      "cost_upper_cny": 0.000945
+    },
+    {
+      "case_id": "test-general-2",
+      "category": "general",
+      "phase": "test",
+      "route": "strong",
+      "protocol": "structured",
+      "answer": "{\"answer\":[\"R4\",\"R5\",\"R7\"]}",
+      "expected": [
+        "R4",
+        "R7",
+        "R9"
+      ],
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 275,
+        "prompt_tokens": 275,
+        "completion_tokens": 14,
+        "total_tokens": 289
+      },
+      "finish_reason": "stop",
+      "latency_ms": 1335.1853999774903,
+      "provider_latency_ms": 1299.071199959144,
+      "cost_upper_cny": 0.002853
+    },
+    {
+      "case_id": "test-general-2",
+      "category": "general",
+      "phase": "test",
+      "route": "strong",
+      "protocol": "plain",
+      "answer": "[\"R4\",\"R7\",\"R9\"]",
+      "expected": [
+        "R4",
+        "R7",
+        "R9"
+      ],
+      "score": 1.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 220,
+        "prompt_tokens": 220,
+        "completion_tokens": 10,
+        "total_tokens": 230
+      },
+      "finish_reason": "stop",
+      "latency_ms": 985.9269999433309,
+      "provider_latency_ms": 960.333300055936,
+      "cost_upper_cny": 0.00225
+    },
+    {
+      "case_id": "test-general-2",
+      "category": "general",
+      "phase": "test",
+      "route": "budget",
+      "protocol": "structured",
+      "answer": "{\"answer\":[\"R4\",\"R7\",\"R9\"]}",
+      "expected": [
+        "R4",
+        "R7",
+        "R9"
+      ],
+      "score": 1.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 278,
+        "prompt_tokens": 278,
+        "completion_tokens": 14,
+        "total_tokens": 292
+      },
+      "finish_reason": "stop",
+      "latency_ms": 546.8445000005886,
+      "provider_latency_ms": 522.5161999696866,
+      "cost_upper_cny": 0.000668
+    },
+    {
+      "case_id": "test-general-2",
+      "category": "general",
+      "phase": "test",
+      "route": "budget",
+      "protocol": "plain",
+      "answer": "[\"R4\",\"R7\",\"R9\"]",
+      "expected": [
+        "R4",
+        "R7",
+        "R9"
+      ],
+      "score": 1.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 220,
+        "prompt_tokens": 220,
+        "completion_tokens": 10,
+        "total_tokens": 230
+      },
+      "finish_reason": "stop",
+      "latency_ms": 903.6528000142425,
+      "provider_latency_ms": 866.0966999595985,
+      "cost_upper_cny": 0.00052
+    },
+    {
+      "case_id": "test-coding-1",
+      "category": "coding",
+      "phase": "test",
+      "route": "budget",
+      "protocol": "plain",
+      "answer": "Let's go step-by-step.\n\nWe have:\n\n- `x = 13`\n- `total = 0`\n- Loop `i` from 0 to 12 (13 iterations).\n\nFormula each time:  \n`x = (x * 6 + i + 8) % 77`  \nThen if `x % 3 != 0`, add `x` to `total`.\n\n---\n\n**i = 0:**  \nx = (13*6 + 0 + 8) % 77 = (78 + 8) % 77 = 86 % 77 = 9  \n9 % 3 == 0 \u2192 skip. total = 0.\n\n**i = 1:**  \nx = (9*6 + 1 + 8) % 77 = (54 + 9) % 77 = 63 % 77 = 63  \n63 % 3 == 0 \u2192 skip. total = 0.\n\n**i = 2:**  \nx = (63*6 + 2 + 8) % 77 = (378 + 10) % 77 = 388 % 77  \n77*5 = 385, remainder 3 \u2192 x = 3  \n3",
+      "expected": 227,
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 72,
+        "prompt_tokens": 72,
+        "completion_tokens": 256,
+        "total_tokens": 328
+      },
+      "finish_reason": "length",
+      "latency_ms": 1803.7061999784783,
+      "provider_latency_ms": 1705.1831000717357,
+      "cost_upper_cny": 0.002192
+    },
+    {
+      "case_id": "test-coding-1",
+      "category": "coding",
+      "phase": "test",
+      "route": "budget",
+      "protocol": "structured",
+      "answer": "{\"answer\": 1008}",
+      "expected": 227,
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 133,
+        "prompt_tokens": 133,
+        "completion_tokens": 7,
+        "total_tokens": 140
+      },
+      "finish_reason": "stop",
+      "latency_ms": 589.4981999881566,
+      "provider_latency_ms": 563.9917999505997,
+      "cost_upper_cny": 0.000322
+    },
+    {
+      "case_id": "test-coding-1",
+      "category": "coding",
+      "phase": "test",
+      "route": "strong",
+      "protocol": "plain",
+      "answer": "435",
+      "expected": 227,
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 72,
+        "prompt_tokens": 72,
+        "completion_tokens": 1,
+        "total_tokens": 73
+      },
+      "finish_reason": "stop",
+      "latency_ms": 1185.7252001063898,
+      "provider_latency_ms": 1161.093799979426,
+      "cost_upper_cny": 0.000675
+    },
+    {
+      "case_id": "test-coding-1",
+      "category": "coding",
+      "phase": "test",
+      "route": "strong",
+      "protocol": "structured",
+      "answer": "{\"answer\": 0}",
+      "expected": 227,
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 130,
+        "prompt_tokens": 130,
+        "completion_tokens": 6,
+        "total_tokens": 136
+      },
+      "finish_reason": "stop",
+      "latency_ms": 615.0908999843523,
+      "provider_latency_ms": 587.1762000024319,
+      "cost_upper_cny": 0.001332
+    },
+    {
+      "case_id": "test-math-0",
+      "category": "math",
+      "phase": "test",
+      "route": "strong",
+      "protocol": "structured",
+      "answer": "{\"answer\":0}",
+      "expected": 84,
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 87,
+        "prompt_tokens": 87,
+        "completion_tokens": 5,
+        "total_tokens": 92
+      },
+      "finish_reason": "stop",
+      "latency_ms": 1104.583799955435,
+      "provider_latency_ms": 1069.2790999310091,
+      "cost_upper_cny": 0.000918
+    },
+    {
+      "case_id": "test-math-0",
+      "category": "math",
+      "phase": "test",
+      "route": "strong",
+      "protocol": "plain",
+      "answer": "Alright, let\u2019s break it down step-by-step.\n\nFirst, reduce each number modulo 97:\n\n- \\(8963 \\mod 97\\):  \n  \\(97 \\times 92 = 8924\\), remainder \\(8963 - 8924 = 39\\).  \n  So \\(8963 \\equiv 39 \\pmod{97}\\).\n\n- \\(6309 \\mod 97\\):  \n  \\(97 \\times 65 = 6305\\), remainder \\(6309 - 6305 = 4\\).  \n  So \\(6309 \\equiv 4 \\pmod{97}\\).\n\n- \\(2450 \\mod 97\\):  \n  \\(97 \\times 25 = 2425\\), remainder \\(2450 - 2425 = 25\\).  \n  So \\(2450 \\equiv 25 \\pmod{97}\\).\n\nNow compute:\n\n\\[\n(39 \\times 4) + 25 = 156 + 25 = 181\n\\]\n\nReduce \\(181 \\mod 97\\):  \n\\(97 \\times 1 = 97\\), remainder \\(181 - 97 = 84\\).\n\nFinal answer:\n\n\\[\n\\boxed{84}\n\\]",
+      "expected": 84,
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 29,
+        "prompt_tokens": 29,
+        "completion_tokens": 242,
+        "total_tokens": 271
+      },
+      "finish_reason": "stop",
+      "latency_ms": 2845.0453999685124,
+      "provider_latency_ms": 2822.826600051485,
+      "cost_upper_cny": 0.006795
+    },
+    {
+      "case_id": "test-math-0",
+      "category": "math",
+      "phase": "test",
+      "route": "budget",
+      "protocol": "structured",
+      "answer": "{\"answer\":86}",
+      "expected": 84,
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 90,
+        "prompt_tokens": 90,
+        "completion_tokens": 5,
+        "total_tokens": 95
+      },
+      "finish_reason": "stop",
+      "latency_ms": 513.7490999186411,
+      "provider_latency_ms": 478.69170003104955,
+      "cost_upper_cny": 0.00022
+    },
+    {
+      "case_id": "test-math-0",
+      "category": "math",
+      "phase": "test",
+      "route": "budget",
+      "protocol": "plain",
+      "answer": "Let's compute step by step.\n\nFirst, reduce each number modulo 97.\n\n8963 mod 97:  \n97 \u00d7 92 = 8924, remainder 8963 \u2212 8924 = 39.  \nSo 8963 \u2261 39 (mod 97).\n\n6309 mod 97:  \n97 \u00d7 65 = 6305, remainder 4.  \nSo 6309 \u2261 4 (mod 97).\n\nNow multiply: 39 \u00d7 4 = 156.  \n156 mod 97: 97 \u00d7 1 = 97, remainder 59.\n\nNow add 2450 mod 97:  \n97 \u00d7 25 = 2425, remainder 25.  \nSo 2450 \u2261 25 (mod 97).\n\nAdd: 59 + 25 = 84.\n\n84 mod 97 is 84.\n\n**84**",
+      "expected": 84,
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 29,
+        "prompt_tokens": 29,
+        "completion_tokens": 179,
+        "total_tokens": 208
+      },
+      "finish_reason": "stop",
+      "latency_ms": 1298.2635999796912,
+      "provider_latency_ms": 1262.272100080736,
+      "cost_upper_cny": 0.00149
+    },
+    {
+      "case_id": "test-coding-0",
+      "category": "coding",
+      "phase": "test",
+      "route": "budget",
+      "protocol": "plain",
+      "answer": "Let's go step-by-step.\n\nWe have:\n\n- `x = 2`\n- `total = 0`\n- Loop `i` from 0 to 10.\n\nFormula each iteration:  \n`x = (x * 4 + i + 6) % 37`  \nThen if `x % 3 != 0`, add `x` to `total`.\n\n---\n\n**i = 0:**  \nx = (2*4 + 0 + 6) % 37 = (8 + 6) % 37 = 14 % 37 = 14  \n14 % 3 = 2 \u2260 0 \u2192 total = 14\n\n**i = 1:**  \nx = (14*4 + 1 + 6) % 37 = (56 + 7) % 37 = 63 % 37 = 26  \n26 % 3 = 2 \u2260 0 \u2192 total = 14 + 26 = 40\n\n**i = 2:**  \nx = (26*4 + 2 + 6) % 37 = (104 + 8) % 37 = 112 % 37 = 1 (since 37*3=111)  \n",
+      "expected": 113,
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 72,
+        "prompt_tokens": 72,
+        "completion_tokens": 256,
+        "total_tokens": 328
+      },
+      "finish_reason": "length",
+      "latency_ms": 1460.9474000753835,
+      "provider_latency_ms": 1426.380000077188,
+      "cost_upper_cny": 0.002192
+    },
+    {
+      "case_id": "test-coding-0",
+      "category": "coding",
+      "phase": "test",
+      "route": "budget",
+      "protocol": "structured",
+      "answer": "{\"answer\": 148}",
+      "expected": 113,
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 133,
+        "prompt_tokens": 133,
+        "completion_tokens": 6,
+        "total_tokens": 139
+      },
+      "finish_reason": "stop",
+      "latency_ms": 727.7997001074255,
+      "provider_latency_ms": 654.8920999048278,
+      "cost_upper_cny": 0.000314
+    },
+    {
+      "case_id": "test-coding-0",
+      "category": "coding",
+      "phase": "test",
+      "route": "strong",
+      "protocol": "plain",
+      "answer": "235",
+      "expected": 113,
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 72,
+        "prompt_tokens": 72,
+        "completion_tokens": 1,
+        "total_tokens": 73
+      },
+      "finish_reason": "stop",
+      "latency_ms": 969.1649000160396,
+      "provider_latency_ms": 938.7503999751061,
+      "cost_upper_cny": 0.000675
+    },
+    {
+      "case_id": "test-coding-0",
+      "category": "coding",
+      "phase": "test",
+      "route": "strong",
+      "protocol": "structured",
+      "answer": "{\"answer\": 187}",
+      "expected": 113,
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 130,
+        "prompt_tokens": 130,
+        "completion_tokens": 6,
+        "total_tokens": 136
+      },
+      "finish_reason": "stop",
+      "latency_ms": 1176.1019000550732,
+      "provider_latency_ms": 1147.9493000078946,
+      "cost_upper_cny": 0.001332
+    },
+    {
+      "case_id": "test-general-1",
+      "category": "general",
+      "phase": "test",
+      "route": "strong",
+      "protocol": "structured",
+      "answer": "{\n  \"answer\": [\"R5\", \"R4\", \"R0\"]\n}",
+      "expected": [
+        "R5",
+        "R4",
+        "R0"
+      ],
+      "score": 1.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 275,
+        "prompt_tokens": 275,
+        "completion_tokens": 18,
+        "total_tokens": 293
+      },
+      "finish_reason": "stop",
+      "latency_ms": 685.9381999820471,
+      "provider_latency_ms": 647.239499958232,
+      "cost_upper_cny": 0.002961
+    },
+    {
+      "case_id": "test-general-1",
+      "category": "general",
+      "phase": "test",
+      "route": "strong",
+      "protocol": "plain",
+      "answer": "[\"R5\",\"R4\",\"R0\"]",
+      "expected": [
+        "R5",
+        "R4",
+        "R0"
+      ],
+      "score": 1.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 220,
+        "prompt_tokens": 220,
+        "completion_tokens": 10,
+        "total_tokens": 230
+      },
+      "finish_reason": "stop",
+      "latency_ms": 627.1619000472128,
+      "provider_latency_ms": 605.5901000509039,
+      "cost_upper_cny": 0.00225
+    },
+    {
+      "case_id": "test-general-1",
+      "category": "general",
+      "phase": "test",
+      "route": "budget",
+      "protocol": "structured",
+      "answer": "{\"answer\":[\"R5\",\"R4\",\"R0\"]}",
+      "expected": [
+        "R5",
+        "R4",
+        "R0"
+      ],
+      "score": 1.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 278,
+        "prompt_tokens": 278,
+        "completion_tokens": 14,
+        "total_tokens": 292
+      },
+      "finish_reason": "stop",
+      "latency_ms": 855.9084000298753,
+      "provider_latency_ms": 834.0351999504492,
+      "cost_upper_cny": 0.000668
+    },
+    {
+      "case_id": "test-general-1",
+      "category": "general",
+      "phase": "test",
+      "route": "budget",
+      "protocol": "plain",
+      "answer": "[\"R5\",\"R4\",\"R0\"]",
+      "expected": [
+        "R5",
+        "R4",
+        "R0"
+      ],
+      "score": 1.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 220,
+        "prompt_tokens": 220,
+        "completion_tokens": 10,
+        "total_tokens": 230
+      },
+      "finish_reason": "stop",
+      "latency_ms": 598.89879997354,
+      "provider_latency_ms": 561.3469999516383,
+      "cost_upper_cny": 0.00052
+    },
+    {
+      "case_id": "test-math-1",
+      "category": "math",
+      "phase": "test",
+      "route": "budget",
+      "protocol": "plain",
+      "answer": "37",
+      "expected": 32,
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 29,
+        "prompt_tokens": 29,
+        "completion_tokens": 1,
+        "total_tokens": 30
+      },
+      "finish_reason": "stop",
+      "latency_ms": 539.5361999981105,
+      "provider_latency_ms": 503.93819995224476,
+      "cost_upper_cny": 6.6e-05
+    },
+    {
+      "case_id": "test-math-1",
+      "category": "math",
+      "phase": "test",
+      "route": "budget",
+      "protocol": "structured",
+      "answer": "{\"answer\":68}",
+      "expected": 32,
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 90,
+        "prompt_tokens": 90,
+        "completion_tokens": 5,
+        "total_tokens": 95
+      },
+      "finish_reason": "stop",
+      "latency_ms": 674.3207999970764,
+      "provider_latency_ms": 644.2416999489069,
+      "cost_upper_cny": 0.00022
+    },
+    {
+      "case_id": "test-math-1",
+      "category": "math",
+      "phase": "test",
+      "route": "strong",
+      "protocol": "plain",
+      "answer": "Alright, let\u2019s break it down step-by-step.\n\nFirst, reduce each number modulo 101:\n\n- 2518 mod 101:  \n  101 \u00d7 24 = 2424  \n  2518 \u2212 2424 = 94  \n  So 2518 \u2261 94 mod 101.\n\n- 1870 mod 101:  \n  101 \u00d7 18 = 1818  \n  1870 \u2212 1818 = 52  \n  So 1870 \u2261 52 mod 101.\n\n- 9385 mod 101:  \n  101 \u00d7 92 = 9292  \n  9385 \u2212 9292 = 93  \n  So 9385 \u2261 93 mod 101.\n\nNow multiply 94 \u00d7 52:  \n94 \u00d7 52 = 4888.\n\n4888 mod 101:  \n101 \u00d7 48 = 4848  \n4888 \u2212 4848 = 40.\n\nNow add 93:  \n40 + 93 = 133.\n\n133 mod 101 = 32.\n\nFinal answer:  \n**32**",
+      "expected": 32,
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 29,
+        "prompt_tokens": 29,
+        "completion_tokens": 220,
+        "total_tokens": 249
+      },
+      "finish_reason": "stop",
+      "latency_ms": 2424.892900045961,
+      "provider_latency_ms": 2404.2748999781907,
+      "cost_upper_cny": 0.006201
+    },
+    {
+      "case_id": "test-math-1",
+      "category": "math",
+      "phase": "test",
+      "route": "strong",
+      "protocol": "structured",
+      "answer": "{\"answer\": 93}",
+      "expected": 32,
+      "score": 0.0,
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 87,
+        "prompt_tokens": 87,
+        "completion_tokens": 6,
+        "total_tokens": 93
+      },
+      "finish_reason": "stop",
+      "latency_ms": 882.0037000114098,
+      "provider_latency_ms": 854.6752999536693,
+      "cost_upper_cny": 0.000945
+    }
+  ],
+  "training_checkpoints": [
+    {
+      "round": 6,
+      "stats": [
+        {
+          "category": "coding",
+          "model": "budget",
+          "attempts": 1,
+          "samples": 1,
+          "quality": 0.0,
+          "avg_cost": 0.000322,
+          "cost_samples": 1,
+          "avg_latency_ms": 635.3767999680713,
+          "generation_cost": 0.000322,
+          "judge_cost": 0.0,
+          "unknown_cost_attempts": 0
+        },
+        {
+          "category": "general",
+          "model": "budget",
+          "attempts": 2,
+          "samples": 2,
+          "quality": 1.0,
+          "avg_cost": 0.000656,
+          "cost_samples": 2,
+          "avg_latency_ms": 580.9000000008382,
+          "generation_cost": 0.001312,
+          "judge_cost": 0.0,
+          "unknown_cost_attempts": 0
+        },
+        {
+          "category": "general",
+          "model": "strong",
+          "attempts": 1,
+          "samples": 1,
+          "quality": 1.0,
+          "avg_cost": 0.002853,
+          "cost_samples": 1,
+          "avg_latency_ms": 1133.0724998842925,
+          "generation_cost": 0.002853,
+          "judge_cost": 0.0,
+          "unknown_cost_attempts": 0
+        },
+        {
+          "category": "math",
+          "model": "budget",
+          "attempts": 1,
+          "samples": 1,
+          "quality": 0.0,
+          "avg_cost": 0.00022,
+          "cost_samples": 1,
+          "avg_latency_ms": 558.3269000053406,
+          "generation_cost": 0.00022,
+          "judge_cost": 0.0,
+          "unknown_cost_attempts": 0
+        },
+        {
+          "category": "math",
+          "model": "strong",
+          "attempts": 1,
+          "samples": 1,
+          "quality": 0.0,
+          "avg_cost": 0.000936,
+          "cost_samples": 1,
+          "avg_latency_ms": 921.6286999871954,
+          "generation_cost": 0.000936,
+          "judge_cost": 0.0,
+          "unknown_cost_attempts": 0
+        }
+      ]
+    },
+    {
+      "round": 12,
+      "stats": [
+        {
+          "category": "coding",
+          "model": "budget",
+          "attempts": 3,
+          "samples": 3,
+          "quality": 0.0,
+          "avg_cost": 0.00031666666666666665,
+          "cost_samples": 3,
+          "avg_latency_ms": 657.6645666500553,
+          "generation_cost": 0.00095,
+          "judge_cost": 0.0,
+          "unknown_cost_attempts": 0
+        },
+        {
+          "category": "coding",
+          "model": "strong",
+          "attempts": 2,
+          "samples": 2,
+          "quality": 0.0,
+          "avg_cost": 0.001332,
+          "cost_samples": 2,
+          "avg_latency_ms": 1131.3383000087924,
+          "generation_cost": 0.002664,
+          "judge_cost": 0.0,
+          "unknown_cost_attempts": 0
+        },
+        {
+          "category": "general",
+          "model": "budget",
+          "attempts": 2,
+          "samples": 2,
+          "quality": 1.0,
+          "avg_cost": 0.000656,
+          "cost_samples": 2,
+          "avg_latency_ms": 580.9000000008382,
+          "generation_cost": 0.001312,
+          "judge_cost": 0.0,
+          "unknown_cost_attempts": 0
+        },
+        {
+          "category": "general",
+          "model": "strong",
+          "attempts": 1,
+          "samples": 1,
+          "quality": 1.0,
+          "avg_cost": 0.002853,
+          "cost_samples": 1,
+          "avg_latency_ms": 1133.0724998842925,
+          "generation_cost": 0.002853,
+          "judge_cost": 0.0,
+          "unknown_cost_attempts": 0
+        },
+        {
+          "category": "math",
+          "model": "budget",
+          "attempts": 2,
+          "samples": 2,
+          "quality": 0.0,
+          "avg_cost": 0.00022400000000000002,
+          "cost_samples": 2,
+          "avg_latency_ms": 563.7284000404179,
+          "generation_cost": 0.00044800000000000005,
+          "judge_cost": 0.0,
+          "unknown_cost_attempts": 0
+        },
+        {
+          "category": "math",
+          "model": "strong",
+          "attempts": 2,
+          "samples": 2,
+          "quality": 0.0,
+          "avg_cost": 0.000927,
+          "cost_samples": 2,
+          "avg_latency_ms": 945.486249984242,
+          "generation_cost": 0.001854,
+          "judge_cost": 0.0,
+          "unknown_cost_attempts": 0
+        }
+      ]
+    },
+    {
+      "round": 18,
+      "stats": [
+        {
+          "category": "coding",
+          "model": "budget",
+          "attempts": 3,
+          "samples": 3,
+          "quality": 0.0,
+          "avg_cost": 0.00031666666666666665,
+          "cost_samples": 3,
+          "avg_latency_ms": 657.6645666500553,
+          "generation_cost": 0.00095,
+          "judge_cost": 0.0,
+          "unknown_cost_attempts": 0
+        },
+        {
+          "category": "coding",
+          "model": "strong",
+          "attempts": 3,
+          "samples": 3,
+          "quality": 0.0,
+          "avg_cost": 0.001332,
+          "cost_samples": 3,
+          "avg_latency_ms": 1080.5426666823525,
+          "generation_cost": 0.003996,
+          "judge_cost": 0.0,
+          "unknown_cost_attempts": 0
+        },
+        {
+          "category": "general",
+          "model": "budget",
+          "attempts": 3,
+          "samples": 3,
+          "quality": 0.6666666666666666,
+          "avg_cost": 0.00066,
+          "cost_samples": 3,
+          "avg_latency_ms": 693.8171333167702,
+          "generation_cost": 0.00198,
+          "judge_cost": 0.0,
+          "unknown_cost_attempts": 0
+        },
+        {
+          "category": "general",
+          "model": "strong",
+          "attempts": 3,
+          "samples": 3,
+          "quality": 1.0,
+          "avg_cost": 0.0028890000000000005,
+          "cost_samples": 3,
+          "avg_latency_ms": 806.7155666261291,
+          "generation_cost": 0.008667000000000001,
+          "judge_cost": 0.0,
+          "unknown_cost_attempts": 0
+        },
+        {
+          "category": "math",
+          "model": "budget",
+          "attempts": 3,
+          "samples": 3,
+          "quality": 0.0,
+          "avg_cost": 0.00022466666666666666,
+          "cost_samples": 3,
+          "avg_latency_ms": 695.7944000217443,
+          "generation_cost": 0.000674,
+          "judge_cost": 0.0,
+          "unknown_cost_attempts": 0
+        },
+        {
+          "category": "math",
+          "model": "strong",
+          "attempts": 3,
+          "samples": 3,
+          "quality": 0.0,
+          "avg_cost": 0.000924,
+          "cost_samples": 3,
+          "avg_latency_ms": 955.3600333165377,
+          "generation_cost": 0.002772,
+          "judge_cost": 0.0,
+          "unknown_cost_attempts": 0
+        }
+      ]
+    }
+  ],
+  "frozen_routes": {
+    "test-coding-2": {
+      "selected_model": "budget",
+      "task_category": "coding",
+      "reason": "frozen_policy",
+      "learning_samples": 6,
+      "candidates": [
+        {
+          "model": "budget",
+          "samples": 3,
+          "attempts": 3,
+          "quality": 0.0,
+          "estimated_cost": 0.00031666666666666665,
+          "latency_ms": 657.6645666500553,
+          "utility": -0.025819957999667777,
+          "exploration_bonus": 0,
+          "score": -0.025819957999667777
+        },
+        {
+          "model": "strong",
+          "samples": 3,
+          "attempts": 3,
+          "quality": 0.0,
+          "estimated_cost": 0.001332,
+          "latency_ms": 1080.5426666823525,
+          "utility": -0.07489085333364706,
+          "exploration_bonus": 0,
+          "score": -0.07489085333364706
+        }
+      ],
+      "algorithm": "task-ucb-v1"
+    },
+    "test-general-0": {
+      "selected_model": "strong",
+      "task_category": "general",
+      "reason": "frozen_policy",
+      "learning_samples": 6,
+      "candidates": [
+        {
+          "model": "strong",
+          "samples": 3,
+          "attempts": 3,
+          "quality": 1.0,
+          "estimated_cost": 0.0028890000000000005,
+          "latency_ms": 806.7155666261291,
+          "utility": 0.8683056886674774,
+          "exploration_bonus": 0,
+          "score": 0.8683056886674774
+        },
+        {
+          "model": "budget",
+          "samples": 3,
+          "attempts": 3,
+          "quality": 0.6666666666666666,
+          "estimated_cost": 0.00066,
+          "latency_ms": 693.8171333167702,
+          "utility": 0.6263903240003312,
+          "exploration_bonus": 0,
+          "score": 0.6263903240003312
+        }
+      ],
+      "algorithm": "task-ucb-v1"
+    },
+    "test-math-2": {
+      "selected_model": "budget",
+      "task_category": "math",
+      "reason": "frozen_policy",
+      "learning_samples": 6,
+      "candidates": [
+        {
+          "model": "budget",
+          "samples": 3,
+          "attempts": 3,
+          "quality": 0.0,
+          "estimated_cost": 0.00022466666666666666,
+          "latency_ms": 695.7944000217443,
+          "utility": -0.022902554667101553,
+          "exploration_bonus": 0,
+          "score": -0.022902554667101553
+        },
+        {
+          "model": "strong",
+          "samples": 3,
+          "attempts": 3,
+          "quality": 0.0,
+          "estimated_cost": 0.000924,
+          "latency_ms": 955.3600333165377,
+          "utility": -0.05606720066633075,
+          "exploration_bonus": 0,
+          "score": -0.05606720066633075
+        }
+      ],
+      "algorithm": "task-ucb-v1"
+    },
+    "test-general-2": {
+      "selected_model": "strong",
+      "task_category": "general",
+      "reason": "frozen_policy",
+      "learning_samples": 6,
+      "candidates": [
+        {
+          "model": "strong",
+          "samples": 3,
+          "attempts": 3,
+          "quality": 1.0,
+          "estimated_cost": 0.0028890000000000005,
+          "latency_ms": 806.7155666261291,
+          "utility": 0.8683056886674774,
+          "exploration_bonus": 0,
+          "score": 0.8683056886674774
+        },
+        {
+          "model": "budget",
+          "samples": 3,
+          "attempts": 3,
+          "quality": 0.6666666666666666,
+          "estimated_cost": 0.00066,
+          "latency_ms": 693.8171333167702,
+          "utility": 0.6263903240003312,
+          "exploration_bonus": 0,
+          "score": 0.6263903240003312
+        }
+      ],
+      "algorithm": "task-ucb-v1"
+    },
+    "test-coding-1": {
+      "selected_model": "budget",
+      "task_category": "coding",
+      "reason": "frozen_policy",
+      "learning_samples": 6,
+      "candidates": [
+        {
+          "model": "budget",
+          "samples": 3,
+          "attempts": 3,
+          "quality": 0.0,
+          "estimated_cost": 0.00031666666666666665,
+          "latency_ms": 657.6645666500553,
+          "utility": -0.025819957999667777,
+          "exploration_bonus": 0,
+          "score": -0.025819957999667777
+        },
+        {
+          "model": "strong",
+          "samples": 3,
+          "attempts": 3,
+          "quality": 0.0,
+          "estimated_cost": 0.001332,
+          "latency_ms": 1080.5426666823525,
+          "utility": -0.07489085333364706,
+          "exploration_bonus": 0,
+          "score": -0.07489085333364706
+        }
+      ],
+      "algorithm": "task-ucb-v1"
+    },
+    "test-math-0": {
+      "selected_model": "budget",
+      "task_category": "math",
+      "reason": "frozen_policy",
+      "learning_samples": 6,
+      "candidates": [
+        {
+          "model": "budget",
+          "samples": 3,
+          "attempts": 3,
+          "quality": 0.0,
+          "estimated_cost": 0.00022466666666666666,
+          "latency_ms": 695.7944000217443,
+          "utility": -0.022902554667101553,
+          "exploration_bonus": 0,
+          "score": -0.022902554667101553
+        },
+        {
+          "model": "strong",
+          "samples": 3,
+          "attempts": 3,
+          "quality": 0.0,
+          "estimated_cost": 0.000924,
+          "latency_ms": 955.3600333165377,
+          "utility": -0.05606720066633075,
+          "exploration_bonus": 0,
+          "score": -0.05606720066633075
+        }
+      ],
+      "algorithm": "task-ucb-v1"
+    },
+    "test-coding-0": {
+      "selected_model": "budget",
+      "task_category": "coding",
+      "reason": "frozen_policy",
+      "learning_samples": 6,
+      "candidates": [
+        {
+          "model": "budget",
+          "samples": 3,
+          "attempts": 3,
+          "quality": 0.0,
+          "estimated_cost": 0.00031666666666666665,
+          "latency_ms": 657.6645666500553,
+          "utility": -0.025819957999667777,
+          "exploration_bonus": 0,
+          "score": -0.025819957999667777
+        },
+        {
+          "model": "strong",
+          "samples": 3,
+          "attempts": 3,
+          "quality": 0.0,
+          "estimated_cost": 0.001332,
+          "latency_ms": 1080.5426666823525,
+          "utility": -0.07489085333364706,
+          "exploration_bonus": 0,
+          "score": -0.07489085333364706
+        }
+      ],
+      "algorithm": "task-ucb-v1"
+    },
+    "test-general-1": {
+      "selected_model": "strong",
+      "task_category": "general",
+      "reason": "frozen_policy",
+      "learning_samples": 6,
+      "candidates": [
+        {
+          "model": "strong",
+          "samples": 3,
+          "attempts": 3,
+          "quality": 1.0,
+          "estimated_cost": 0.0028890000000000005,
+          "latency_ms": 806.7155666261291,
+          "utility": 0.8683056886674774,
+          "exploration_bonus": 0,
+          "score": 0.8683056886674774
+        },
+        {
+          "model": "budget",
+          "samples": 3,
+          "attempts": 3,
+          "quality": 0.6666666666666666,
+          "estimated_cost": 0.00066,
+          "latency_ms": 693.8171333167702,
+          "utility": 0.6263903240003312,
+          "exploration_bonus": 0,
+          "score": 0.6263903240003312
+        }
+      ],
+      "algorithm": "task-ucb-v1"
+    },
+    "test-math-1": {
+      "selected_model": "budget",
+      "task_category": "math",
+      "reason": "frozen_policy",
+      "learning_samples": 6,
+      "candidates": [
+        {
+          "model": "budget",
+          "samples": 3,
+          "attempts": 3,
+          "quality": 0.0,
+          "estimated_cost": 0.00022466666666666666,
+          "latency_ms": 695.7944000217443,
+          "utility": -0.022902554667101553,
+          "exploration_bonus": 0,
+          "score": -0.022902554667101553
+        },
+        {
+          "model": "strong",
+          "samples": 3,
+          "attempts": 3,
+          "quality": 0.0,
+          "estimated_cost": 0.000924,
+          "latency_ms": 955.3600333165377,
+          "utility": -0.05606720066633075,
+          "exploration_bonus": 0,
+          "score": -0.05606720066633075
+        }
+      ],
+      "algorithm": "task-ucb-v1"
+    }
+  },
+  "completed_utc": "2026-10-23T12:38:25.161610+00:00",
+  "final_stats": [
+    {
+      "category": "coding",
+      "model": "budget",
+      "attempts": 3,
+      "samples": 3,
+      "quality": 0.0,
+      "avg_cost": 0.00031666666666666665,
+      "cost_samples": 3,
+      "avg_latency_ms": 657.6645666500553,
+      "generation_cost": 0.00095,
+      "judge_cost": 0.0,
+      "unknown_cost_attempts": 0
+    },
+    {
+      "category": "coding",
+      "model": "strong",
+      "attempts": 3,
+      "samples": 3,
+      "quality": 0.0,
+      "avg_cost": 0.001332,
+      "cost_samples": 3,
+      "avg_latency_ms": 1080.5426666823525,
+      "generation_cost": 0.003996,
+      "judge_cost": 0.0,
+      "unknown_cost_attempts": 0
+    },
+    {
+      "category": "general",
+      "model": "budget",
+      "attempts": 3,
+      "samples": 3,
+      "quality": 0.6666666666666666,
+      "avg_cost": 0.00066,
+      "cost_samples": 3,
+      "avg_latency_ms": 693.8171333167702,
+      "generation_cost": 0.00198,
+      "judge_cost": 0.0,
+      "unknown_cost_attempts": 0
+    },
+    {
+      "category": "general",
+      "model": "strong",
+      "attempts": 3,
+      "samples": 3,
+      "quality": 1.0,
+      "avg_cost": 0.0028890000000000005,
+      "cost_samples": 3,
+      "avg_latency_ms": 806.7155666261291,
+      "generation_cost": 0.008667000000000001,
+      "judge_cost": 0.0,
+      "unknown_cost_attempts": 0
+    },
+    {
+      "category": "math",
+      "model": "budget",
+      "attempts": 3,
+      "samples": 3,
+      "quality": 0.0,
+      "avg_cost": 0.00022466666666666666,
+      "cost_samples": 3,
+      "avg_latency_ms": 695.7944000217443,
+      "generation_cost": 0.000674,
+      "judge_cost": 0.0,
+      "unknown_cost_attempts": 0
+    },
+    {
+      "category": "math",
+      "model": "strong",
+      "attempts": 3,
+      "samples": 3,
+      "quality": 0.0,
+      "avg_cost": 0.000924,
+      "cost_samples": 3,
+      "avg_latency_ms": 955.3600333165377,
+      "generation_cost": 0.002772,
+      "judge_cost": 0.0,
+      "unknown_cost_attempts": 0
+    }
+  ],
+  "provider_observations": [
+    {
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 90,
+        "prompt_tokens": 90,
+        "completion_tokens": 5,
+        "total_tokens": 95
+      },
+      "http_status": 200,
+      "provider_latency_ms": 555.9048999566585
+    },
+    {
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 278,
+        "prompt_tokens": 278,
+        "completion_tokens": 14,
+        "total_tokens": 292
+      },
+      "http_status": 200,
+      "provider_latency_ms": 449.9769000103697
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 275,
+        "prompt_tokens": 275,
+        "completion_tokens": 14,
+        "total_tokens": 289
+      },
+      "http_status": 200,
+      "provider_latency_ms": 1113.0371000617743
+    },
+    {
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 278,
+        "prompt_tokens": 278,
+        "completion_tokens": 11,
+        "total_tokens": 289
+      },
+      "http_status": 200,
+      "provider_latency_ms": 669.9515999061987
+    },
+    {
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 133,
+        "prompt_tokens": 133,
+        "completion_tokens": 7,
+        "total_tokens": 140
+      },
+      "http_status": 200,
+      "provider_latency_ms": 607.2198000038043
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 86,
+        "prompt_tokens": 86,
+        "completion_tokens": 6,
+        "total_tokens": 92
+      },
+      "http_status": 200,
+      "provider_latency_ms": 896.1308000143617
+    },
+    {
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 90,
+        "prompt_tokens": 90,
+        "completion_tokens": 6,
+        "total_tokens": 96
+      },
+      "http_status": 200,
+      "provider_latency_ms": 538.6198000051081
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 130,
+        "prompt_tokens": 130,
+        "completion_tokens": 6,
+        "total_tokens": 136
+      },
+      "http_status": 200,
+      "provider_latency_ms": 1082.0857000071555
+    },
+    {
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 133,
+        "prompt_tokens": 133,
+        "completion_tokens": 6,
+        "total_tokens": 139
+      },
+      "http_status": 200,
+      "provider_latency_ms": 696.4495000429451
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 130,
+        "prompt_tokens": 130,
+        "completion_tokens": 6,
+        "total_tokens": 136
+      },
+      "http_status": 200,
+      "provider_latency_ms": 1078.742599929683
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 87,
+        "prompt_tokens": 87,
+        "completion_tokens": 5,
+        "total_tokens": 92
+      },
+      "http_status": 200,
+      "provider_latency_ms": 946.2392999557778
+    },
+    {
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 133,
+        "prompt_tokens": 133,
+        "completion_tokens": 6,
+        "total_tokens": 139
+      },
+      "http_status": 200,
+      "provider_latency_ms": 542.4648999469355
+    },
+    {
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 89,
+        "prompt_tokens": 89,
+        "completion_tokens": 6,
+        "total_tokens": 95
+      },
+      "http_status": 200,
+      "provider_latency_ms": 928.8041000254452
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 130,
+        "prompt_tokens": 130,
+        "completion_tokens": 6,
+        "total_tokens": 136
+      },
+      "http_status": 200,
+      "provider_latency_ms": 952.7082999702543
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 275,
+        "prompt_tokens": 275,
+        "completion_tokens": 14,
+        "total_tokens": 289
+      },
+      "http_status": 200,
+      "provider_latency_ms": 515.132199972868
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 87,
+        "prompt_tokens": 87,
+        "completion_tokens": 5,
+        "total_tokens": 92
+      },
+      "http_status": 200,
+      "provider_latency_ms": 955.720099969767
+    },
+    {
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 278,
+        "prompt_tokens": 278,
+        "completion_tokens": 14,
+        "total_tokens": 292
+      },
+      "http_status": 200,
+      "provider_latency_ms": 903.2065999926999
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 275,
+        "prompt_tokens": 275,
+        "completion_tokens": 18,
+        "total_tokens": 293
+      },
+      "http_status": 200,
+      "provider_latency_ms": 732.8694000607356
+    },
+    {
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 72,
+        "prompt_tokens": 72,
+        "completion_tokens": 256,
+        "total_tokens": 328
+      },
+      "http_status": 200,
+      "provider_latency_ms": 1344.1422999603674
+    },
+    {
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 133,
+        "prompt_tokens": 133,
+        "completion_tokens": 6,
+        "total_tokens": 139
+      },
+      "http_status": 200,
+      "provider_latency_ms": 768.3204999193549
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 72,
+        "prompt_tokens": 72,
+        "completion_tokens": 1,
+        "total_tokens": 73
+      },
+      "http_status": 200,
+      "provider_latency_ms": 903.4240000182763
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 130,
+        "prompt_tokens": 130,
+        "completion_tokens": 6,
+        "total_tokens": 136
+      },
+      "http_status": 200,
+      "provider_latency_ms": 520.4414000036195
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 275,
+        "prompt_tokens": 275,
+        "completion_tokens": 18,
+        "total_tokens": 293
+      },
+      "http_status": 200,
+      "provider_latency_ms": 999.683800037019
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 220,
+        "prompt_tokens": 220,
+        "completion_tokens": 10,
+        "total_tokens": 230
+      },
+      "http_status": 200,
+      "provider_latency_ms": 903.3838000614196
+    },
+    {
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 278,
+        "prompt_tokens": 278,
+        "completion_tokens": 14,
+        "total_tokens": 292
+      },
+      "http_status": 200,
+      "provider_latency_ms": 919.4923000177369
+    },
+    {
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 220,
+        "prompt_tokens": 220,
+        "completion_tokens": 10,
+        "total_tokens": 230
+      },
+      "http_status": 200,
+      "provider_latency_ms": 509.51119989622384
+    },
+    {
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 29,
+        "prompt_tokens": 29,
+        "completion_tokens": 1,
+        "total_tokens": 30
+      },
+      "http_status": 200,
+      "provider_latency_ms": 537.9002001136541
+    },
+    {
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 90,
+        "prompt_tokens": 90,
+        "completion_tokens": 5,
+        "total_tokens": 95
+      },
+      "http_status": 200,
+      "provider_latency_ms": 922.9753999970853
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 29,
+        "prompt_tokens": 29,
+        "completion_tokens": 210,
+        "total_tokens": 239
+      },
+      "http_status": 200,
+      "provider_latency_ms": 2724.060699925758
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 87,
+        "prompt_tokens": 87,
+        "completion_tokens": 6,
+        "total_tokens": 93
+      },
+      "http_status": 200,
+      "provider_latency_ms": 1099.4900999357924
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 275,
+        "prompt_tokens": 275,
+        "completion_tokens": 14,
+        "total_tokens": 289
+      },
+      "http_status": 200,
+      "provider_latency_ms": 1299.071199959144
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 220,
+        "prompt_tokens": 220,
+        "completion_tokens": 10,
+        "total_tokens": 230
+      },
+      "http_status": 200,
+      "provider_latency_ms": 960.333300055936
+    },
+    {
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 278,
+        "prompt_tokens": 278,
+        "completion_tokens": 14,
+        "total_tokens": 292
+      },
+      "http_status": 200,
+      "provider_latency_ms": 522.5161999696866
+    },
+    {
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 220,
+        "prompt_tokens": 220,
+        "completion_tokens": 10,
+        "total_tokens": 230
+      },
+      "http_status": 200,
+      "provider_latency_ms": 866.0966999595985
+    },
+    {
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 72,
+        "prompt_tokens": 72,
+        "completion_tokens": 256,
+        "total_tokens": 328
+      },
+      "http_status": 200,
+      "provider_latency_ms": 1705.1831000717357
+    },
+    {
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 133,
+        "prompt_tokens": 133,
+        "completion_tokens": 7,
+        "total_tokens": 140
+      },
+      "http_status": 200,
+      "provider_latency_ms": 563.9917999505997
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 72,
+        "prompt_tokens": 72,
+        "completion_tokens": 1,
+        "total_tokens": 73
+      },
+      "http_status": 200,
+      "provider_latency_ms": 1161.093799979426
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 130,
+        "prompt_tokens": 130,
+        "completion_tokens": 6,
+        "total_tokens": 136
+      },
+      "http_status": 200,
+      "provider_latency_ms": 587.1762000024319
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 87,
+        "prompt_tokens": 87,
+        "completion_tokens": 5,
+        "total_tokens": 92
+      },
+      "http_status": 200,
+      "provider_latency_ms": 1069.2790999310091
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 29,
+        "prompt_tokens": 29,
+        "completion_tokens": 242,
+        "total_tokens": 271
+      },
+      "http_status": 200,
+      "provider_latency_ms": 2822.826600051485
+    },
+    {
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 90,
+        "prompt_tokens": 90,
+        "completion_tokens": 5,
+        "total_tokens": 95
+      },
+      "http_status": 200,
+      "provider_latency_ms": 478.69170003104955
+    },
+    {
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 29,
+        "prompt_tokens": 29,
+        "completion_tokens": 179,
+        "total_tokens": 208
+      },
+      "http_status": 200,
+      "provider_latency_ms": 1262.272100080736
+    },
+    {
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 72,
+        "prompt_tokens": 72,
+        "completion_tokens": 256,
+        "total_tokens": 328
+      },
+      "http_status": 200,
+      "provider_latency_ms": 1426.380000077188
+    },
+    {
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 133,
+        "prompt_tokens": 133,
+        "completion_tokens": 6,
+        "total_tokens": 139
+      },
+      "http_status": 200,
+      "provider_latency_ms": 654.8920999048278
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 72,
+        "prompt_tokens": 72,
+        "completion_tokens": 1,
+        "total_tokens": 73
+      },
+      "http_status": 200,
+      "provider_latency_ms": 938.7503999751061
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 130,
+        "prompt_tokens": 130,
+        "completion_tokens": 6,
+        "total_tokens": 136
+      },
+      "http_status": 200,
+      "provider_latency_ms": 1147.9493000078946
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 275,
+        "prompt_tokens": 275,
+        "completion_tokens": 18,
+        "total_tokens": 293
+      },
+      "http_status": 200,
+      "provider_latency_ms": 647.239499958232
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 220,
+        "prompt_tokens": 220,
+        "completion_tokens": 10,
+        "total_tokens": 230
+      },
+      "http_status": 200,
+      "provider_latency_ms": 605.5901000509039
+    },
+    {
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 278,
+        "prompt_tokens": 278,
+        "completion_tokens": 14,
+        "total_tokens": 292
+      },
+      "http_status": 200,
+      "provider_latency_ms": 834.0351999504492
+    },
+    {
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 220,
+        "prompt_tokens": 220,
+        "completion_tokens": 10,
+        "total_tokens": 230
+      },
+      "http_status": 200,
+      "provider_latency_ms": 561.3469999516383
+    },
+    {
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 29,
+        "prompt_tokens": 29,
+        "completion_tokens": 1,
+        "total_tokens": 30
+      },
+      "http_status": 200,
+      "provider_latency_ms": 503.93819995224476
+    },
+    {
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 90,
+        "prompt_tokens": 90,
+        "completion_tokens": 5,
+        "total_tokens": 95
+      },
+      "http_status": 200,
+      "provider_latency_ms": 644.2416999489069
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 29,
+        "prompt_tokens": 29,
+        "completion_tokens": 220,
+        "total_tokens": 249
+      },
+      "http_status": 200,
+      "provider_latency_ms": 2404.2748999781907
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "usage": {
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 87,
+        "prompt_tokens": 87,
+        "completion_tokens": 6,
+        "total_tokens": 93
+      },
+      "http_status": 200,
+      "provider_latency_ms": 854.6752999536693
+    }
+  ],
+  "budget_reserved_cny_total": 4.54
+}

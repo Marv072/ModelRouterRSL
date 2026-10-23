@@ -1,0 +1,602 @@
+{
+  "train": [
+    {
+      "id": "train-coding-10",
+      "category": "coding",
+      "prompt": "What does this Python code print? Return only the integer, no explanation.\nx = 15\ntotal = 0\nfor i in range(20):\n    x = (x * 5 + i + 9) % 36\n    if x % 3 != 0:\n        total += x\nprint(total)",
+      "expected": 223,
+      "grader": "integer"
+    },
+    {
+      "id": "train-math-0",
+      "category": "math",
+      "prompt": "Calculate (6278 * 4864 + 1471) modulo 101. Return only the integer, no explanation.",
+      "expected": 10,
+      "grader": "integer"
+    },
+    {
+      "id": "train-general-0",
+      "category": "general",
+      "grader": "json",
+      "prompt": "Keep records with active=true and age>=34. Sort by points descending, then id ascending. Take the first 3 (or all if fewer). Return only a JSON array of their id strings, no markdown.\n[{\"id\":\"R0\",\"active\":true,\"points\":8,\"age\":58},{\"id\":\"R1\",\"active\":false,\"points\":23,\"age\":33},{\"id\":\"R2\",\"active\":true,\"points\":17,\"age\":60},{\"id\":\"R3\",\"active\":false,\"points\":25,\"age\":30},{\"id\":\"R4\",\"active\":true,\"points\":3,\"age\":43},{\"id\":\"R5\",\"active\":true,\"points\":31,\"age\":63},{\"id\":\"R6\",\"active\":true,\"points\":32,\"age\":47},{\"id\":\"R7\",\"active\":true,\"points\":5,\"age\":29},{\"id\":\"R8\",\"active\":false,\"points\":14,\"age\":31},{\"id\":\"R9\",\"active\":true,\"points\":37,\"age\":59}]",
+      "expected": [
+        "R9",
+        "R6",
+        "R5"
+      ]
+    },
+    {
+      "id": "train-math-8",
+      "category": "math",
+      "prompt": "Calculate (4760 * 8774 + 4395) modulo 97. Return only the integer, no explanation.",
+      "expected": 47,
+      "grader": "integer"
+    },
+    {
+      "id": "train-coding-5",
+      "category": "coding",
+      "prompt": "What does this Python code print? Return only the integer, no explanation.\nx = 2\ntotal = 0\nfor i in range(11):\n    x = (x * 4 + i + 6) % 35\n    if x % 3 != 0:\n        total += x\nprint(total)",
+      "expected": 151,
+      "grader": "integer"
+    },
+    {
+      "id": "train-general-3",
+      "category": "general",
+      "grader": "json",
+      "prompt": "Keep records with active=true and age>=42. Sort by points descending, then id ascending. Take the first 3 (or all if fewer). Return only a JSON array of their id strings, no markdown.\n[{\"id\":\"R0\",\"active\":false,\"points\":18,\"age\":29},{\"id\":\"R1\",\"active\":true,\"points\":0,\"age\":33},{\"id\":\"R2\",\"active\":false,\"points\":22,\"age\":27},{\"id\":\"R3\",\"active\":false,\"points\":2,\"age\":24},{\"id\":\"R4\",\"active\":true,\"points\":8,\"age\":55},{\"id\":\"R5\",\"active\":false,\"points\":9,\"age\":37},{\"id\":\"R6\",\"active\":true,\"points\":30,\"age\":41},{\"id\":\"R7\",\"active\":true,\"points\":9,\"age\":64},{\"id\":\"R8\",\"active\":false,\"points\":19,\"age\":57},{\"id\":\"R9\",\"active\":true,\"points\":34,\"age\":25}]",
+      "expected": [
+        "R7",
+        "R4"
+      ]
+    },
+    {
+      "id": "train-general-13",
+      "category": "general",
+      "grader": "json",
+      "prompt": "Keep records with active=true and age>=32. Sort by points descending, then id ascending. Take the first 3 (or all if fewer). Return only a JSON array of their id strings, no markdown.\n[{\"id\":\"R0\",\"active\":false,\"points\":3,\"age\":49},{\"id\":\"R1\",\"active\":true,\"points\":3,\"age\":32},{\"id\":\"R2\",\"active\":true,\"points\":15,\"age\":35},{\"id\":\"R3\",\"active\":true,\"points\":31,\"age\":28},{\"id\":\"R4\",\"active\":false,\"points\":2,\"age\":38},{\"id\":\"R5\",\"active\":true,\"points\":14,\"age\":44},{\"id\":\"R6\",\"active\":true,\"points\":17,\"age\":50},{\"id\":\"R7\",\"active\":true,\"points\":14,\"age\":53},{\"id\":\"R8\",\"active\":true,\"points\":15,\"age\":42},{\"id\":\"R9\",\"active\":true,\"points\":0,\"age\":28}]",
+      "expected": [
+        "R6",
+        "R2",
+        "R8"
+      ]
+    },
+    {
+      "id": "train-general-12",
+      "category": "general",
+      "grader": "json",
+      "prompt": "Keep records with active=true and age>=38. Sort by points descending, then id ascending. Take the first 3 (or all if fewer). Return only a JSON array of their id strings, no markdown.\n[{\"id\":\"R0\",\"active\":true,\"points\":9,\"age\":54},{\"id\":\"R1\",\"active\":true,\"points\":35,\"age\":45},{\"id\":\"R2\",\"active\":true,\"points\":37,\"age\":33},{\"id\":\"R3\",\"active\":false,\"points\":26,\"age\":20},{\"id\":\"R4\",\"active\":false,\"points\":26,\"age\":41},{\"id\":\"R5\",\"active\":true,\"points\":4,\"age\":38},{\"id\":\"R6\",\"active\":false,\"points\":15,\"age\":43},{\"id\":\"R7\",\"active\":true,\"points\":15,\"age\":44},{\"id\":\"R8\",\"active\":true,\"points\":1,\"age\":52},{\"id\":\"R9\",\"active\":false,\"points\":8,\"age\":33}]",
+      "expected": [
+        "R1",
+        "R7",
+        "R0"
+      ]
+    },
+    {
+      "id": "train-general-10",
+      "category": "general",
+      "grader": "json",
+      "prompt": "Keep records with active=true and age>=38. Sort by points descending, then id ascending. Take the first 3 (or all if fewer). Return only a JSON array of their id strings, no markdown.\n[{\"id\":\"R0\",\"active\":true,\"points\":36,\"age\":42},{\"id\":\"R1\",\"active\":true,\"points\":30,\"age\":41},{\"id\":\"R2\",\"active\":true,\"points\":26,\"age\":63},{\"id\":\"R3\",\"active\":true,\"points\":27,\"age\":42},{\"id\":\"R4\",\"active\":true,\"points\":15,\"age\":27},{\"id\":\"R5\",\"active\":true,\"points\":6,\"age\":35},{\"id\":\"R6\",\"active\":true,\"points\":39,\"age\":42},{\"id\":\"R7\",\"active\":true,\"points\":17,\"age\":42},{\"id\":\"R8\",\"active\":false,\"points\":3,\"age\":61},{\"id\":\"R9\",\"active\":true,\"points\":25,\"age\":40}]",
+      "expected": [
+        "R6",
+        "R0",
+        "R1"
+      ]
+    },
+    {
+      "id": "train-general-6",
+      "category": "general",
+      "grader": "json",
+      "prompt": "Keep records with active=true and age>=25. Sort by points descending, then id ascending. Take the first 3 (or all if fewer). Return only a JSON array of their id strings, no markdown.\n[{\"id\":\"R0\",\"active\":true,\"points\":7,\"age\":35},{\"id\":\"R1\",\"active\":true,\"points\":17,\"age\":54},{\"id\":\"R2\",\"active\":true,\"points\":37,\"age\":54},{\"id\":\"R3\",\"active\":false,\"points\":35,\"age\":58},{\"id\":\"R4\",\"active\":true,\"points\":17,\"age\":30},{\"id\":\"R5\",\"active\":false,\"points\":21,\"age\":41},{\"id\":\"R6\",\"active\":false,\"points\":23,\"age\":36},{\"id\":\"R7\",\"active\":true,\"points\":39,\"age\":21},{\"id\":\"R8\",\"active\":false,\"points\":26,\"age\":49},{\"id\":\"R9\",\"active\":true,\"points\":24,\"age\":36}]",
+      "expected": [
+        "R2",
+        "R9",
+        "R1"
+      ]
+    },
+    {
+      "id": "train-general-2",
+      "category": "general",
+      "grader": "json",
+      "prompt": "Keep records with active=true and age>=29. Sort by points descending, then id ascending. Take the first 3 (or all if fewer). Return only a JSON array of their id strings, no markdown.\n[{\"id\":\"R0\",\"active\":true,\"points\":22,\"age\":22},{\"id\":\"R1\",\"active\":true,\"points\":28,\"age\":26},{\"id\":\"R2\",\"active\":false,\"points\":11,\"age\":44},{\"id\":\"R3\",\"active\":true,\"points\":35,\"age\":42},{\"id\":\"R4\",\"active\":true,\"points\":5,\"age\":22},{\"id\":\"R5\",\"active\":true,\"points\":30,\"age\":30},{\"id\":\"R6\",\"active\":true,\"points\":16,\"age\":35},{\"id\":\"R7\",\"active\":false,\"points\":35,\"age\":27},{\"id\":\"R8\",\"active\":true,\"points\":8,\"age\":42},{\"id\":\"R9\",\"active\":true,\"points\":15,\"age\":22}]",
+      "expected": [
+        "R3",
+        "R5",
+        "R6"
+      ]
+    },
+    {
+      "id": "train-coding-1",
+      "category": "coding",
+      "prompt": "What does this Python code print? Return only the integer, no explanation.\nx = 4\ntotal = 0\nfor i in range(10):\n    x = (x * 3 + i + 4) % 43\n    if x % 3 != 0:\n        total += x\nprint(total)",
+      "expected": 142,
+      "grader": "integer"
+    },
+    {
+      "id": "train-general-7",
+      "category": "general",
+      "grader": "json",
+      "prompt": "Keep records with active=true and age>=35. Sort by points descending, then id ascending. Take the first 3 (or all if fewer). Return only a JSON array of their id strings, no markdown.\n[{\"id\":\"R0\",\"active\":true,\"points\":9,\"age\":53},{\"id\":\"R1\",\"active\":true,\"points\":39,\"age\":33},{\"id\":\"R2\",\"active\":true,\"points\":4,\"age\":39},{\"id\":\"R3\",\"active\":true,\"points\":17,\"age\":21},{\"id\":\"R4\",\"active\":true,\"points\":16,\"age\":44},{\"id\":\"R5\",\"active\":true,\"points\":29,\"age\":58},{\"id\":\"R6\",\"active\":true,\"points\":32,\"age\":49},{\"id\":\"R7\",\"active\":true,\"points\":28,\"age\":34},{\"id\":\"R8\",\"active\":true,\"points\":4,\"age\":59},{\"id\":\"R9\",\"active\":false,\"points\":33,\"age\":20}]",
+      "expected": [
+        "R6",
+        "R5",
+        "R4"
+      ]
+    },
+    {
+      "id": "train-coding-0",
+      "category": "coding",
+      "prompt": "What does this Python code print? Return only the integer, no explanation.\nx = 3\ntotal = 0\nfor i in range(20):\n    x = (x * 6 + i + 1) % 92\n    if x % 3 != 0:\n        total += x\nprint(total)",
+      "expected": 790,
+      "grader": "integer"
+    },
+    {
+      "id": "train-general-8",
+      "category": "general",
+      "grader": "json",
+      "prompt": "Keep records with active=true and age>=33. Sort by points descending, then id ascending. Take the first 3 (or all if fewer). Return only a JSON array of their id strings, no markdown.\n[{\"id\":\"R0\",\"active\":false,\"points\":11,\"age\":53},{\"id\":\"R1\",\"active\":true,\"points\":22,\"age\":22},{\"id\":\"R2\",\"active\":true,\"points\":0,\"age\":52},{\"id\":\"R3\",\"active\":true,\"points\":28,\"age\":61},{\"id\":\"R4\",\"active\":false,\"points\":32,\"age\":64},{\"id\":\"R5\",\"active\":false,\"points\":29,\"age\":44},{\"id\":\"R6\",\"active\":true,\"points\":3,\"age\":30},{\"id\":\"R7\",\"active\":false,\"points\":13,\"age\":62},{\"id\":\"R8\",\"active\":true,\"points\":21,\"age\":25},{\"id\":\"R9\",\"active\":true,\"points\":18,\"age\":49}]",
+      "expected": [
+        "R3",
+        "R9",
+        "R2"
+      ]
+    },
+    {
+      "id": "train-math-12",
+      "category": "math",
+      "prompt": "Calculate (6411 * 597 + 3007) modulo 113. Return only the integer, no explanation.",
+      "expected": 13,
+      "grader": "integer"
+    },
+    {
+      "id": "train-math-15",
+      "category": "math",
+      "prompt": "Calculate (9512 * 7964 + 9363) modulo 97. Return only the integer, no explanation.",
+      "expected": 14,
+      "grader": "integer"
+    },
+    {
+      "id": "train-math-11",
+      "category": "math",
+      "prompt": "Calculate (3509 * 9639 + 4854) modulo 127. Return only the integer, no explanation.",
+      "expected": 4,
+      "grader": "integer"
+    },
+    {
+      "id": "train-coding-9",
+      "category": "coding",
+      "prompt": "What does this Python code print? Return only the integer, no explanation.\nx = 18\ntotal = 0\nfor i in range(13):\n    x = (x * 7 + i + 8) % 58\n    if x % 3 != 0:\n        total += x\nprint(total)",
+      "expected": 208,
+      "grader": "integer"
+    },
+    {
+      "id": "train-math-13",
+      "category": "math",
+      "prompt": "Calculate (323 * 6903 + 7033) modulo 97. Return only the integer, no explanation.",
+      "expected": 76,
+      "grader": "integer"
+    },
+    {
+      "id": "train-math-14",
+      "category": "math",
+      "prompt": "Calculate (7138 * 737 + 8120) modulo 97. Return only the integer, no explanation.",
+      "expected": 77,
+      "grader": "integer"
+    },
+    {
+      "id": "train-coding-8",
+      "category": "coding",
+      "prompt": "What does this Python code print? Return only the integer, no explanation.\nx = 14\ntotal = 0\nfor i in range(13):\n    x = (x * 3 + i + 5) % 58\n    if x % 3 != 0:\n        total += x\nprint(total)",
+      "expected": 311,
+      "grader": "integer"
+    },
+    {
+      "id": "train-coding-11",
+      "category": "coding",
+      "prompt": "What does this Python code print? Return only the integer, no explanation.\nx = 12\ntotal = 0\nfor i in range(13):\n    x = (x * 3 + i + 5) % 53\n    if x % 3 != 0:\n        total += x\nprint(total)",
+      "expected": 348,
+      "grader": "integer"
+    },
+    {
+      "id": "train-math-5",
+      "category": "math",
+      "prompt": "Calculate (9056 * 998 + 3793) modulo 97. Return only the integer, no explanation.",
+      "expected": 20,
+      "grader": "integer"
+    },
+    {
+      "id": "train-coding-15",
+      "category": "coding",
+      "prompt": "What does this Python code print? Return only the integer, no explanation.\nx = 18\ntotal = 0\nfor i in range(14):\n    x = (x * 6 + i + 7) % 81\n    if x % 3 != 0:\n        total += x\nprint(total)",
+      "expected": 408,
+      "grader": "integer"
+    },
+    {
+      "id": "train-math-6",
+      "category": "math",
+      "prompt": "Calculate (6458 * 8681 + 3123) modulo 97. Return only the integer, no explanation.",
+      "expected": 88,
+      "grader": "integer"
+    },
+    {
+      "id": "train-math-3",
+      "category": "math",
+      "prompt": "Calculate (280 * 6670 + 2717) modulo 113. Return only the integer, no explanation.",
+      "expected": 54,
+      "grader": "integer"
+    },
+    {
+      "id": "train-coding-6",
+      "category": "coding",
+      "prompt": "What does this Python code print? Return only the integer, no explanation.\nx = 3\ntotal = 0\nfor i in range(15):\n    x = (x * 2 + i + 9) % 61\n    if x % 3 != 0:\n        total += x\nprint(total)",
+      "expected": 315,
+      "grader": "integer"
+    },
+    {
+      "id": "train-math-4",
+      "category": "math",
+      "prompt": "Calculate (7181 * 8148 + 4707) modulo 101. Return only the integer, no explanation.",
+      "expected": 34,
+      "grader": "integer"
+    },
+    {
+      "id": "train-general-11",
+      "category": "general",
+      "grader": "json",
+      "prompt": "Keep records with active=true and age>=33. Sort by points descending, then id ascending. Take the first 3 (or all if fewer). Return only a JSON array of their id strings, no markdown.\n[{\"id\":\"R0\",\"active\":true,\"points\":33,\"age\":43},{\"id\":\"R1\",\"active\":true,\"points\":23,\"age\":20},{\"id\":\"R2\",\"active\":false,\"points\":16,\"age\":33},{\"id\":\"R3\",\"active\":true,\"points\":14,\"age\":26},{\"id\":\"R4\",\"active\":true,\"points\":13,\"age\":33},{\"id\":\"R5\",\"active\":false,\"points\":15,\"age\":25},{\"id\":\"R6\",\"active\":true,\"points\":5,\"age\":22},{\"id\":\"R7\",\"active\":true,\"points\":2,\"age\":48},{\"id\":\"R8\",\"active\":true,\"points\":19,\"age\":19},{\"id\":\"R9\",\"active\":true,\"points\":11,\"age\":39}]",
+      "expected": [
+        "R0",
+        "R4",
+        "R9"
+      ]
+    },
+    {
+      "id": "train-coding-12",
+      "category": "coding",
+      "prompt": "What does this Python code print? Return only the integer, no explanation.\nx = 3\ntotal = 0\nfor i in range(10):\n    x = (x * 2 + i + 1) % 40\n    if x % 3 != 0:\n        total += x\nprint(total)",
+      "expected": 212,
+      "grader": "integer"
+    },
+    {
+      "id": "train-general-4",
+      "category": "general",
+      "grader": "json",
+      "prompt": "Keep records with active=true and age>=40. Sort by points descending, then id ascending. Take the first 3 (or all if fewer). Return only a JSON array of their id strings, no markdown.\n[{\"id\":\"R0\",\"active\":true,\"points\":36,\"age\":42},{\"id\":\"R1\",\"active\":false,\"points\":35,\"age\":18},{\"id\":\"R2\",\"active\":true,\"points\":31,\"age\":48},{\"id\":\"R3\",\"active\":true,\"points\":23,\"age\":60},{\"id\":\"R4\",\"active\":false,\"points\":24,\"age\":23},{\"id\":\"R5\",\"active\":true,\"points\":14,\"age\":55},{\"id\":\"R6\",\"active\":true,\"points\":37,\"age\":60},{\"id\":\"R7\",\"active\":true,\"points\":14,\"age\":24},{\"id\":\"R8\",\"active\":false,\"points\":13,\"age\":24},{\"id\":\"R9\",\"active\":true,\"points\":4,\"age\":56}]",
+      "expected": [
+        "R6",
+        "R0",
+        "R2"
+      ]
+    },
+    {
+      "id": "train-coding-13",
+      "category": "coding",
+      "prompt": "What does this Python code print? Return only the integer, no explanation.\nx = 18\ntotal = 0\nfor i in range(17):\n    x = (x * 5 + i + 8) % 72\n    if x % 3 != 0:\n        total += x\nprint(total)",
+      "expected": 495,
+      "grader": "integer"
+    },
+    {
+      "id": "train-coding-14",
+      "category": "coding",
+      "prompt": "What does this Python code print? Return only the integer, no explanation.\nx = 11\ntotal = 0\nfor i in range(16):\n    x = (x * 7 + i + 8) % 35\n    if x % 3 != 0:\n        total += x\nprint(total)",
+      "expected": 198,
+      "grader": "integer"
+    },
+    {
+      "id": "train-coding-3",
+      "category": "coding",
+      "prompt": "What does this Python code print? Return only the integer, no explanation.\nx = 3\ntotal = 0\nfor i in range(14):\n    x = (x * 3 + i + 1) % 46\n    if x % 3 != 0:\n        total += x\nprint(total)",
+      "expected": 219,
+      "grader": "integer"
+    },
+    {
+      "id": "train-math-1",
+      "category": "math",
+      "prompt": "Calculate (907 * 9193 + 4636) modulo 113. Return only the integer, no explanation.",
+      "expected": 10,
+      "grader": "integer"
+    },
+    {
+      "id": "train-math-7",
+      "category": "math",
+      "prompt": "Calculate (1392 * 1751 + 5092) modulo 97. Return only the integer, no explanation.",
+      "expected": 24,
+      "grader": "integer"
+    },
+    {
+      "id": "train-math-2",
+      "category": "math",
+      "prompt": "Calculate (3195 * 2698 + 2646) modulo 101. Return only the integer, no explanation.",
+      "expected": 83,
+      "grader": "integer"
+    },
+    {
+      "id": "train-coding-7",
+      "category": "coding",
+      "prompt": "What does this Python code print? Return only the integer, no explanation.\nx = 9\ntotal = 0\nfor i in range(10):\n    x = (x * 3 + i + 6) % 75\n    if x % 3 != 0:\n        total += x\nprint(total)",
+      "expected": 276,
+      "grader": "integer"
+    },
+    {
+      "id": "train-coding-2",
+      "category": "coding",
+      "prompt": "What does this Python code print? Return only the integer, no explanation.\nx = 16\ntotal = 0\nfor i in range(15):\n    x = (x * 7 + i + 7) % 75\n    if x % 3 != 0:\n        total += x\nprint(total)",
+      "expected": 506,
+      "grader": "integer"
+    },
+    {
+      "id": "train-general-5",
+      "category": "general",
+      "grader": "json",
+      "prompt": "Keep records with active=true and age>=39. Sort by points descending, then id ascending. Take the first 3 (or all if fewer). Return only a JSON array of their id strings, no markdown.\n[{\"id\":\"R0\",\"active\":true,\"points\":21,\"age\":26},{\"id\":\"R1\",\"active\":true,\"points\":27,\"age\":21},{\"id\":\"R2\",\"active\":false,\"points\":32,\"age\":56},{\"id\":\"R3\",\"active\":true,\"points\":24,\"age\":44},{\"id\":\"R4\",\"active\":false,\"points\":19,\"age\":55},{\"id\":\"R5\",\"active\":false,\"points\":7,\"age\":40},{\"id\":\"R6\",\"active\":true,\"points\":38,\"age\":53},{\"id\":\"R7\",\"active\":false,\"points\":18,\"age\":30},{\"id\":\"R8\",\"active\":false,\"points\":12,\"age\":44},{\"id\":\"R9\",\"active\":false,\"points\":3,\"age\":63}]",
+      "expected": [
+        "R6",
+        "R3"
+      ]
+    },
+    {
+      "id": "train-general-9",
+      "category": "general",
+      "grader": "json",
+      "prompt": "Keep records with active=true and age>=32. Sort by points descending, then id ascending. Take the first 3 (or all if fewer). Return only a JSON array of their id strings, no markdown.\n[{\"id\":\"R0\",\"active\":false,\"points\":18,\"age\":61},{\"id\":\"R1\",\"active\":true,\"points\":9,\"age\":37},{\"id\":\"R2\",\"active\":true,\"points\":22,\"age\":36},{\"id\":\"R3\",\"active\":true,\"points\":28,\"age\":51},{\"id\":\"R4\",\"active\":true,\"points\":2,\"age\":22},{\"id\":\"R5\",\"active\":true,\"points\":31,\"age\":59},{\"id\":\"R6\",\"active\":true,\"points\":35,\"age\":54},{\"id\":\"R7\",\"active\":true,\"points\":21,\"age\":51},{\"id\":\"R8\",\"active\":true,\"points\":13,\"age\":64},{\"id\":\"R9\",\"active\":false,\"points\":27,\"age\":46}]",
+      "expected": [
+        "R6",
+        "R5",
+        "R3"
+      ]
+    },
+    {
+      "id": "train-math-9",
+      "category": "math",
+      "prompt": "Calculate (7732 * 8042 + 983) modulo 101. Return only the integer, no explanation.",
+      "expected": 67,
+      "grader": "integer"
+    },
+    {
+      "id": "train-general-1",
+      "category": "general",
+      "grader": "json",
+      "prompt": "Keep records with active=true and age>=34. Sort by points descending, then id ascending. Take the first 3 (or all if fewer). Return only a JSON array of their id strings, no markdown.\n[{\"id\":\"R0\",\"active\":false,\"points\":0,\"age\":54},{\"id\":\"R1\",\"active\":true,\"points\":0,\"age\":32},{\"id\":\"R2\",\"active\":true,\"points\":26,\"age\":30},{\"id\":\"R3\",\"active\":true,\"points\":38,\"age\":35},{\"id\":\"R4\",\"active\":true,\"points\":35,\"age\":43},{\"id\":\"R5\",\"active\":false,\"points\":13,\"age\":19},{\"id\":\"R6\",\"active\":true,\"points\":28,\"age\":48},{\"id\":\"R7\",\"active\":false,\"points\":24,\"age\":29},{\"id\":\"R8\",\"active\":true,\"points\":17,\"age\":31},{\"id\":\"R9\",\"active\":true,\"points\":31,\"age\":41}]",
+      "expected": [
+        "R3",
+        "R4",
+        "R9"
+      ]
+    },
+    {
+      "id": "train-general-14",
+      "category": "general",
+      "grader": "json",
+      "prompt": "Keep records with active=true and age>=26. Sort by points descending, then id ascending. Take the first 3 (or all if fewer). Return only a JSON array of their id strings, no markdown.\n[{\"id\":\"R0\",\"active\":true,\"points\":23,\"age\":45},{\"id\":\"R1\",\"active\":false,\"points\":28,\"age\":63},{\"id\":\"R2\",\"active\":true,\"points\":18,\"age\":46},{\"id\":\"R3\",\"active\":true,\"points\":34,\"age\":38},{\"id\":\"R4\",\"active\":false,\"points\":39,\"age\":39},{\"id\":\"R5\",\"active\":false,\"points\":34,\"age\":30},{\"id\":\"R6\",\"active\":true,\"points\":30,\"age\":24},{\"id\":\"R7\",\"active\":false,\"points\":32,\"age\":45},{\"id\":\"R8\",\"active\":false,\"points\":8,\"age\":29},{\"id\":\"R9\",\"active\":false,\"points\":1,\"age\":30}]",
+      "expected": [
+        "R3",
+        "R0",
+        "R2"
+      ]
+    },
+    {
+      "id": "train-coding-4",
+      "category": "coding",
+      "prompt": "What does this Python code print? Return only the integer, no explanation.\nx = 19\ntotal = 0\nfor i in range(17):\n    x = (x * 4 + i + 4) % 62\n    if x % 3 != 0:\n        total += x\nprint(total)",
+      "expected": 366,
+      "grader": "integer"
+    },
+    {
+      "id": "train-general-15",
+      "category": "general",
+      "grader": "json",
+      "prompt": "Keep records with active=true and age>=43. Sort by points descending, then id ascending. Take the first 3 (or all if fewer). Return only a JSON array of their id strings, no markdown.\n[{\"id\":\"R0\",\"active\":false,\"points\":28,\"age\":46},{\"id\":\"R1\",\"active\":false,\"points\":25,\"age\":36},{\"id\":\"R2\",\"active\":true,\"points\":16,\"age\":27},{\"id\":\"R3\",\"active\":false,\"points\":3,\"age\":63},{\"id\":\"R4\",\"active\":true,\"points\":19,\"age\":22},{\"id\":\"R5\",\"active\":true,\"points\":20,\"age\":64},{\"id\":\"R6\",\"active\":true,\"points\":25,\"age\":29},{\"id\":\"R7\",\"active\":true,\"points\":21,\"age\":24},{\"id\":\"R8\",\"active\":true,\"points\":8,\"age\":49},{\"id\":\"R9\",\"active\":true,\"points\":23,\"age\":27}]",
+      "expected": [
+        "R5",
+        "R8"
+      ]
+    },
+    {
+      "id": "train-math-10",
+      "category": "math",
+      "prompt": "Calculate (1886 * 193 + 9526) modulo 127. Return only the integer, no explanation.",
+      "expected": 17,
+      "grader": "integer"
+    }
+  ],
+  "test": [
+    {
+      "id": "test-general-3",
+      "category": "general",
+      "grader": "json",
+      "prompt": "Keep records with active=true and age>=36. Sort by points descending, then id ascending. Take the first 3 (or all if fewer). Return only a JSON array of their id strings, no markdown.\n[{\"id\":\"R0\",\"active\":true,\"points\":5,\"age\":52},{\"id\":\"R1\",\"active\":true,\"points\":23,\"age\":34},{\"id\":\"R2\",\"active\":true,\"points\":21,\"age\":33},{\"id\":\"R3\",\"active\":true,\"points\":38,\"age\":19},{\"id\":\"R4\",\"active\":true,\"points\":18,\"age\":34},{\"id\":\"R5\",\"active\":true,\"points\":23,\"age\":20},{\"id\":\"R6\",\"active\":true,\"points\":3,\"age\":20},{\"id\":\"R7\",\"active\":false,\"points\":34,\"age\":55},{\"id\":\"R8\",\"active\":true,\"points\":36,\"age\":21},{\"id\":\"R9\",\"active\":true,\"points\":33,\"age\":54}]",
+      "expected": [
+        "R9",
+        "R0"
+      ]
+    },
+    {
+      "id": "test-math-5",
+      "category": "math",
+      "prompt": "Calculate (3634 * 2052 + 9032) modulo 113. Return only the integer, no explanation.",
+      "expected": 90,
+      "grader": "integer"
+    },
+    {
+      "id": "test-math-2",
+      "category": "math",
+      "prompt": "Calculate (7654 * 1566 + 2135) modulo 101. Return only the integer, no explanation.",
+      "expected": 3,
+      "grader": "integer"
+    },
+    {
+      "id": "test-general-0",
+      "category": "general",
+      "grader": "json",
+      "prompt": "Keep records with active=true and age>=34. Sort by points descending, then id ascending. Take the first 3 (or all if fewer). Return only a JSON array of their id strings, no markdown.\n[{\"id\":\"R0\",\"active\":true,\"points\":34,\"age\":23},{\"id\":\"R1\",\"active\":true,\"points\":0,\"age\":49},{\"id\":\"R2\",\"active\":true,\"points\":7,\"age\":24},{\"id\":\"R3\",\"active\":true,\"points\":20,\"age\":64},{\"id\":\"R4\",\"active\":true,\"points\":20,\"age\":38},{\"id\":\"R5\",\"active\":true,\"points\":35,\"age\":53},{\"id\":\"R6\",\"active\":true,\"points\":37,\"age\":37},{\"id\":\"R7\",\"active\":true,\"points\":25,\"age\":42},{\"id\":\"R8\",\"active\":false,\"points\":27,\"age\":64},{\"id\":\"R9\",\"active\":false,\"points\":7,\"age\":38}]",
+      "expected": [
+        "R6",
+        "R5",
+        "R7"
+      ]
+    },
+    {
+      "id": "test-coding-5",
+      "category": "coding",
+      "prompt": "What does this Python code print? Return only the integer, no explanation.\nx = 5\ntotal = 0\nfor i in range(18):\n    x = (x * 4 + i + 1) % 40\n    if x % 3 != 0:\n        total += x\nprint(total)",
+      "expected": 205,
+      "grader": "integer"
+    },
+    {
+      "id": "test-math-7",
+      "category": "math",
+      "prompt": "Calculate (7199 * 9083 + 441) modulo 101. Return only the integer, no explanation.",
+      "expected": 43,
+      "grader": "integer"
+    },
+    {
+      "id": "test-coding-6",
+      "category": "coding",
+      "prompt": "What does this Python code print? Return only the integer, no explanation.\nx = 6\ntotal = 0\nfor i in range(17):\n    x = (x * 5 + i + 8) % 64\n    if x % 3 != 0:\n        total += x\nprint(total)",
+      "expected": 496,
+      "grader": "integer"
+    },
+    {
+      "id": "test-coding-4",
+      "category": "coding",
+      "prompt": "What does this Python code print? Return only the integer, no explanation.\nx = 8\ntotal = 0\nfor i in range(14):\n    x = (x * 4 + i + 10) % 32\n    if x % 3 != 0:\n        total += x\nprint(total)",
+      "expected": 142,
+      "grader": "integer"
+    },
+    {
+      "id": "test-coding-7",
+      "category": "coding",
+      "prompt": "What does this Python code print? Return only the integer, no explanation.\nx = 9\ntotal = 0\nfor i in range(12):\n    x = (x * 2 + i + 7) % 94\n    if x % 3 != 0:\n        total += x\nprint(total)",
+      "expected": 284,
+      "grader": "integer"
+    },
+    {
+      "id": "test-general-2",
+      "category": "general",
+      "grader": "json",
+      "prompt": "Keep records with active=true and age>=35. Sort by points descending, then id ascending. Take the first 3 (or all if fewer). Return only a JSON array of their id strings, no markdown.\n[{\"id\":\"R0\",\"active\":true,\"points\":24,\"age\":60},{\"id\":\"R1\",\"active\":false,\"points\":39,\"age\":25},{\"id\":\"R2\",\"active\":true,\"points\":31,\"age\":57},{\"id\":\"R3\",\"active\":true,\"points\":27,\"age\":40},{\"id\":\"R4\",\"active\":true,\"points\":9,\"age\":27},{\"id\":\"R5\",\"active\":false,\"points\":2,\"age\":51},{\"id\":\"R6\",\"active\":false,\"points\":32,\"age\":32},{\"id\":\"R7\",\"active\":true,\"points\":14,\"age\":46},{\"id\":\"R8\",\"active\":true,\"points\":0,\"age\":49},{\"id\":\"R9\",\"active\":false,\"points\":33,\"age\":44}]",
+      "expected": [
+        "R2",
+        "R3",
+        "R0"
+      ]
+    },
+    {
+      "id": "test-coding-2",
+      "category": "coding",
+      "prompt": "What does this Python code print? Return only the integer, no explanation.\nx = 5\ntotal = 0\nfor i in range(16):\n    x = (x * 2 + i + 4) % 82\n    if x % 3 != 0:\n        total += x\nprint(total)",
+      "expected": 483,
+      "grader": "integer"
+    },
+    {
+      "id": "test-math-6",
+      "category": "math",
+      "prompt": "Calculate (7389 * 251 + 5313) modulo 113. Return only the integer, no explanation.",
+      "expected": 85,
+      "grader": "integer"
+    },
+    {
+      "id": "test-coding-1",
+      "category": "coding",
+      "prompt": "What does this Python code print? Return only the integer, no explanation.\nx = 13\ntotal = 0\nfor i in range(15):\n    x = (x * 3 + i + 3) % 60\n    if x % 3 != 0:\n        total += x\nprint(total)",
+      "expected": 291,
+      "grader": "integer"
+    },
+    {
+      "id": "test-math-3",
+      "category": "math",
+      "prompt": "Calculate (1988 * 2991 + 1498) modulo 113. Return only the integer, no explanation.",
+      "expected": 77,
+      "grader": "integer"
+    },
+    {
+      "id": "test-general-4",
+      "category": "general",
+      "grader": "json",
+      "prompt": "Keep records with active=true and age>=37. Sort by points descending, then id ascending. Take the first 3 (or all if fewer). Return only a JSON array of their id strings, no markdown.\n[{\"id\":\"R0\",\"active\":false,\"points\":24,\"age\":44},{\"id\":\"R1\",\"active\":false,\"points\":15,\"age\":43},{\"id\":\"R2\",\"active\":true,\"points\":22,\"age\":28},{\"id\":\"R3\",\"active\":false,\"points\":20,\"age\":18},{\"id\":\"R4\",\"active\":true,\"points\":0,\"age\":58},{\"id\":\"R5\",\"active\":true,\"points\":5,\"age\":41},{\"id\":\"R6\",\"active\":true,\"points\":30,\"age\":25},{\"id\":\"R7\",\"active\":true,\"points\":31,\"age\":53},{\"id\":\"R8\",\"active\":true,\"points\":28,\"age\":49},{\"id\":\"R9\",\"active\":true,\"points\":30,\"age\":60}]",
+      "expected": [
+        "R7",
+        "R9",
+        "R8"
+      ]
+    },
+    {
+      "id": "test-coding-3",
+      "category": "coding",
+      "prompt": "What does this Python code print? Return only the integer, no explanation.\nx = 18\ntotal = 0\nfor i in range(9):\n    x = (x * 4 + i + 6) % 95\n    if x % 3 != 0:\n        total += x\nprint(total)",
+      "expected": 215,
+      "grader": "integer"
+    },
+    {
+      "id": "test-general-7",
+      "category": "general",
+      "grader": "json",
+      "prompt": "Keep records with active=true and age>=29. Sort by points descending, then id ascending. Take the first 3 (or all if fewer). Return only a JSON array of their id strings, no markdown.\n[{\"id\":\"R0\",\"active\":true,\"points\":3,\"age\":63},{\"id\":\"R1\",\"active\":true,\"points\":11,\"age\":38},{\"id\":\"R2\",\"active\":true,\"points\":4,\"age\":32},{\"id\":\"R3\",\"active\":false,\"points\":1,\"age\":19},{\"id\":\"R4\",\"active\":true,\"points\":25,\"age\":19},{\"id\":\"R5\",\"active\":true,\"points\":19,\"age\":31},{\"id\":\"R6\",\"active\":true,\"points\":10,\"age\":27},{\"id\":\"R7\",\"active\":true,\"points\":26,\"age\":54},{\"id\":\"R8\",\"active\":true,\"points\":0,\"age\":18},{\"id\":\"R9\",\"active\":false,\"points\":10,\"age\":51}]",
+      "expected": [
+        "R7",
+        "R5",
+        "R1"
+      ]
+    },
+    {
+      "id": "test-general-5",
+      "category": "general",
+      "grader": "json",
+      "prompt": "Keep records with active=true and age>=36. Sort by points descending, then id ascending. Take the first 3 (or all if fewer). Return only a JSON array of their id strings, no markdown.\n[{\"id\":\"R0\",\"active\":false,\"points\":3,\"age\":21},{\"id\":\"R1\",\"active\":false,\"points\":1,\"age\":21},{\"id\":\"R2\",\"active\":false,\"points\":27,\"age\":29},{\"id\":\"R3\",\"active\":false,\"points\":4,\"age\":39},{\"id\":\"R4\",\"active\":true,\"points\":25,\"age\":37},{\"id\":\"R5\",\"active\":true,\"points\":10,\"age\":55},{\"id\":\"R6\",\"active\":true,\"points\":17,\"age\":31},{\"id\":\"R7\",\"active\":true,\"points\":7,\"age\":25},{\"id\":\"R8\",\"active\":true,\"points\":17,\"age\":56},{\"id\":\"R9\",\"active\":true,\"points\":16,\"age\":55}]",
+      "expected": [
+        "R4",
+        "R8",
+        "R9"
+      ]
+    },
+    {
+      "id": "test-general-6",
+      "category": "general",
+      "grader": "json",
+      "prompt": "Keep records with active=true and age>=40. Sort by points descending, then id ascending. Take the first 3 (or all if fewer). Return only a JSON array of their id strings, no markdown.\n[{\"id\":\"R0\",\"active\":true,\"points\":30,\"age\":53},{\"id\":\"R1\",\"active\":true,\"points\":32,\"age\":49},{\"id\":\"R2\",\"active\":false,\"points\":31,\"age\":60},{\"id\":\"R3\",\"active\":true,\"points\":39,\"age\":52},{\"id\":\"R4\",\"active\":true,\"points\":39,\"age\":58},{\"id\":\"R5\",\"active\":false,\"points\":24,\"age\":56},{\"id\":\"R6\",\"active\":true,\"points\":20,\"age\":35},{\"id\":\"R7\",\"active\":false,\"points\":13,\"age\":29},{\"id\":\"R8\",\"active\":true,\"points\":5,\"age\":38},{\"id\":\"R9\",\"active\":false,\"points\":9,\"age\":51}]",
+      "expected": [
+        "R3",
+        "R4",
+        "R1"
+      ]
+    },
+    {
+      "id": "test-math-4",
+      "category": "math",
+      "prompt": "Calculate (3413 * 1300 + 4483) modulo 97. Return only the integer, no explanation.",
+      "expected": 44,
+      "grader": "integer"
+    },
+    {
+      "id": "test-general-1",
+      "category": "general",
+      "grader": "json",
+      "prompt": "Keep records with active=true and age>=41. Sort by points descending, then id ascending. Take the first 3 (or all if fewer). Return only a JSON array of their id strings, no markdown.\n[{\"id\":\"R0\",\"active\":true,\"points\":19,\"age\":59},{\"id\":\"R1\",\"active\":true,\"points\":31,\"age\":56},{\"id\":\"R2\",\"active\":true,\"points\":23,\"age\":43},{\"id\":\"R3\",\"active\":true,\"points\":31,\"age\":51},{\"id\":\"R4\",\"active\":true,\"points\":34,\"age\":63},{\"id\":\"R5\",\"active\":true,\"points\":2,\"age\":43},{\"id\":\"R6\",\"active\":false,\"points\":35,\"age\":59},{\"id\":\"R7\",\"active\":true,\"points\":30,\"age\":47},{\"id\":\"R8\",\"active\":false,\"points\":32,\"age\":43},{\"id\":\"R9\",\"active\":true,\"points\":2,\"age\":21}]",
+      "expected": [
+        "R4",
+        "R1",
+        "R3"
+      ]
+    },
+    {
+      "id": "test-coding-0",
+      "category": "coding",
+      "prompt": "What does this Python code print? Return only the integer, no explanation.\nx = 5\ntotal = 0\nfor i in range(9):\n    x = (x * 5 + i + 5) % 81\n    if x % 3 != 0:\n        total += x\nprint(total)",
+      "expected": 214,
+      "grader": "integer"
+    },
+    {
+      "id": "test-math-1",
+      "category": "math",
+      "prompt": "Calculate (942 * 5197 + 8243) modulo 101. Return only the integer, no explanation.",
+      "expected": 65,
+      "grader": "integer"
+    },
+    {
+      "id": "test-math-0",
+      "category": "math",
+      "prompt": "Calculate (3446 * 2541 + 2460) modulo 127. Return only the integer, no explanation.",
+      "expected": 64,
+      "grader": "integer"
+    }
+  ]
+}

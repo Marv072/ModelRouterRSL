@@ -1,0 +1,182 @@
+{
+  "summary": {
+    "always_flash": {
+      "count": 24,
+      "correct": 7,
+      "accuracy": 0.2916666666666667,
+      "cost_upper_cny": 0.024234,
+      "avg_provider_latency_ms": 993.9484583301237,
+      "utility": 0.23139769750006417,
+      "selected": {
+        "budget": 24
+      }
+    },
+    "always_pro": {
+      "count": 24,
+      "correct": 4,
+      "accuracy": 0.16666666666666666,
+      "cost_upper_cny": 0.071442,
+      "avg_provider_latency_ms": 1519.8109958437271,
+      "utility": 0.03356711341645879,
+      "selected": {
+        "strong": 24
+      }
+    },
+    "rsl_frozen": {
+      "count": 24,
+      "correct": 4,
+      "accuracy": 0.16666666666666666,
+      "cost_upper_cny": 0.025880999999999998,
+      "avg_provider_latency_ms": 916.6594583463544,
+      "utility": 0.10519847749973958,
+      "selected": {
+        "strong": 16,
+        "budget": 8
+      }
+    }
+  },
+  "by_category": {
+    "math": {
+      "always_flash": {
+        "count": 8,
+        "correct": 0,
+        "accuracy": 0.0,
+        "cost_upper_cny": 0.0025619999999999996,
+        "avg_provider_latency_ms": 798.4033250104403,
+        "utility": -0.028778066500208806,
+        "selected": {
+          "budget": 8
+        }
+      },
+      "always_pro": {
+        "count": 8,
+        "correct": 0,
+        "accuracy": 0.0,
+        "cost_upper_cny": 0.048123,
+        "avg_provider_latency_ms": 2607.8579375025583,
+        "utility": -0.2436721587500512,
+        "selected": {
+          "strong": 8
+        }
+      },
+      "rsl_frozen": {
+        "count": 8,
+        "correct": 0,
+        "accuracy": 0.0,
+        "cost_upper_cny": 0.0025619999999999996,
+        "avg_provider_latency_ms": 798.4033250104403,
+        "utility": -0.028778066500208806,
+        "selected": {
+          "budget": 8
+        }
+      }
+    },
+    "coding": {
+      "always_flash": {
+        "count": 8,
+        "correct": 0,
+        "accuracy": 0.0,
+        "cost_upper_cny": 0.017536,
+        "avg_provider_latency_ms": 1476.6040999820689,
+        "utility": -0.11721208199964138,
+        "selected": {
+          "budget": 8
+        }
+      },
+      "always_pro": {
+        "count": 8,
+        "correct": 0,
+        "accuracy": 0.0,
+        "cost_upper_cny": 0.0054,
+        "avg_provider_latency_ms": 972.7251625008648,
+        "utility": -0.0464545032500173,
+        "selected": {
+          "strong": 8
+        }
+      },
+      "rsl_frozen": {
+        "count": 8,
+        "correct": 0,
+        "accuracy": 0.0,
+        "cost_upper_cny": 0.0054,
+        "avg_provider_latency_ms": 972.7251625008648,
+        "utility": -0.0464545032500173,
+        "selected": {
+          "strong": 8
+        }
+      }
+    },
+    "general": {
+      "always_flash": {
+        "count": 8,
+        "correct": 7,
+        "accuracy": 0.875,
+        "cost_upper_cny": 0.004136,
+        "avg_provider_latency_ms": 706.8379499978619,
+        "utility": 0.8401832410000427,
+        "selected": {
+          "budget": 8
+        }
+      },
+      "always_pro": {
+        "count": 8,
+        "correct": 4,
+        "accuracy": 0.5,
+        "cost_upper_cny": 0.017918999999999997,
+        "avg_provider_latency_ms": 978.8498875277583,
+        "utility": 0.39082800224944486,
+        "selected": {
+          "strong": 8
+        }
+      },
+      "rsl_frozen": {
+        "count": 8,
+        "correct": 4,
+        "accuracy": 0.5,
+        "cost_upper_cny": 0.017918999999999997,
+        "avg_provider_latency_ms": 978.8498875277583,
+        "utility": 0.39082800224944486,
+        "selected": {
+          "strong": 8
+        }
+      }
+    }
+  },
+  "training": {
+    "count": 48,
+    "correct": 12,
+    "accuracy": 0.25,
+    "cost_upper_cny": 0.066765,
+    "avg_provider_latency_ms": 1055.6659416664236,
+    "utility": 0.17705418116667154,
+    "selected": {
+      "budget": 24,
+      "strong": 24
+    }
+  },
+  "all_paid_calls_cost_upper_cny": 0.162441,
+  "all_paid_calls": 96,
+  "accuracy_delta_95_percentile_bootstrap": {
+    "always_flash": [
+      -0.25,
+      0.0
+    ],
+    "always_pro": [
+      0.0,
+      0.0
+    ]
+  },
+  "reservation_including_prior_probe_cny": 2.92,
+  "test_diagnostics": {
+    "budget": {
+      "truncated": 9,
+      "numeric_format_violation": 9,
+      "wrong_bare_integer": 7
+    },
+    "strong": {
+      "truncated": 2,
+      "numeric_format_violation": 8,
+      "wrong_bare_integer": 8
+    }
+  }
+}

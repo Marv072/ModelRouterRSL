@@ -1,4 +1,17 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, field_validator
+import json
+
+from app.core.routing_policy import RoutingPolicy
+
+
+def validate_profile_json(value):
+    if value is None:
+        return value
+    data = json.loads(value)
+    if not isinstance(data, dict):
+        raise ValueError("config_json must contain an object")
+    RoutingPolicy(**data)
+    return value
 from typing import Optional
 from app.schemas.chat import ChatMessage, CascadeConfig
 
@@ -91,12 +104,14 @@ class ApiKeyListResponse(BaseModel):
 
 
 class RoutingProfileCreate(BaseModel):
+    _validate_config = field_validator("config_json")(validate_profile_json)
     name: str
     description: str = ""
     config_json: str = "{}"
 
 
 class RoutingProfileUpdate(BaseModel):
+    _validate_config = field_validator("config_json")(validate_profile_json)
     name: Optional[str] = None
     description: Optional[str] = None
     config_json: Optional[str] = None

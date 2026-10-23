@@ -69,6 +69,7 @@ class AppConfig(BaseModel):
 
 def load_config(path: str = "config/providers.yaml") -> AppConfig:
     load_dotenv()
+    path = os.environ.get("ROUTER_CONFIG", path)
     apply_env_aliases()
     config_path = Path(path)
     if not config_path.exists():

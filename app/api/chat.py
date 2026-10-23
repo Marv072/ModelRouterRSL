@@ -108,6 +108,11 @@ async def chat_completions(
     )
     recommendation_applied = False
 
+    if routing_policy.rsl_enabled and original_model in DEFAULT_MODEL_ALIASES and not ensemble_requested:
+        from app.core.rsl_runtime import execute_rsl
+        return await execute_rsl(body, request, request_context, routing_policy, routing_settings,
+                                 allowed_models if allowed_models is not None else available_models)
+
     if not ensemble_requested:
         requested_is_auto = original_model in DEFAULT_MODEL_ALIASES
         if not requested_is_auto:

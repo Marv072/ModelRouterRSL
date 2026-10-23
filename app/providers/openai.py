@@ -31,6 +31,10 @@ class OpenAIProvider(BaseProvider):
             val = getattr(request, attr, None)
             if val is not None:
                 data[attr] = val
+        if request.response_format is not None:
+            data["response_format"] = request.response_format.model_dump()
+        if request.thinking is not None:
+            data["thinking"] = request.thinking.model_dump()
         return data
 
     def _parse_response(self, body: dict, model: str) -> ChatResponse:

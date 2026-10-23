@@ -1,0 +1,17 @@
+# Official DeepSeek models. CNY / million tokens, peak cache-miss upper estimate.
+# Snapshot: 2026-10-23. Actual billing depends on cache and peak/off-peak hours.
+server: {host: 127.0.0.1, port: 8000}
+providers:
+  openai:
+    base_url: ${OPENAI_BASE_URL}
+    timeout: 60
+    max_retries: 0
+    keys:
+      - key: ${OPENAI_KEY_1}
+    models:
+      - name: deepseek-flash
+        routing_keys: [budget]
+        pricing: {prompt: 2.0, completion: 8.0}
+      - name: deepseek-v4-pro
+        routing_keys: [strong]
+        pricing: {prompt: 9.0, completion: 27.0}

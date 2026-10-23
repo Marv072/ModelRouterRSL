@@ -1,7 +1,13 @@
 # Local environment and secrets. Keep committed example templates instead.
 .env
-.env.local
-.env.*.local
+.env.*
+!.env.example
+.venv/
+.pytest_cache/
+.test-tmp/
+.demo/
+dist/
+*.egg-info/
 
 # Local SQLite databases and their journal files.
 *.db
@@ -20,3 +26,13 @@ runs/
 logs/
 *.log
 *.log.*
+
+# Local working documents; README is the published documentation.
+docs/
+README.upstream.md
+ATTRIBUTION.md
+artifacts/**/REPORT.md
+
+# Local packaging and one-off connectivity helpers.
+/scripts/package_submission.py
+/scripts/check_deepseek.py

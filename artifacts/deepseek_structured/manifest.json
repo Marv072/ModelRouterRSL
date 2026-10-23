@@ -1,0 +1,49 @@
+{
+  "primary_comparison": "same frozen RSL routes: plain versus structured output",
+  "limitation": "9 held-out cases; tests output protocol, not a routing algorithm change",
+  "train_seed": 7023,
+  "test_seed": 7024,
+  "training_cases": 18,
+  "held_out_cases": 9,
+  "paid_call_limit": 54,
+  "max_output_tokens": 256,
+  "thinking": "disabled",
+  "policy": {
+    "rsl_enabled": true,
+    "rsl_judge_model": null,
+    "rsl_min_samples": 3,
+    "rsl_quality_weight": 1.0,
+    "rsl_cost_weight": 0.2,
+    "rsl_latency_weight": 0.1,
+    "rsl_exploration_weight": 0.15,
+    "rsl_cost_scale": 0.005,
+    "rsl_latency_scale_ms": 5000,
+    "allowed_models": [
+      "budget",
+      "strong"
+    ],
+    "recommendation_enabled": false,
+    "recommendation_apply_to_explicit": false,
+    "keyword_routing_enabled": false,
+    "semantic_routing_enabled": false,
+    "cascade_enabled": false
+  },
+  "scoring": "computed integer / JSON reference; no model judge",
+  "test_method": "paired frozen-policy replay",
+  "price_basis": "2026-10-23 CNY peak cache-miss; conservative upper estimate",
+  "price_source": "https://api-docs.deepseek.com/zh-cn/quick_start/pricing/",
+  "max_reserved_cny_this_run": 1.62,
+  "models": {
+    "budget": [
+      "deepseek-flash",
+      2.0,
+      8.0
+    ],
+    "strong": [
+      "deepseek-v4-pro",
+      9.0,
+      27.0
+    ]
+  },
+  "data_sha256": "0ceb9cdf4eb5b3a1b54f7e4d18cb4b33fde2c6491082a16b47a6b0f3df2200f1"
+}

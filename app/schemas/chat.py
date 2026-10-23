@@ -25,7 +25,17 @@ class ChatMessage(BaseModel):
     content: str
 
 
+class ThinkingConfig(BaseModel):
+    type: Literal["enabled", "disabled"]
+
+
+class ResponseFormat(BaseModel):
+    type: Literal["text", "json_object"]
+
+
 class ChatRequest(BaseModel):
+    response_format: ResponseFormat | None = None
+    thinking: ThinkingConfig | None = None
     model: str
     messages: list[ChatMessage]
     stream: bool = False
@@ -40,6 +50,8 @@ class ChatRequest(BaseModel):
 
 
 class Usage(BaseModel):
+    prompt_cache_hit_tokens: int | None = None
+    prompt_cache_miss_tokens: int | None = None
     prompt_tokens: int
     completion_tokens: int
     total_tokens: int
@@ -93,6 +105,7 @@ class EnsembleMetadata(BaseModel):
 
 
 class ChatResponse(BaseModel):
+    rsl: dict | None = None
     id: str
     object: str = "chat.completion"
     created: int
@@ -118,6 +131,7 @@ class StreamChoice(BaseModel):
 
 
 class StreamChunk(BaseModel):
+    rsl: dict | None = None
     id: str
     object: str = "chat.completion.chunk"
     created: int

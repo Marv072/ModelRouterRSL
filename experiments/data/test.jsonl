@@ -1,0 +1,6 @@
+{"id":"test-math-01","prompt":"计算 23+49，只返回十进制整数。","expected":"72"}
+{"id":"test-math-02","prompt":"计算 11*12，只返回十进制整数。","expected":"132"}
+{"id":"test-code-01","prompt":"Python 表达式 sum([2,4,6]) 的结果是什么？只返回数字。","expected":"12"}
+{"id":"test-code-02","prompt":"Python 表达式 len('router') 的结果是什么？只返回数字。","expected":"6"}
+{"id":"test-translation-01","prompt":"翻译英文单词 elephant 为简体中文，只返回一个最常见的动物名，不要标点。","expected":"大象"}
+{"id":"test-translation-02","prompt":"翻译英文单词 watermelon 为简体中文，只返回水果名，不要标点。","expected":"西瓜"}

@@ -1,0 +1,19 @@
+# Replace model IDs and prices with your provider's actual values.
+# Prices: currency units per million tokens, consistent currency across models.
+server:
+  host: 127.0.0.1
+  port: 8000
+providers:
+  openai:
+    base_url: ${OPENAI_BASE_URL}
+    timeout: 60
+    max_retries: 1
+    keys:
+      - key: ${OPENAI_KEY_1}
+    models:
+      - name: replace-with-budget-model
+        routing_keys: [budget]
+        pricing: {prompt: 0.2, completion: 0.6}
+      - name: replace-with-strong-model
+        routing_keys: [strong]
+        pricing: {prompt: 2.0, completion: 6.0}

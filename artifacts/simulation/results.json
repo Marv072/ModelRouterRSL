@@ -1,0 +1,447 @@
+{
+  "kind": "SYNTHETIC_SIMULATION_NOT_REAL_LLM_EVALUATION",
+  "seeds": 5,
+  "train_requests_per_seed": 600,
+  "test_requests_per_seed": 300,
+  "assumptions": {
+    "quality_probabilities": {
+      "writing": [
+        0.95,
+        0.7,
+        0.97
+      ],
+      "coding": [
+        0.35,
+        0.95,
+        0.96
+      ],
+      "math": [
+        0.45,
+        0.65,
+        0.97
+      ]
+    },
+    "cost": {
+      "budget": 0.0005,
+      "specialist": 0.003,
+      "strong": 0.01
+    },
+    "latency_ms": {
+      "budget": 200,
+      "specialist": 900,
+      "strong": 3000
+    },
+    "judge_cost": 0,
+    "feedback": "perfect synthetic ground truth",
+    "original_baseline": "default_model=budget; recommendation disabled"
+  },
+  "policy": {
+    "rsl_enabled": true,
+    "rsl_judge_model": null,
+    "rsl_min_samples": 3,
+    "rsl_exploration_weight": 0.15,
+    "rsl_quality_weight": 1.0,
+    "rsl_cost_weight": 0.2,
+    "rsl_latency_weight": 0.1,
+    "rsl_cost_scale": 0.01,
+    "rsl_latency_scale_ms": 5000,
+    "rsl_quality_threshold": 0.7,
+    "default_model": null,
+    "preferred_providers": [],
+    "allowed_models": null,
+    "deny_models": [],
+    "keyword_routing_enabled": null,
+    "semantic_routing_enabled": null,
+    "cascade_enabled": null,
+    "cascade_override_chain": null,
+    "cost_bias": null,
+    "latency_bias": null,
+    "quality_bias": null,
+    "recommendation_enabled": true,
+    "recommendation_mode": "auto_top1",
+    "recommendation_objective": "auto",
+    "recommendation_weights": null,
+    "recommendation_confidence_threshold": null,
+    "recommendation_apply_to_explicit": false,
+    "recommendation_excluded_models": [
+      "codex-auto-review",
+      "codex-review"
+    ]
+  },
+  "summary": [
+    {
+      "strategy": "original_default",
+      "quality": 0.582,
+      "quality_std": 0.030055504210266256,
+      "avg_cost": 0.0005,
+      "avg_cost_std": 0.0,
+      "avg_latency_ms": 200,
+      "avg_latency_ms_std": 0.0,
+      "utility": 0.568,
+      "utility_std": 0.030055504210266256,
+      "training_cost": 0,
+      "training_cost_std": 0.0,
+      "test_cost": 0.15,
+      "test_cost_std": 0.0
+    },
+    {
+      "strategy": "always_strong",
+      "quality": 0.9653333333333334,
+      "quality_std": 0.009603240193925297,
+      "avg_cost": 0.01,
+      "avg_cost_std": 0.0,
+      "avg_latency_ms": 3000,
+      "avg_latency_ms_std": 0.0,
+      "utility": 0.7053333333333334,
+      "utility_std": 0.009603240193925297,
+      "training_cost": 0,
+      "training_cost_std": 0.0,
+      "test_cost": 3.0,
+      "test_cost_std": 0.0
+    },
+    {
+      "strategy": "round_robin",
+      "quality": 0.7753333333333333,
+      "quality_std": 0.01834847859269716,
+      "avg_cost": 0.0045000000000000005,
+      "avg_cost_std": 0.0,
+      "avg_latency_ms": 1366.6666666666667,
+      "avg_latency_ms_std": 0.0,
+      "utility": 0.6579999999999999,
+      "utility_std": 0.01834847859269716,
+      "training_cost": 0,
+      "training_cost_std": 0.0,
+      "test_cost": 1.35,
+      "test_cost_std": 0.0
+    },
+    {
+      "strategy": "rsl_frozen",
+      "quality": 0.9673333333333334,
+      "quality_std": 0.01115546702045436,
+      "avg_cost": 0.0045000000000000005,
+      "avg_cost_std": 0.0,
+      "avg_latency_ms": 1366.6666666666667,
+      "avg_latency_ms_std": 0.0,
+      "utility": 0.85,
+      "utility_std": 0.011155467020454323,
+      "training_cost": 2.773399999999993,
+      "training_cost_std": 0.057473254649446096,
+      "test_cost": 1.35,
+      "test_cost_std": 0.0
+    }
+  ],
+  "runs": [
+    {
+      "seed": 0,
+      "strategy": "original_default",
+      "quality": 0.57,
+      "avg_cost": 0.0005,
+      "avg_latency_ms": 200,
+      "utility": 0.5559999999999999,
+      "test_cost": 0.15,
+      "training_cost": 0,
+      "selection_counts": {
+        "budget": 300
+      }
+    },
+    {
+      "seed": 0,
+      "strategy": "always_strong",
+      "quality": 0.96,
+      "avg_cost": 0.01,
+      "avg_latency_ms": 3000,
+      "utility": 0.7,
+      "test_cost": 3.0,
+      "training_cost": 0,
+      "selection_counts": {
+        "strong": 300
+      }
+    },
+    {
+      "seed": 0,
+      "strategy": "round_robin",
+      "quality": 0.7666666666666667,
+      "avg_cost": 0.0045000000000000005,
+      "avg_latency_ms": 1366.6666666666667,
+      "utility": 0.6493333333333333,
+      "test_cost": 1.35,
+      "training_cost": 0,
+      "selection_counts": {
+        "budget": 100,
+        "specialist": 100,
+        "strong": 100
+      }
+    },
+    {
+      "seed": 0,
+      "strategy": "rsl_frozen",
+      "quality": 0.9766666666666667,
+      "avg_cost": 0.0045000000000000005,
+      "avg_latency_ms": 1366.6666666666667,
+      "utility": 0.8593333333333333,
+      "test_cost": 1.35,
+      "training_cost": 2.849999999999993,
+      "selection_counts": {
+        "budget": 100,
+        "strong": 100,
+        "specialist": 100
+      }
+    },
+    {
+      "seed": 1,
+      "strategy": "original_default",
+      "quality": 0.6033333333333334,
+      "avg_cost": 0.0005,
+      "avg_latency_ms": 200,
+      "utility": 0.5893333333333334,
+      "test_cost": 0.15,
+      "training_cost": 0,
+      "selection_counts": {
+        "budget": 300
+      }
+    },
+    {
+      "seed": 1,
+      "strategy": "always_strong",
+      "quality": 0.9633333333333334,
+      "avg_cost": 0.01,
+      "avg_latency_ms": 3000,
+      "utility": 0.7033333333333334,
+      "test_cost": 3.0,
+      "training_cost": 0,
+      "selection_counts": {
+        "strong": 300
+      }
+    },
+    {
+      "seed": 1,
+      "strategy": "round_robin",
+      "quality": 0.8033333333333333,
+      "avg_cost": 0.0045000000000000005,
+      "avg_latency_ms": 1366.6666666666667,
+      "utility": 0.6859999999999999,
+      "test_cost": 1.35,
+      "training_cost": 0,
+      "selection_counts": {
+        "budget": 100,
+        "specialist": 100,
+        "strong": 100
+      }
+    },
+    {
+      "seed": 1,
+      "strategy": "rsl_frozen",
+      "quality": 0.97,
+      "avg_cost": 0.0045000000000000005,
+      "avg_latency_ms": 1366.6666666666667,
+      "utility": 0.8526666666666667,
+      "test_cost": 1.35,
+      "training_cost": 2.718999999999995,
+      "selection_counts": {
+        "budget": 100,
+        "specialist": 100,
+        "strong": 100
+      }
+    },
+    {
+      "seed": 2,
+      "strategy": "original_default",
+      "quality": 0.6233333333333333,
+      "avg_cost": 0.0005,
+      "avg_latency_ms": 200,
+      "utility": 0.6093333333333333,
+      "test_cost": 0.15,
+      "training_cost": 0,
+      "selection_counts": {
+        "budget": 300
+      }
+    },
+    {
+      "seed": 2,
+      "strategy": "always_strong",
+      "quality": 0.9533333333333334,
+      "avg_cost": 0.01,
+      "avg_latency_ms": 3000,
+      "utility": 0.6933333333333334,
+      "test_cost": 3.0,
+      "training_cost": 0,
+      "selection_counts": {
+        "strong": 300
+      }
+    },
+    {
+      "seed": 2,
+      "strategy": "round_robin",
+      "quality": 0.7833333333333333,
+      "avg_cost": 0.0045000000000000005,
+      "avg_latency_ms": 1366.6666666666667,
+      "utility": 0.6659999999999999,
+      "test_cost": 1.35,
+      "training_cost": 0,
+      "selection_counts": {
+        "budget": 100,
+        "specialist": 100,
+        "strong": 100
+      }
+    },
+    {
+      "seed": 2,
+      "strategy": "rsl_frozen",
+      "quality": 0.9633333333333334,
+      "avg_cost": 0.0045000000000000005,
+      "avg_latency_ms": 1366.6666666666667,
+      "utility": 0.846,
+      "test_cost": 1.35,
+      "training_cost": 2.818999999999995,
+      "selection_counts": {
+        "strong": 100,
+        "budget": 100,
+        "specialist": 100
+      }
+    },
+    {
+      "seed": 3,
+      "strategy": "original_default",
+      "quality": 0.5533333333333333,
+      "avg_cost": 0.0005,
+      "avg_latency_ms": 200,
+      "utility": 0.5393333333333333,
+      "test_cost": 0.15,
+      "training_cost": 0,
+      "selection_counts": {
+        "budget": 300
+      }
+    },
+    {
+      "seed": 3,
+      "strategy": "always_strong",
+      "quality": 0.9733333333333334,
+      "avg_cost": 0.01,
+      "avg_latency_ms": 3000,
+      "utility": 0.7133333333333334,
+      "test_cost": 3.0,
+      "training_cost": 0,
+      "selection_counts": {
+        "strong": 300
+      }
+    },
+    {
+      "seed": 3,
+      "strategy": "round_robin",
+      "quality": 0.7666666666666667,
+      "avg_cost": 0.0045000000000000005,
+      "avg_latency_ms": 1366.6666666666667,
+      "utility": 0.6493333333333333,
+      "test_cost": 1.35,
+      "training_cost": 0,
+      "selection_counts": {
+        "budget": 100,
+        "specialist": 100,
+        "strong": 100
+      }
+    },
+    {
+      "seed": 3,
+      "strategy": "rsl_frozen",
+      "quality": 0.95,
+      "avg_cost": 0.0045000000000000005,
+      "avg_latency_ms": 1366.6666666666667,
+      "utility": 0.8326666666666667,
+      "test_cost": 1.35,
+      "training_cost": 2.737499999999987,
+      "selection_counts": {
+        "specialist": 100,
+        "strong": 100,
+        "budget": 100
+      }
+    },
+    {
+      "seed": 4,
+      "strategy": "original_default",
+      "quality": 0.56,
+      "avg_cost": 0.0005,
+      "avg_latency_ms": 200,
+      "utility": 0.546,
+      "test_cost": 0.15,
+      "training_cost": 0,
+      "selection_counts": {
+        "budget": 300
+      }
+    },
+    {
+      "seed": 4,
+      "strategy": "always_strong",
+      "quality": 0.9766666666666667,
+      "avg_cost": 0.01,
+      "avg_latency_ms": 3000,
+      "utility": 0.7166666666666667,
+      "test_cost": 3.0,
+      "training_cost": 0,
+      "selection_counts": {
+        "strong": 300
+      }
+    },
+    {
+      "seed": 4,
+      "strategy": "round_robin",
+      "quality": 0.7566666666666667,
+      "avg_cost": 0.0045000000000000005,
+      "avg_latency_ms": 1366.6666666666667,
+      "utility": 0.6393333333333333,
+      "test_cost": 1.35,
+      "training_cost": 0,
+      "selection_counts": {
+        "budget": 100,
+        "specialist": 100,
+        "strong": 100
+      }
+    },
+    {
+      "seed": 4,
+      "strategy": "rsl_frozen",
+      "quality": 0.9766666666666667,
+      "avg_cost": 0.0045000000000000005,
+      "avg_latency_ms": 1366.6666666666667,
+      "utility": 0.8593333333333333,
+      "test_cost": 1.35,
+      "training_cost": 2.7414999999999945,
+      "selection_counts": {
+        "specialist": 100,
+        "budget": 100,
+        "strong": 100
+      }
+    }
+  ],
+  "learned_routes": [
+    {
+      "seed": 0,
+      "writing": "budget",
+      "coding": "specialist",
+      "math": "strong"
+    },
+    {
+      "seed": 1,
+      "writing": "budget",
+      "coding": "specialist",
+      "math": "strong"
+    },
+    {
+      "seed": 2,
+      "writing": "budget",
+      "coding": "specialist",
+      "math": "strong"
+    },
+    {
+      "seed": 3,
+      "writing": "budget",
+      "coding": "specialist",
+      "math": "strong"
+    },
+    {
+      "seed": 4,
+      "writing": "budget",
+      "coding": "specialist",
+      "math": "strong"
+    }
+  ]
+}

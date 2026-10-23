@@ -1,0 +1,12 @@
+{"id":"train-math-01","prompt":"计算 17+28，只返回十进制整数。","expected":"45"}
+{"id":"train-math-02","prompt":"计算 13*7，只返回十进制整数。","expected":"91"}
+{"id":"train-math-03","prompt":"计算 144/12，只返回十进制整数。","expected":"12"}
+{"id":"train-math-04","prompt":"计算 9*9-8，只返回十进制整数。","expected":"73"}
+{"id":"train-code-01","prompt":"Python 表达式 len([1,2,3]) 的结果是什么？只返回数字。","expected":"3"}
+{"id":"train-code-02","prompt":"Python 表达式 sum(range(5)) 的结果是什么？只返回数字。","expected":"10"}
+{"id":"train-code-03","prompt":"Python 表达式 2**5 的结果是什么？只返回数字。","expected":"32"}
+{"id":"train-code-04","prompt":"Python 表达式 len(set([1,1,2])) 的结果是什么？只返回数字。","expected":"2"}
+{"id":"train-translation-01","prompt":"翻译英文单词 cat 为简体中文，只返回一个最常见的动物名，不要标点。","expected":"猫"}
+{"id":"train-translation-02","prompt":"翻译英文单词 dog 为简体中文，只返回一个最常见的动物名，不要标点。","expected":"狗"}
+{"id":"train-translation-03","prompt":"翻译英文单词 apple 为简体中文，只返回水果名，不要标点。","expected":"苹果"}
+{"id":"train-translation-04","prompt":"翻译英文单词 banana 为简体中文，只返回水果名，不要标点。","expected":"香蕉"}

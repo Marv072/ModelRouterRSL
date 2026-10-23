@@ -1,0 +1,59 @@
+{
+  "strategies": {
+    "budget_plain": {
+      "correct": 3,
+      "count": 9,
+      "accuracy": 0.3333333333333333,
+      "cost_upper_cny": 0.009758,
+      "avg_latency_ms": 968.5300888959318,
+      "truncated": 3
+    },
+    "budget_structured": {
+      "correct": 3,
+      "count": 9,
+      "accuracy": 0.3333333333333333,
+      "cost_upper_cny": 0.003614,
+      "avg_latency_ms": 701.0174332988552,
+      "truncated": 0
+    },
+    "strong_plain": {
+      "correct": 3,
+      "count": 9,
+      "accuracy": 0.3333333333333333,
+      "cost_upper_cny": 0.027701999999999997,
+      "avg_latency_ms": 1491.5264000107225,
+      "truncated": 0
+    },
+    "strong_structured": {
+      "correct": 2,
+      "count": 9,
+      "accuracy": 0.2222222222222222,
+      "cost_upper_cny": 0.015579,
+      "avg_latency_ms": 913.8895444209791,
+      "truncated": 0
+    },
+    "rsl_plain": {
+      "correct": 3,
+      "count": 9,
+      "accuracy": 0.3333333333333333,
+      "cost_upper_cny": 0.014948,
+      "avg_latency_ms": 1027.680344491576,
+      "truncated": 3
+    },
+    "rsl_structured": {
+      "correct": 2,
+      "count": 9,
+      "accuracy": 0.2222222222222222,
+      "cost_upper_cny": 0.010385,
+      "avg_latency_ms": 775.4564110784688,
+      "truncated": 0
+    }
+  },
+  "paired_accuracy_delta": -0.1111111111111111,
+  "exploratory_95_percent_bootstrap": [
+    -0.3333333333333333,
+    0.0
+  ],
+  "all_calls_cost_upper_cny": 0.075692,
+  "budget_reserved_total_cny": 4.54
+}
